@@ -1,0 +1,272 @@
+#### Notes magOS ####
+** boot process x86
+   - on cpu reset, bios load the MBR at 0x7c00, 
+     and jump to it.
+   - the MBR load grub.
+   - grub scan kernel.elf(see grub.config) for multiboot signature. 
+     if found, it loads kernel.elf at 0x100000(1MB). and jump to it.
+     grub enable the oprotected mode.
+     interrupts are disabled.
+     paging are still not activated.
+   - multiboot.S: 
+     - enable paging, a simple one so our half higher kernel can start . 
+     - jump to startup_32.
+   - startup_32(head.S):
+     - save multiboot info transmitted by grub.
+     - intialize the swapper page directory. and loat it in cr3.
+     - setup GDT
+     - setup IDT
+     - jump to start_kernel
+   - start_kernel(main.c):
+     - initialize kernel components.
+     
+** Memory Layout(magOS):     
+   4G --------------
+     |              |
+     |              |
+  +4M|--------------|-----,
+     |              |     |
+     |              |     |
+   3G|--------------|--,  |
+     |              |  |  |         |              |nnnn
+     |              |  |  |         |              |
+     |              |  |  |         |              |
+   4M|--------------|--|--'------>  |--------------|4M
+     |              |  |            |              |
+     |              |  |            |              |
+    0 -------------- --'---------> 0 --------------
+           VM                             RAM
+      
+#### Notes Kernel ###
+- Higher half kernel: is a kernel that is mapped to the higher half of the virtual address space(eg 3Gi to 4GiB), 
+  despite being loaded to the lower half of the physical address space. 
+  
+- Low Memory MAP(x86), (< 1 MiB), at boot:
+   0x00000000 - 0x000003FF	 : 1 KiB. Real Mode IVT (Interrupt Vector Table)
+   0x00000400 - 0x000004FF	 : 256 bytes. BDA (BIOS data area)
+   0x00000500 - 0x00007BFF	 : almost 30 KiB.	RAM (guaranteed free for use)	Conventional memory
+   0x00007C00 - 0x00007DFF	 : 512 bytes. Your OS BootSector
+   0x00007E00 - 0x0007FFFF	 : 480.5 KiB. RAM (guaranteed free for use)	Conventional memory
+   0x00080000 - 0x0009FBFF	 : 120 KiB, depending on EBDA size
+   0x0009FC00 - 0x0009FFFF	 : 1 KiB,	(unusable)	EBDA (Extended BIOS Data Area)
+   0x000A0000 - 0x000FFFFF	 : 384 KiB,	various (unusable)	Video memory, ROM Area
+- High Memory MAP(x86), (> 1 MiB):
+   0x00100000(1MiB)  - 0x00EFFFFF	: 14 MiB. free for use (if it exists)	Extended memory 1, 2
+   0x00F00000        - 0x00FFFFFF	: 1 MiB. Possible memory mapped hardware - ISA Memory Hole 15-16MB 3
+   0x01000000(16MiB) - ???	         : ???(whatever exists). free for use	More Extended memory 1
+   0xC0000000(3GiB)  - 0xFFFFFFFF	: 1 GiB.	typically reserved for memory mapped devices: PCI devices, PnP, IO APIC/s, BIOS
+   0x100000000       - ???          : possible memory above 4 GiB, free for use (PAE/64bit)	More Extended memory 1
+    
+#### Linux boot process ###
+- http://www.tldp.org/LDP/lki/lki-1.html
+- boot protocol : https://github.com/torvalds/linux/blob/master/Documentation/x86/boot.txt
+- load the compressed kernel image at physical address 0x10000. This is done to preserve the firmware 
+  data areas in low memory (0-64K). After the kernel is loaded, we jump to $SETUPSEG:0 (setup.S). 
+- setup.S sets things up for protected mode and jumps to 0x1000 which is the head of the compressed kernel, 
+  i.e compressed/head.S. This sets up stack and calls decompress_kernel()  to address 0x100000 and jumps to it.
+  
+#### Material ###
+- http://wiki.osdev.org/I/O_Ports
+- List de ports : http://bochs.sourceforge.net/techspec/PORTS.LST
+
+
+
+#### Linux notions ####
+- RAMdisk:  is a small filesystem that resides entirely in RAM. It contains a minimal set of modules to get 
+  the operating system off the ground before mounting the primary root filesystem. 
+
+#### Linux Source Code 1.0 ########
+-  bootsect.s is loaded at 0x7c00 by the bios-startup routines, and moves
+   itself out of the way to address 0x90000, and jumps there.
+   
+- list.h : utilitaires pour la gestion des listes doubelement chainées et circulaires.
+
+----- Memoire Physique -----
+voire [boot/head.S]
+
+|                       |
+|-----------------------| X + 0xac00
+|  floppy_track_buffer  |
+|-----------------------| X + 0x6400
+|  tmp_floppy_area      |
+|-----------------------| X + 0x6000
+|  empty_zero_page      |
+|-----------------------| X + 0x5000
+|  empty_bad_page_table |
+|-----------------------| X + 0x4000
+|  empty_bad_page       |
+|-----------------------| X + 0x3000
+|  pg0                  |
+|-----------------------| X + 0x2000
+|  swapper_pg_dir       |
+|-----------------------| X + 0x1000
+|                       | 
+ -----------------------  0x0
+       RAM
+X : est l'addresse LD Entry, qui est 0x1000, ou 0x100000.
+
+----- Memoire Virtuelle -----
+       process address space    +------> +------------+
+                                |        |  3200 M    |
+                                |        |            |
+    4GB +---------------+ <-----+        |  HIGH MEM  |
+        |     128 MB    |                |            |
+        +---------------+ <---------+    |            |
+        +---------------+ <------+  |    |            | 
+        |     896 MB    |        |  +--> +------------+         
+    3GB +---------------+ <--+   +-----> +------------+ 
+        |               |    |           |   896 MB   |
+        |  user space   |    +---------> +------------+
+        |               |     
+    0GB +---------------+  
+
+----- Constantes Importantes -----
+   EXT_MEM_K = 
+   RAMDISK_SIZE =
+   PAGE_SHIFT = 12
+   PAGE_SIZE = 4096 ! 4k
+   ** Boot segments in real mode **
+   BOOTSEG = 0x07C0 ! original address of boot-sector
+   INITSEG	= 0x9000 ! we move boot sector here
+   SYSSEG 	= 0x1000 ! system loaded at 0x10000 (65536)
+   SETUPSEG	= 0x9020
+   SYSSIZE	= 0x7F00
+
+----- Structures Importantes -----
+-- desc_struct : struct for gdt/ldt descriptors
+-- vm_area_struct
+-- task_struct
+-- pid_t : signed int
+
+----- Variables Importantes -----
+-- gdt
+    * Entry into gdt where to find first TSS. GDT layout:
+    *   0 - nul
+    *   1 - kernel code segment
+    *   2 - kernel data segment
+    *   3 - user code segment
+    *   4 - user data segment
+    * ...
+    *   8 - TSS #0
+    *   9 - LDT #0
+    *  10 - TSS #1
+    *  11 - LDT #1
+-- default_ldt : This is the ldt that every process will get unless we need something other than this.
+-- nr_free_pages, free_pages_list
+-- unsigned short * mem_map : bitmap des pages physiques???
+-- memory_start, low_memory_start, memory_end : for RAM.
+-- unsigned long pg0[1024] : page table for 0-4MB for everybody 
+-- unsigned short * mem_map = NULL
+-- swapper_pg_dir : init_task(idle task, pid=0) page directory. swapper_pg_dir is the main page directory, address 0x00001000 (or at
+   address 0x00101000 for a compressed boot).
+
+----- Macros Importants -----
+-- move_to_user_mode()
+-- switch_to(tsk)
+-- for_each_task(p) 
+	 * for (p = &init_task ; (p = p->next_task) != &init_task ; )
+-- invalidate() : invalidate all TLB entries
+
+----- Fontions Importantes -----
+-- get_free_page() : cherche une frame(physique), et la vide.
+-- kmalloc() will return you a chunk of virtual memory, that is a kernel logical address, meaning 
+             it has direct mapping to *continuous" physical pages.
+-- vmalloc() will also return you a chunk of virtual memory. However, this virtual memory is only continous 
+             on virtual space, it may not be continous on physical space.
+
+
+----- main.c -----
+ |__start_kernet
+      memory_end = (1<<20) + (EXT_MEM_K<<10)
+      memory_start = &end  !if &end > 1MB else 1MB
+		  low_memory_start = PAGE_SIZE
+      memory_start = paging_init(memory_start,memory_end) !sets up the page tables - the first 4MB are mapped by head.S.
+      trap_init
+	    init_IRQ
+	    sched_init
+	    memory_start = kmalloc_init(memory_start,memory_end)
+	    memory_start = chr_dev_init(memory_start,memory_end)
+	    memory_start = blk_dev_init(memory_start,memory_end)
+	    memory_start = scsi_dev_init(memory_start,memory_end);
+     	memory_start = inode_init(memory_start,memory_end);
+	    memory_start = file_table_init(memory_start,memory_end);
+	    mem_init(low_memory_start,memory_start,memory_end);
+	    buffer_init
+	    time_init
+	    floppy_init
+	    sock_init
+      move_to_user_mode()
+	    if (!fork())
+	       init()
+     	for(;;)
+		     idle()
+ |__ init
+      execve("/etc/init");
+      execve("/sbin/init");
+      if (!fork())
+		     open("/etc/rc",O_RDONLY,0)
+		     execve("/bin/sh")
+- memory.c : managing physical memory
+
+- _syscall0() : "0" suffix indicate that system call has no argument. syscall1(), system call
+                has one argument and so on.
+#### Algos ####
+*** Buddy algo : for frame page allocation
+– All page frames are grouped into 10 lists of blocks that contain
+  groups of 1, 2, 4, 8, 16, 32, 64, 128, 256, and 512 contiguous page
+frames, respectively
+	• The address of the first page frame of a block is a multiple of the
+	group size, for example, a 16 frame block is a multiple of 16 × 212
+– The algorithm for allocating, for example, a block of 128
+contiguous page frames
+	• First checks for a free block in the 128 list
+	• If no free block, it then looks in the 256 list for a free block
+	• If it finds a block, the kernel allocates 128 of the 256 page frames
+	  and puts the remaining 128 into the 128 list
+	• If no block it looks at the next larger list, allocating it and dividing
+      the block similarly
+	• If no block can be allocated an error is reported
+– When a block is released, the kernel attempts to merge together
+  pairs of free buddy blocks of size b into a single block of size 2b
+	• Two blocks are considered buddies if
+		– Both have the same size
+		– They are located in contiguous physical addresses
+		– The physical address of the first page from of the first block is a
+		  multiple of 2b × 212
+	• The merging is iterative
+
+
+#### References ###
+- http://www.tldp.org/HOWTO/Linux-i386-Boot-Code-HOWTO
+- http://www.tldp.org/HOWTO/HOWTO-INDEX/howtos.html
+- http://www.brokenthorn.com/Resources/OSDevIndex.html
+- http://www.osdever.net/tutorials/
+- http://wiki.osdev.org
+- https://www.kernel.org/doc/gorman/html/understand/
+- http://www.logix.cz/michal/doc/i386/ : i386 architecture
+- http://guidespratiques.traduc.org/guides/vf/lki/lki.html : Structure Interne du noyau Linx 2.4
+- make linux : http://www.makelinux.net/ldd3/
+- List de ports : http://bochs.sourceforge.net/techspec/PORTS.LST
+- https://github.com/0xAX/linux-insides
+- net : https://eklitzke.org/how-tcp-sockets-work
+
+** Books
+- Conception des Systemes d'Exploitation/Linux. Patrick Cegielski
+- The Art of Linux Kernel Design
+- Design of the Unix Operating System. Maurice Bach
+- UNIX Internals: The New Frontiers. by Uresh Vahalia
+- The Slab Allocator. by Jeff Bonwick.
+- Understanding the Linux Virtual Memory Manager. Mel Gorman
+- Linux Kernel Development. Robert Love
+
+** Computer scientists
+   Dijkstra: semaphore, tri-color marking algorithm(used in gc)
+   
+** Other (hobby) kernels
+ - TutoOS
+ - SOS - simple os
+ - duneOS : https://github.com/naegelejd/duneOS
+ - Geekos
+ - minix 2.0
+ - https://github.com/bhanderson/cpts460
+

@@ -1,0 +1,12 @@
+---
+MIRROR: ~/utils
+TOMCAT_VERSION: 8.5.15
+TOMCAT_BIN: "{{MIRROR}}/apache-tomcat-{{TOMCAT_VERSION}}.tar.gz"
+
+http_port : 8280
+https_port: 8443
+ajp_port  : 8209
+
+java_home: /opt/jdk1.8.0_144
+catalina_home: /opt/apache-tomcat-{{TOMCAT_VERSION}}
+...

@@ -1,0 +1,38 @@
+##### Bochs ########
+- Installation
+  # apt-cache search bochs
+    bochs - IA-32 PC emulator
+    bochs-sdl - SDL plugin for Bochs
+    bochs-term - Terminal (ncurses-based) plugin for Bochs
+    bochs-x - X11 plugin for Bochs
+    bochsbios - BIOS for the Bochs emulator
+    bximage - Disk Image Creation Tool for Bochs
+  # apt-get install bochs bochsbios bochs-term
+  
+- Lancer Bochs en mode silencieux
+   ./bochs -q
+   ./bochs -q -rc debug_cmd.txt  
+ 
+   <bochs:> b 0x7c00  (break à 0x7c00 qui est l'adresse où est chargé le boot sector)
+   <bochs:> b 0x1000  (où est chargé le kernel, du tutoos!!)
+   <bochs:> watch w 0x100    (insert a write watch point at physical address addr)
+   <bochs:> watch r 0x800 8   insert a read watch point at physical address addr with range <len=8>
+   <bochs:> watch stop
+   <bochs:> c
+   <bochs:> n   (execute next instruction) 
+   <bochs:> s   (step in)
+   <bochs:> sreg   (regsitres de segment)
+   <bochs:> reg
+   <bochs:> x/x ds:0x00a0
+   <bochs:> h x (help sur x)
+   <bochs:> xp 0x00a0  (examine memory at physical adress)
+   <bochs:> u /5 0x15f8 (disassmeble 5 intr a partir de l'@)
+   <bochs:> print-stack  (affiche la pile)
+   <bochs:> help
+
+Debug des interruptions
+  watch r 0x100 8   (quand il y a interruption on accede à l'IDT)
+  watch w 0x100   
+  info idt
+  show int   -show, when an interrupt happens
+  show iret

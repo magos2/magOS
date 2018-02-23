@@ -1,0 +1,24 @@
+---
+  - name: proxy config
+    blockinfile:
+      dest: /etc/apt/apt.conf.d/proxy
+      create: yes
+      block: |
+        #Acquire::http::Proxy "http://proxy-ip:8080";
+    when: proxy_enabled == True
+  - stat:
+      path: /opt/jdk1.8.0_144
+    register: jdk
+
+  - name: Installation of JDK
+    unarchive:
+      src: ~/utils/jdk-8u144-linux-x64.tar.gz   
+      dest: /opt
+      owner: root
+      group: root
+    when: jdk.stat.exists == False    
+      
+
+
+...
+

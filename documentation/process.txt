@@ -1,0 +1,126 @@
+#### Sceduling - Process Managment ####
+- Scheduling Algo : http://www.informit.com/articles/article.aspx?p=101760&seqNum=2
+- https://www.kernel.org/doc/Documentation/x86/kernel-stacks
+- http://www.moses.uklinux.net/patches/lki.html
+- https://defuse.ca/notes/linux/02_Processes.txt
+- http://www.makelinux.net/books/lkd2/ch03lev1sec1
+- http://tldp.org/HOWTO/KernelAnalysis-HOWTO-6.html
+- http://linuxgazette.net/133/saha.html
+- http://140.120.7.21/LinuxRef/ProcMana/ProcessManaging.html
+- Move to user mode
+ Getting to ring 3 can be done using IRET, When you receive an interrupt, the processor pushes:
+   1- The stack segment and pointer (ss:esp), as 4 words
+   2- EFLAGS
+   3- The return code segment and instruction pointer (cs:eip), as 4 words
+   4- An error code, if required.
+ IRET works by undoing steps 1-3 (The ISR is responsible for undoing step 4 if necessary). 
+
+- les process sont gerés par un ''runqueue'', qui est une liste doublement chainés et circulaire
+   struct list_head {
+    struct list_head *next, *prev;
+   };
+- List of tasks: 
+                   ________next___       ________next___
+                  |               ↓     |               ↓
+               -----------          -----------          -----------
+   list_head→|INIT_TASK  |        |task 1     |        |task n     |
+               -----------          -----------          -----------
+                          ↑___prev_________|    ↑___prev______|              
+                       
+-  process #0 is the idle process, running cpu_idle(). It simply does nothing, in an infinite loop.
+   
+- PCB : Process Control Block. is the task_struct
+
+- Preemtive kernel: a process can be interruped and switched out even if it is in kernel mode.
+  Linux only became preemtive only from 2.6.
+
+** Times
+- Timesclice:
+  Linux programms the PIT to rise interrupts on IRQ0 at frequence of 100HZ. Each 10 ms (1/100 second) an IRQ0 comes.
+  This signal comes from PIC 8259 which is connected to PIT 8253 (PIT, Programmable Interval Timer) with a clock of 1.19318 MHz.
+    _____         ______        ______        
+   | CPU |<------| 8259 |------| 8253 |
+   |_____| IRQ0  |______|      |___/|\|
+                                    |_____ CLK 1.193.180 MHz
+  1Hz=(1 evenement)/s.
+  
+- jiffies
+   Every time a timer interrupt occurs, the value of an internal kernel counter is incremented. 
+   it represents the number of clock ticks since last boot. 
+
+** Kernel Stack
+- TSS : Task state segement
+  When a task runs in kernel mode, it uses the kernel stack pointed by ss0/esp0 of its tss.
+  When an interrupt happens, the x86 will look in the TSS for SS0/ESP0 and load their values into SS/ESP. 
+  This why for the kernel to use a different stack than the user program, and also have this stack be unique for each user program.
+  to use TSS, the kernel must:
+    1- create a TSS sgment in GDT
+    2- load the TSS segment selector into TR register.
+    3- modify the esp0/ss0 with task kernel stack.
+- default_tss :
+  default tss pointes to esp0/ss0 of the current process. so when an interrupt occurs, the processor will
+  use the kernel stack of the current process.
+  
+- Un processus utilise deux piles differentes:pile noyau(ss0/esp0) et pile utilisateur. La pile noyau est peu utilisé, de 4ko suffit. 
+
+- Suite à une interruption, le processeur empile automatiquement des données
+  sur la pile noyau de la tâche interrompue(current)
+- usecase1: interrupt(ex keyboard) occurs when process1 in kernel mode.
+            - cpu pushs autmatiquely "eflags cs eip" on process1 kernel stack.
+            - irq_1 isr pushs other registers on process1 kernel stack.
+            - do timer_handler
+            - pop what were manually pushed. then "iret".
+            - process1 kernel stack is one in same state as before interrupt.
+- usecase2: schedule occurs when process1 in kernel mode. then cpu is switched to process2.
+    p1 kernel stack:                p2 kernel stack:
+            ..                      ..
+            ebx                     
+            ..
+            error_code
+            eip
+            cs
+            eflags
+            ...    <-- old esp
+       
+** Scheduling
+IRQ_0 --> timer_handler --> schedule
+                              `-- remove current from runqueue
+                              '-- save current context(regs)
+                              '-- current = rq_first_task() : elect the first task in runqueue
+                              '-- switch_to(current)
+                                  |
+                                  '-- if current_mode == user, load current esp0/ss0 in default tss.
+                                  '-- load current pgdir in cr3
+                                  '-- push current->regs on kernel stack of previous task
+                                  '-- do_switch(esp)
+                                        |
+                                        '-- RESTORE_ALL
+                                        '-- iret
+      
+** Call Trace
+- C function call convention.
+func2() { func1(5,6); }
+  ...              |.... | <-- esp
+  push arg2        |.... |
+  push arg1        |ebp  | <-- ebp
+  call func1       |eip  | 
+  add $8, esp      |5    |
+func1:             |6    |
+  push ebp         |---- | <-- old esp
+  mov esp, ebp     |.... |
+  ...              |ebp  | <-- old ebp
+                   |eip  |
+- If un exception occurs, you can remote the call traces so:
+  - use current EIP to find <func1> name.
+  - Caller EIP = (EBP+4). use it to find <func2> name.
+  - old_ebp = (EBP), use <old_ebp> to remote to previous caller.
+  - and so on, until ebp=0 (done by SAVE_ALL macro)
+
+
+
+
+
+
+
+
+

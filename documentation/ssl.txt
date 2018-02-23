@@ -1,0 +1,68 @@
+#
+# General OpenSSL Commands
+#
+# Create a self-signed certificate 
+  openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout server-pk.key -out server-cert.crt
+
+# Create a new private key and Certificate Signing Request
+  openssl req -out server-csr.csr -new -newkey rsa:2048 -nodes -keyout server-pk.key
+
+# Create a certificate signing request (CSR) for an existing private key
+  openssl req -out server-csr.csr -key server-pk.key -new
+
+# Create a certificate signing request based on an existing certificate
+  openssl x509 -x509toreq -in server-cert.crt -out server-csr.csr -signkey server-pk.key
+
+# Remove a passphrase from a private key
+  openssl rsa -in server-pk.pem -out new-server-pk.pem
+
+Checking Using OpenSSL
+# Decode a private key
+  openssl rsa -in server-pk.key -check
+
+# Decode a certificate
+  openssl x509 -in server-cert.crt -text -noout
+
+# Decode a Certificate Signing Request (CSR)
+  openssl req -text -noout -verify -in server-csr.csr
+
+
+#
+# Common Java Keytool Keystore Commands
+#
+Java Keytool Commands for Creating and Importing
+# Generate a Java keystore and key pair
+    keytool -genkey -alias safar.com -keyalg RSA -keystore keystore.jks -keysize 2048
+# Generate a certificate signing request (CSR) for an existing Java keystore
+    keytool -certreq -alias safar.com -keystore keystore.jks -file safar.com.csr
+# Import a root or intermediate CA certificate to an existing Java keystore
+    keytool -import -trustcacerts -alias root -file Thawte.crt -keystore keystore.jks
+# Import a signed primary certificate to an existing Java keystore
+    keytool -import -trustcacerts -alias mydomain -file mydomain.crt -keystore keystore.jks
+# Generate a keystore and self-signed certificate (see How to Create a Self Signed Certificate using Java Keytoolfor more info)
+    keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
+
+Java Keytool Commands for Checking
+# Check a stand-alone certificate
+    keytool -printcert -v -file mydomain.crt
+# Check which certificates are in a Java keystore
+    keytool -list -v -keystore keystore.jks
+# Check a particular keystore entry using an alias
+    keytool -list -v -keystore keystore.jks -alias mydomain
+
+Other Java Keytool Commands
+# Delete a certificate from a Java Keytool keystore
+    keytool -delete -alias mydomain -keystore keystore.jks
+# Change a Java keystore password
+    keytool -storepasswd -new new_storepass -keystore keystore.jks
+# Export a certificate from a keystore
+    keytool -export -alias mydomain -file mydomain.crt -keystore keystore.jks
+# List Trusted CA Certs
+    keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts
+# Import New CA into Trusted Certs
+    keytool -import -trustcacerts -file /path/to/ca/ca.pem -alias CA_ALIAS -keystore cacerts
+
+
+
+
+

@@ -1,0 +1,21 @@
+- hosts: appserver1
+  vars:
+    proxy_file_path: /etc/apt/apt.conf.d/proxy
+  tasks:
+    - stat: path={{ proxy_file_path }}
+      register: proxy_path
+    - name: create proxy
+      copy: content='Acquire::http::Proxy "http://proxy-ip:8080";' dest={{ proxy_file_path }}
+      when: proxy_path.stat.exists != true
+    - name: install Apache, MySQL, etc
+      apt: name={{ item }} update_cache=yes state=latest 
+      with_items:
+        - apache2
+        - mysql-server
+      notify: 
+        - restart apache
+       
+  handlers:       
+    - name: restart apache
+      service: name=apache state=restarted
+...

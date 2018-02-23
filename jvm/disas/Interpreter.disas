@@ -1,0 +1,5173 @@
+
+../bin/jvm/Interpreter.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <_ZN11InterpreterC1EP9JavaClass>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b08d      	sub	sp, #52	; 0x34
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	f103 0410 	add.w	r4, r3, #16
+  10:	f107 0308 	add.w	r3, r7, #8
+  14:	4618      	mov	r0, r3
+  16:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+  1a:	f107 0308 	add.w	r3, r7, #8
+  1e:	4620      	mov	r0, r4
+  20:	4619      	mov	r1, r3
+  22:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+  26:	f107 0308 	add.w	r3, r7, #8
+  2a:	4618      	mov	r0, r3
+  2c:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+  30:	687b      	ldr	r3, [r7, #4]
+  32:	683a      	ldr	r2, [r7, #0]
+  34:	645a      	str	r2, [r3, #68]	; 0x44
+  36:	687b      	ldr	r3, [r7, #4]
+  38:	2200      	movs	r2, #0
+  3a:	649a      	str	r2, [r3, #72]	; 0x48
+  3c:	687b      	ldr	r3, [r7, #4]
+  3e:	2200      	movs	r2, #0
+  40:	601a      	str	r2, [r3, #0]
+  42:	687b      	ldr	r3, [r7, #4]
+  44:	2200      	movs	r2, #0
+  46:	605a      	str	r2, [r3, #4]
+  48:	687b      	ldr	r3, [r7, #4]
+  4a:	e006      	b.n	5a <_ZN11InterpreterC1EP9JavaClass+0x5a>
+  4c:	f107 0308 	add.w	r3, r7, #8
+  50:	4618      	mov	r0, r3
+  52:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+  56:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  5a:	4618      	mov	r0, r3
+  5c:	3734      	adds	r7, #52	; 0x34
+  5e:	46bd      	mov	sp, r7
+  60:	bd90      	pop	{r4, r7, pc}
+  62:	bf00      	nop
+
+00000064 <_ZN11Interpreter3runEv>:
+  64:	b590      	push	{r4, r7, lr}
+  66:	b089      	sub	sp, #36	; 0x24
+  68:	af00      	add	r7, sp, #0
+  6a:	6078      	str	r0, [r7, #4]
+  6c:	2300      	movs	r3, #0
+  6e:	61fb      	str	r3, [r7, #28]
+  70:	e065      	b.n	13e <_ZN11Interpreter3runEv+0xda>
+  72:	687b      	ldr	r3, [r7, #4]
+  74:	6c5b      	ldr	r3, [r3, #68]	; 0x44
+  76:	f103 0240 	add.w	r2, r3, #64	; 0x40
+  7a:	69fb      	ldr	r3, [r7, #28]
+  7c:	4610      	mov	r0, r2
+  7e:	4619      	mov	r1, r3
+  80:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+  84:	4603      	mov	r3, r0
+  86:	681b      	ldr	r3, [r3, #0]
+  88:	88db      	ldrh	r3, [r3, #6]
+  8a:	837b      	strh	r3, [r7, #26]
+  8c:	687b      	ldr	r3, [r7, #4]
+  8e:	6c5b      	ldr	r3, [r3, #68]	; 0x44
+  90:	f103 020c 	add.w	r2, r3, #12
+  94:	8b7b      	ldrh	r3, [r7, #26]
+  96:	4610      	mov	r0, r2
+  98:	4619      	mov	r1, r3
+  9a:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+  9e:	4603      	mov	r3, r0
+  a0:	681b      	ldr	r3, [r3, #0]
+  a2:	2b00      	cmp	r3, #0
+  a4:	d101      	bne.n	aa <_ZN11Interpreter3runEv+0x46>
+  a6:	2300      	movs	r3, #0
+  a8:	e00c      	b.n	c4 <_ZN11Interpreter3runEv+0x60>
+  aa:	4618      	mov	r0, r3
+  ac:	f240 0100 	movw	r1, #0
+  b0:	f2c0 0100 	movt	r1, #0
+  b4:	f240 0200 	movw	r2, #0
+  b8:	f2c0 0200 	movt	r2, #0
+  bc:	2300      	movs	r3, #0
+  be:	f7ff fffe 	bl	0 <__dynamic_cast>
+  c2:	4603      	mov	r3, r0
+  c4:	617b      	str	r3, [r7, #20]
+  c6:	697b      	ldr	r3, [r7, #20]
+  c8:	3308      	adds	r3, #8
+  ca:	4618      	mov	r0, r3
+  cc:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+  d0:	4604      	mov	r4, r0
+  d2:	f107 0310 	add.w	r3, r7, #16
+  d6:	4618      	mov	r0, r3
+  d8:	f7ff fffe 	bl	0 <_ZNSaIcEC1Ev>
+  dc:	f107 020c 	add.w	r2, r7, #12
+  e0:	f107 0310 	add.w	r3, r7, #16
+  e4:	4610      	mov	r0, r2
+  e6:	4621      	mov	r1, r4
+  e8:	461a      	mov	r2, r3
+  ea:	f7ff fffe 	bl	0 <_ZNSsC1EPKcRKSaIcE>
+  ee:	f107 030c 	add.w	r3, r7, #12
+  f2:	4618      	mov	r0, r3
+  f4:	f240 0100 	movw	r1, #0
+  f8:	f2c0 0100 	movt	r1, #0
+  fc:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 100:	4603      	mov	r3, r0
+ 102:	461c      	mov	r4, r3
+ 104:	f107 030c 	add.w	r3, r7, #12
+ 108:	4618      	mov	r0, r3
+ 10a:	f7ff fffe 	bl	0 <_ZNSsD1Ev>
+ 10e:	f107 0310 	add.w	r3, r7, #16
+ 112:	4618      	mov	r0, r3
+ 114:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 118:	2c00      	cmp	r4, #0
+ 11a:	d00d      	beq.n	138 <_ZN11Interpreter3runEv+0xd4>
+ 11c:	687b      	ldr	r3, [r7, #4]
+ 11e:	6c5b      	ldr	r3, [r3, #68]	; 0x44
+ 120:	f103 0240 	add.w	r2, r3, #64	; 0x40
+ 124:	69fb      	ldr	r3, [r7, #28]
+ 126:	4610      	mov	r0, r2
+ 128:	4619      	mov	r1, r3
+ 12a:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 12e:	4603      	mov	r3, r0
+ 130:	681a      	ldr	r2, [r3, #0]
+ 132:	687b      	ldr	r3, [r7, #4]
+ 134:	649a      	str	r2, [r3, #72]	; 0x48
+ 136:	e009      	b.n	14c <_ZN11Interpreter3runEv+0xe8>
+ 138:	69fb      	ldr	r3, [r7, #28]
+ 13a:	3301      	adds	r3, #1
+ 13c:	61fb      	str	r3, [r7, #28]
+ 13e:	687b      	ldr	r3, [r7, #4]
+ 140:	6c5b      	ldr	r3, [r3, #68]	; 0x44
+ 142:	8f9b      	ldrh	r3, [r3, #60]	; 0x3c
+ 144:	461a      	mov	r2, r3
+ 146:	69fb      	ldr	r3, [r7, #28]
+ 148:	429a      	cmp	r2, r3
+ 14a:	dc92      	bgt.n	72 <_ZN11Interpreter3runEv+0xe>
+ 14c:	687b      	ldr	r3, [r7, #4]
+ 14e:	6c9b      	ldr	r3, [r3, #72]	; 0x48
+ 150:	2b00      	cmp	r3, #0
+ 152:	d108      	bne.n	166 <_ZN11Interpreter3runEv+0x102>
+ 154:	f240 0000 	movw	r0, #0
+ 158:	f2c0 0000 	movt	r0, #0
+ 15c:	f7ff fffe 	bl	0 <perror>
+ 160:	2001      	movs	r0, #1
+ 162:	f7ff fffe 	bl	0 <exit>
+ 166:	687b      	ldr	r3, [r7, #4]
+ 168:	6c9b      	ldr	r3, [r3, #72]	; 0x48
+ 16a:	6878      	ldr	r0, [r7, #4]
+ 16c:	4619      	mov	r1, r3
+ 16e:	f7ff fffe 	bl	198 <_ZN11Interpreter8switchToEP10MethodInfo>
+ 172:	6878      	ldr	r0, [r7, #4]
+ 174:	f7ff fffe 	bl	200 <_ZN11Interpreter10runCurrentEv>
+ 178:	2000      	movs	r0, #0
+ 17a:	f7ff fffe 	bl	0 <exit>
+ 17e:	f107 030c 	add.w	r3, r7, #12
+ 182:	4618      	mov	r0, r3
+ 184:	f7ff fffe 	bl	0 <_ZNSsD1Ev>
+ 188:	e7ff      	b.n	18a <_ZN11Interpreter3runEv+0x126>
+ 18a:	f107 0310 	add.w	r3, r7, #16
+ 18e:	4618      	mov	r0, r3
+ 190:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 194:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+
+00000198 <_ZN11Interpreter8switchToEP10MethodInfo>:
+ 198:	b590      	push	{r4, r7, lr}
+ 19a:	b087      	sub	sp, #28
+ 19c:	af00      	add	r7, sp, #0
+ 19e:	6078      	str	r0, [r7, #4]
+ 1a0:	6039      	str	r1, [r7, #0]
+ 1a2:	687b      	ldr	r3, [r7, #4]
+ 1a4:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 1a6:	60fb      	str	r3, [r7, #12]
+ 1a8:	687b      	ldr	r3, [r7, #4]
+ 1aa:	f103 0210 	add.w	r2, r3, #16
+ 1ae:	f107 030c 	add.w	r3, r7, #12
+ 1b2:	4610      	mov	r0, r2
+ 1b4:	4619      	mov	r1, r3
+ 1b6:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 1ba:	687b      	ldr	r3, [r7, #4]
+ 1bc:	683a      	ldr	r2, [r7, #0]
+ 1be:	641a      	str	r2, [r3, #64]	; 0x40
+ 1c0:	683b      	ldr	r3, [r7, #0]
+ 1c2:	69da      	ldr	r2, [r3, #28]
+ 1c4:	687b      	ldr	r3, [r7, #4]
+ 1c6:	63da      	str	r2, [r3, #60]	; 0x3c
+ 1c8:	2305      	movs	r3, #5
+ 1ca:	617b      	str	r3, [r7, #20]
+ 1cc:	2305      	movs	r3, #5
+ 1ce:	613b      	str	r3, [r7, #16]
+ 1d0:	2020      	movs	r0, #32
+ 1d2:	f7ff fffe 	bl	0 <_Znwj>
+ 1d6:	4604      	mov	r4, r0
+ 1d8:	687b      	ldr	r3, [r7, #4]
+ 1da:	6bdb      	ldr	r3, [r3, #60]	; 0x3c
+ 1dc:	330c      	adds	r3, #12
+ 1de:	4620      	mov	r0, r4
+ 1e0:	4619      	mov	r1, r3
+ 1e2:	697a      	ldr	r2, [r7, #20]
+ 1e4:	693b      	ldr	r3, [r7, #16]
+ 1e6:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 1ea:	687b      	ldr	r3, [r7, #4]
+ 1ec:	639c      	str	r4, [r3, #56]	; 0x38
+ 1ee:	e004      	b.n	1fa <_ZN11Interpreter8switchToEP10MethodInfo+0x62>
+ 1f0:	4620      	mov	r0, r4
+ 1f2:	f7ff fffe 	bl	0 <_ZdlPv>
+ 1f6:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+ 1fa:	371c      	adds	r7, #28
+ 1fc:	46bd      	mov	sp, r7
+ 1fe:	bd90      	pop	{r4, r7, pc}
+
+00000200 <_ZN11Interpreter10runCurrentEv>:
+ 200:	b580      	push	{r7, lr}
+ 202:	b082      	sub	sp, #8
+ 204:	af00      	add	r7, sp, #0
+ 206:	6078      	str	r0, [r7, #4]
+ 208:	e008      	b.n	21c <_ZN11Interpreter10runCurrentEv+0x1c>
+ 20a:	6878      	ldr	r0, [r7, #4]
+ 20c:	f7ff fffe 	bl	234 <_ZN11Interpreter5fetchEv>
+ 210:	6878      	ldr	r0, [r7, #4]
+ 212:	f7ff fffe 	bl	2e4 <_ZN11Interpreter6decodeEv>
+ 216:	6878      	ldr	r0, [r7, #4]
+ 218:	f7ff fffe 	bl	2f8 <_ZN11Interpreter7executeEv>
+ 21c:	687b      	ldr	r3, [r7, #4]
+ 21e:	681b      	ldr	r3, [r3, #0]
+ 220:	461a      	mov	r2, r3
+ 222:	687b      	ldr	r3, [r7, #4]
+ 224:	6c1b      	ldr	r3, [r3, #64]	; 0x40
+ 226:	699b      	ldr	r3, [r3, #24]
+ 228:	69db      	ldr	r3, [r3, #28]
+ 22a:	429a      	cmp	r2, r3
+ 22c:	d3ed      	bcc.n	20a <_ZN11Interpreter10runCurrentEv+0xa>
+ 22e:	3708      	adds	r7, #8
+ 230:	46bd      	mov	sp, r7
+ 232:	bd80      	pop	{r7, pc}
+
+00000234 <_ZN11Interpreter5fetchEv>:
+ 234:	b580      	push	{r7, lr}
+ 236:	b084      	sub	sp, #16
+ 238:	af00      	add	r7, sp, #0
+ 23a:	6078      	str	r0, [r7, #4]
+ 23c:	687b      	ldr	r3, [r7, #4]
+ 23e:	6c1b      	ldr	r3, [r3, #64]	; 0x40
+ 240:	699b      	ldr	r3, [r3, #24]
+ 242:	3320      	adds	r3, #32
+ 244:	60fb      	str	r3, [r7, #12]
+ 246:	687b      	ldr	r3, [r7, #4]
+ 248:	681b      	ldr	r3, [r3, #0]
+ 24a:	1c59      	adds	r1, r3, #1
+ 24c:	687a      	ldr	r2, [r7, #4]
+ 24e:	6011      	str	r1, [r2, #0]
+ 250:	68f8      	ldr	r0, [r7, #12]
+ 252:	4619      	mov	r1, r3
+ 254:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 258:	4603      	mov	r3, r0
+ 25a:	781b      	ldrb	r3, [r3, #0]
+ 25c:	60bb      	str	r3, [r7, #8]
+ 25e:	687b      	ldr	r3, [r7, #4]
+ 260:	68ba      	ldr	r2, [r7, #8]
+ 262:	605a      	str	r2, [r3, #4]
+ 264:	f7ff fffe 	bl	0 <_ZN14InstructionSet8InstanceEv>
+ 268:	4601      	mov	r1, r0
+ 26a:	68ba      	ldr	r2, [r7, #8]
+ 26c:	4613      	mov	r3, r2
+ 26e:	005b      	lsls	r3, r3, #1
+ 270:	4413      	add	r3, r2
+ 272:	009b      	lsls	r3, r3, #2
+ 274:	3308      	adds	r3, #8
+ 276:	440b      	add	r3, r1
+ 278:	681a      	ldr	r2, [r3, #0]
+ 27a:	687b      	ldr	r3, [r7, #4]
+ 27c:	609a      	str	r2, [r3, #8]
+ 27e:	687b      	ldr	r3, [r7, #4]
+ 280:	689b      	ldr	r3, [r3, #8]
+ 282:	2b01      	cmp	r3, #1
+ 284:	d10a      	bne.n	29c <_ZN11Interpreter5fetchEv+0x68>
+ 286:	687b      	ldr	r3, [r7, #4]
+ 288:	681b      	ldr	r3, [r3, #0]
+ 28a:	68f8      	ldr	r0, [r7, #12]
+ 28c:	4619      	mov	r1, r3
+ 28e:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 292:	4603      	mov	r3, r0
+ 294:	781a      	ldrb	r2, [r3, #0]
+ 296:	687b      	ldr	r3, [r7, #4]
+ 298:	731a      	strb	r2, [r3, #12]
+ 29a:	e018      	b.n	2ce <_ZN11Interpreter5fetchEv+0x9a>
+ 29c:	687b      	ldr	r3, [r7, #4]
+ 29e:	689b      	ldr	r3, [r3, #8]
+ 2a0:	2b02      	cmp	r3, #2
+ 2a2:	d114      	bne.n	2ce <_ZN11Interpreter5fetchEv+0x9a>
+ 2a4:	687b      	ldr	r3, [r7, #4]
+ 2a6:	681b      	ldr	r3, [r3, #0]
+ 2a8:	68f8      	ldr	r0, [r7, #12]
+ 2aa:	4619      	mov	r1, r3
+ 2ac:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 2b0:	4603      	mov	r3, r0
+ 2b2:	781a      	ldrb	r2, [r3, #0]
+ 2b4:	687b      	ldr	r3, [r7, #4]
+ 2b6:	731a      	strb	r2, [r3, #12]
+ 2b8:	687b      	ldr	r3, [r7, #4]
+ 2ba:	681b      	ldr	r3, [r3, #0]
+ 2bc:	3301      	adds	r3, #1
+ 2be:	68f8      	ldr	r0, [r7, #12]
+ 2c0:	4619      	mov	r1, r3
+ 2c2:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 2c6:	4603      	mov	r3, r0
+ 2c8:	781a      	ldrb	r2, [r3, #0]
+ 2ca:	687b      	ldr	r3, [r7, #4]
+ 2cc:	735a      	strb	r2, [r3, #13]
+ 2ce:	687b      	ldr	r3, [r7, #4]
+ 2d0:	681a      	ldr	r2, [r3, #0]
+ 2d2:	687b      	ldr	r3, [r7, #4]
+ 2d4:	689b      	ldr	r3, [r3, #8]
+ 2d6:	441a      	add	r2, r3
+ 2d8:	687b      	ldr	r3, [r7, #4]
+ 2da:	601a      	str	r2, [r3, #0]
+ 2dc:	3710      	adds	r7, #16
+ 2de:	46bd      	mov	sp, r7
+ 2e0:	bd80      	pop	{r7, pc}
+ 2e2:	bf00      	nop
+
+000002e4 <_ZN11Interpreter6decodeEv>:
+ 2e4:	b480      	push	{r7}
+ 2e6:	b083      	sub	sp, #12
+ 2e8:	af00      	add	r7, sp, #0
+ 2ea:	6078      	str	r0, [r7, #4]
+ 2ec:	370c      	adds	r7, #12
+ 2ee:	46bd      	mov	sp, r7
+ 2f0:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 2f4:	4770      	bx	lr
+ 2f6:	bf00      	nop
+
+000002f8 <_ZN11Interpreter7executeEv>:
+ 2f8:	b590      	push	{r4, r7, lr}
+ 2fa:	b095      	sub	sp, #84	; 0x54
+ 2fc:	af00      	add	r7, sp, #0
+ 2fe:	6078      	str	r0, [r7, #4]
+ 300:	f107 0308 	add.w	r3, r7, #8
+ 304:	4618      	mov	r0, r3
+ 306:	f7ff fffe 	bl	0 <_ZNSsC1Ev>
+ 30a:	687b      	ldr	r3, [r7, #4]
+ 30c:	685c      	ldr	r4, [r3, #4]
+ 30e:	2310      	movs	r3, #16
+ 310:	617b      	str	r3, [r7, #20]
+ 312:	f107 0320 	add.w	r3, r7, #32
+ 316:	4618      	mov	r0, r3
+ 318:	f7ff fffe 	bl	0 <_ZNSaIcEC1Ev>
+ 31c:	f107 0314 	add.w	r3, r7, #20
+ 320:	1d1a      	adds	r2, r3, #4
+ 322:	f107 0320 	add.w	r3, r7, #32
+ 326:	4610      	mov	r0, r2
+ 328:	f240 0100 	movw	r1, #0
+ 32c:	f2c0 0100 	movt	r1, #0
+ 330:	461a      	mov	r2, r3
+ 332:	f7ff fffe 	bl	0 <_ZNSsC1EPKcRKSaIcE>
+ 336:	2301      	movs	r3, #1
+ 338:	61fb      	str	r3, [r7, #28]
+ 33a:	697b      	ldr	r3, [r7, #20]
+ 33c:	429c      	cmp	r4, r3
+ 33e:	bf0c      	ite	eq
+ 340:	2301      	moveq	r3, #1
+ 342:	2300      	movne	r3, #0
+ 344:	b2dc      	uxtb	r4, r3
+ 346:	f107 0314 	add.w	r3, r7, #20
+ 34a:	4618      	mov	r0, r3
+ 34c:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 350:	f107 0320 	add.w	r3, r7, #32
+ 354:	4618      	mov	r0, r3
+ 356:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 35a:	2c00      	cmp	r4, #0
+ 35c:	d03f      	beq.n	3de <_ZN11Interpreter7executeEv+0xe6>
+ 35e:	2301      	movs	r3, #1
+ 360:	60fb      	str	r3, [r7, #12]
+ 362:	687b      	ldr	r3, [r7, #4]
+ 364:	7b1b      	ldrb	r3, [r3, #12]
+ 366:	613b      	str	r3, [r7, #16]
+ 368:	687b      	ldr	r3, [r7, #4]
+ 36a:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 36c:	f103 0210 	add.w	r2, r3, #16
+ 370:	f107 030c 	add.w	r3, r7, #12
+ 374:	4610      	mov	r0, r2
+ 376:	4619      	mov	r1, r3
+ 378:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 37c:	f7ff fffe 	bl	0 <_ZN14InstructionSet8InstanceEv>
+ 380:	4601      	mov	r1, r0
+ 382:	687b      	ldr	r3, [r7, #4]
+ 384:	685a      	ldr	r2, [r3, #4]
+ 386:	4613      	mov	r3, r2
+ 388:	005b      	lsls	r3, r3, #1
+ 38a:	4413      	add	r3, r2
+ 38c:	009b      	lsls	r3, r3, #2
+ 38e:	440b      	add	r3, r1
+ 390:	3304      	adds	r3, #4
+ 392:	f240 0000 	movw	r0, #0
+ 396:	f2c0 0000 	movt	r0, #0
+ 39a:	4619      	mov	r1, r3
+ 39c:	f7ff fffe 	bl	0 <_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKSbIS4_S5_T1_E>
+ 3a0:	4603      	mov	r3, r0
+ 3a2:	4618      	mov	r0, r3
+ 3a4:	f240 0100 	movw	r1, #0
+ 3a8:	f2c0 0100 	movt	r1, #0
+ 3ac:	f7ff fffe 	bl	0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc>
+ 3b0:	4603      	mov	r3, r0
+ 3b2:	4618      	mov	r0, r3
+ 3b4:	f240 0100 	movw	r1, #0
+ 3b8:	f2c0 0100 	movt	r1, #0
+ 3bc:	f7ff fffe 	bl	0 <_ZNSolsEPFRSt8ios_baseS0_E>
+ 3c0:	4602      	mov	r2, r0
+ 3c2:	693b      	ldr	r3, [r7, #16]
+ 3c4:	4610      	mov	r0, r2
+ 3c6:	4619      	mov	r1, r3
+ 3c8:	f7ff fffe 	bl	0 <_ZNSolsEi>
+ 3cc:	4603      	mov	r3, r0
+ 3ce:	4618      	mov	r0, r3
+ 3d0:	f240 0100 	movw	r1, #0
+ 3d4:	f2c0 0100 	movt	r1, #0
+ 3d8:	f7ff fffe 	bl	0 <_ZNSolsEPFRSoS_E>
+ 3dc:	e120      	b.n	620 <_ZN11Interpreter7executeEv+0x328>
+ 3de:	687b      	ldr	r3, [r7, #4]
+ 3e0:	685c      	ldr	r4, [r3, #4]
+ 3e2:	23b6      	movs	r3, #182	; 0xb6
+ 3e4:	627b      	str	r3, [r7, #36]	; 0x24
+ 3e6:	f107 0330 	add.w	r3, r7, #48	; 0x30
+ 3ea:	4618      	mov	r0, r3
+ 3ec:	f7ff fffe 	bl	0 <_ZNSaIcEC1Ev>
+ 3f0:	f107 0324 	add.w	r3, r7, #36	; 0x24
+ 3f4:	1d1a      	adds	r2, r3, #4
+ 3f6:	f107 0330 	add.w	r3, r7, #48	; 0x30
+ 3fa:	4610      	mov	r0, r2
+ 3fc:	f240 0100 	movw	r1, #0
+ 400:	f2c0 0100 	movt	r1, #0
+ 404:	461a      	mov	r2, r3
+ 406:	f7ff fffe 	bl	0 <_ZNSsC1EPKcRKSaIcE>
+ 40a:	2302      	movs	r3, #2
+ 40c:	62fb      	str	r3, [r7, #44]	; 0x2c
+ 40e:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 410:	429c      	cmp	r4, r3
+ 412:	bf0c      	ite	eq
+ 414:	2301      	moveq	r3, #1
+ 416:	2300      	movne	r3, #0
+ 418:	b2dc      	uxtb	r4, r3
+ 41a:	f107 0324 	add.w	r3, r7, #36	; 0x24
+ 41e:	4618      	mov	r0, r3
+ 420:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 424:	f107 0330 	add.w	r3, r7, #48	; 0x30
+ 428:	4618      	mov	r0, r3
+ 42a:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 42e:	2c00      	cmp	r4, #0
+ 430:	d037      	beq.n	4a2 <_ZN11Interpreter7executeEv+0x1aa>
+ 432:	687b      	ldr	r3, [r7, #4]
+ 434:	7b1b      	ldrb	r3, [r3, #12]
+ 436:	021b      	lsls	r3, r3, #8
+ 438:	687a      	ldr	r2, [r7, #4]
+ 43a:	7b52      	ldrb	r2, [r2, #13]
+ 43c:	4413      	add	r3, r2
+ 43e:	64fb      	str	r3, [r7, #76]	; 0x4c
+ 440:	f7ff fffe 	bl	0 <_ZN14InstructionSet8InstanceEv>
+ 444:	4601      	mov	r1, r0
+ 446:	687b      	ldr	r3, [r7, #4]
+ 448:	685a      	ldr	r2, [r3, #4]
+ 44a:	4613      	mov	r3, r2
+ 44c:	005b      	lsls	r3, r3, #1
+ 44e:	4413      	add	r3, r2
+ 450:	009b      	lsls	r3, r3, #2
+ 452:	440b      	add	r3, r1
+ 454:	3304      	adds	r3, #4
+ 456:	f240 0000 	movw	r0, #0
+ 45a:	f2c0 0000 	movt	r0, #0
+ 45e:	4619      	mov	r1, r3
+ 460:	f7ff fffe 	bl	0 <_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKSbIS4_S5_T1_E>
+ 464:	4603      	mov	r3, r0
+ 466:	4618      	mov	r0, r3
+ 468:	f240 0100 	movw	r1, #0
+ 46c:	f2c0 0100 	movt	r1, #0
+ 470:	f7ff fffe 	bl	0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc>
+ 474:	4603      	mov	r3, r0
+ 476:	4618      	mov	r0, r3
+ 478:	f240 0100 	movw	r1, #0
+ 47c:	f2c0 0100 	movt	r1, #0
+ 480:	f7ff fffe 	bl	0 <_ZNSolsEPFRSt8ios_baseS0_E>
+ 484:	4602      	mov	r2, r0
+ 486:	6cfb      	ldr	r3, [r7, #76]	; 0x4c
+ 488:	4610      	mov	r0, r2
+ 48a:	4619      	mov	r1, r3
+ 48c:	f7ff fffe 	bl	0 <_ZNSolsEi>
+ 490:	4603      	mov	r3, r0
+ 492:	4618      	mov	r0, r3
+ 494:	f240 0100 	movw	r1, #0
+ 498:	f2c0 0100 	movt	r1, #0
+ 49c:	f7ff fffe 	bl	0 <_ZNSolsEPFRSoS_E>
+ 4a0:	e0be      	b.n	620 <_ZN11Interpreter7executeEv+0x328>
+ 4a2:	687b      	ldr	r3, [r7, #4]
+ 4a4:	685c      	ldr	r4, [r3, #4]
+ 4a6:	2312      	movs	r3, #18
+ 4a8:	637b      	str	r3, [r7, #52]	; 0x34
+ 4aa:	f107 0340 	add.w	r3, r7, #64	; 0x40
+ 4ae:	4618      	mov	r0, r3
+ 4b0:	f7ff fffe 	bl	0 <_ZNSaIcEC1Ev>
+ 4b4:	f107 0334 	add.w	r3, r7, #52	; 0x34
+ 4b8:	1d1a      	adds	r2, r3, #4
+ 4ba:	f107 0340 	add.w	r3, r7, #64	; 0x40
+ 4be:	4610      	mov	r0, r2
+ 4c0:	f240 0100 	movw	r1, #0
+ 4c4:	f2c0 0100 	movt	r1, #0
+ 4c8:	461a      	mov	r2, r3
+ 4ca:	f7ff fffe 	bl	0 <_ZNSsC1EPKcRKSaIcE>
+ 4ce:	2301      	movs	r3, #1
+ 4d0:	63fb      	str	r3, [r7, #60]	; 0x3c
+ 4d2:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 4d4:	429c      	cmp	r4, r3
+ 4d6:	bf0c      	ite	eq
+ 4d8:	2301      	moveq	r3, #1
+ 4da:	2300      	movne	r3, #0
+ 4dc:	b2dc      	uxtb	r4, r3
+ 4de:	f107 0334 	add.w	r3, r7, #52	; 0x34
+ 4e2:	4618      	mov	r0, r3
+ 4e4:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 4e8:	f107 0340 	add.w	r3, r7, #64	; 0x40
+ 4ec:	4618      	mov	r0, r3
+ 4ee:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 4f2:	2c00      	cmp	r4, #0
+ 4f4:	d05b      	beq.n	5ae <_ZN11Interpreter7executeEv+0x2b6>
+ 4f6:	687b      	ldr	r3, [r7, #4]
+ 4f8:	7b1b      	ldrb	r3, [r3, #12]
+ 4fa:	64bb      	str	r3, [r7, #72]	; 0x48
+ 4fc:	687b      	ldr	r3, [r7, #4]
+ 4fe:	6bda      	ldr	r2, [r3, #60]	; 0x3c
+ 500:	6cbb      	ldr	r3, [r7, #72]	; 0x48
+ 502:	f107 0144 	add.w	r1, r7, #68	; 0x44
+ 506:	4608      	mov	r0, r1
+ 508:	4611      	mov	r1, r2
+ 50a:	461a      	mov	r2, r3
+ 50c:	f7ff fffe 	bl	0 <_ZN9JavaClass16getConstantValueEi>
+ 510:	f107 0208 	add.w	r2, r7, #8
+ 514:	f107 0344 	add.w	r3, r7, #68	; 0x44
+ 518:	4610      	mov	r0, r2
+ 51a:	4619      	mov	r1, r3
+ 51c:	f7ff fffe 	bl	0 <_ZNSsaSEOSs>
+ 520:	f107 0344 	add.w	r3, r7, #68	; 0x44
+ 524:	4618      	mov	r0, r3
+ 526:	f7ff fffe 	bl	0 <_ZNSsD1Ev>
+ 52a:	f240 0000 	movw	r0, #0
+ 52e:	f2c0 0000 	movt	r0, #0
+ 532:	f240 0100 	movw	r1, #0
+ 536:	f2c0 0100 	movt	r1, #0
+ 53a:	f7ff fffe 	bl	0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc>
+ 53e:	4603      	mov	r3, r0
+ 540:	4618      	mov	r0, r3
+ 542:	f240 0100 	movw	r1, #0
+ 546:	f2c0 0100 	movt	r1, #0
+ 54a:	f7ff fffe 	bl	0 <_ZNSolsEPFRSt8ios_baseS0_E>
+ 54e:	4603      	mov	r3, r0
+ 550:	4618      	mov	r0, r3
+ 552:	6cb9      	ldr	r1, [r7, #72]	; 0x48
+ 554:	f7ff fffe 	bl	0 <_ZNSolsEm>
+ 558:	4603      	mov	r3, r0
+ 55a:	4618      	mov	r0, r3
+ 55c:	f240 0100 	movw	r1, #0
+ 560:	f2c0 0100 	movt	r1, #0
+ 564:	f7ff fffe 	bl	0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc>
+ 568:	4602      	mov	r2, r0
+ 56a:	f107 0308 	add.w	r3, r7, #8
+ 56e:	4610      	mov	r0, r2
+ 570:	4619      	mov	r1, r3
+ 572:	f7ff fffe 	bl	0 <_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKSbIS4_S5_T1_E>
+ 576:	4603      	mov	r3, r0
+ 578:	4618      	mov	r0, r3
+ 57a:	f240 0100 	movw	r1, #0
+ 57e:	f2c0 0100 	movt	r1, #0
+ 582:	f7ff fffe 	bl	0 <_ZNSolsEPFRSoS_E>
+ 586:	2303      	movs	r3, #3
+ 588:	60fb      	str	r3, [r7, #12]
+ 58a:	f107 0308 	add.w	r3, r7, #8
+ 58e:	4618      	mov	r0, r3
+ 590:	f7ff fffe 	bl	0 <_ZNKSs5c_strEv>
+ 594:	4603      	mov	r3, r0
+ 596:	613b      	str	r3, [r7, #16]
+ 598:	687b      	ldr	r3, [r7, #4]
+ 59a:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 59c:	f103 0210 	add.w	r2, r3, #16
+ 5a0:	f107 030c 	add.w	r3, r7, #12
+ 5a4:	4610      	mov	r0, r2
+ 5a6:	4619      	mov	r1, r3
+ 5a8:	f7ff fffe 	bl	0 <_ZN11InterpreterC1EP9JavaClass>
+ 5ac:	e038      	b.n	74 <_ZSt4cout+0x74>
+ 5ae:	f240 0000 	movw	r0, #0
+ 5b2:	f2c0 0000 	movt	r0, #0
+ 5b6:	f240 0100 	movw	r1, #0
+ 5ba:	f2c0 0100 	movt	r1, #0
+ 5be:	f7ff fffe 	bl	0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc>
+ 5c2:	4603      	mov	r3, r0
+ 5c4:	4618      	mov	r0, r3
+ 5c6:	f240 0100 	movw	r1, #0
+ 5ca:	f2c0 0100 	movt	r1, #0
+ 5ce:	f7ff fffe 	bl	0 <_ZNSolsEPFRSt8ios_baseS0_E>
+ 5d2:	4602      	mov	r2, r0
+ 5d4:	687b      	ldr	r3, [r7, #4]
+ 5d6:	685b      	ldr	r3, [r3, #4]
+ 5d8:	4610      	mov	r0, r2
+ 5da:	4619      	mov	r1, r3
+ 5dc:	f7ff fffe 	bl	0 <_ZNSolsEi>
+ 5e0:	4603      	mov	r3, r0
+ 5e2:	4618      	mov	r0, r3
+ 5e4:	f240 0100 	movw	r1, #0
+ 5e8:	f2c0 0100 	movt	r1, #0
+ 5ec:	f7ff fffe 	bl	0 <_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc>
+ 5f0:	4604      	mov	r4, r0
+ 5f2:	f7ff fffe 	bl	0 <_ZN14InstructionSet8InstanceEv>
+ 5f6:	4601      	mov	r1, r0
+ 5f8:	687b      	ldr	r3, [r7, #4]
+ 5fa:	685a      	ldr	r2, [r3, #4]
+ 5fc:	4613      	mov	r3, r2
+ 5fe:	005b      	lsls	r3, r3, #1
+ 600:	4413      	add	r3, r2
+ 602:	009b      	lsls	r3, r3, #2
+ 604:	440b      	add	r3, r1
+ 606:	3304      	adds	r3, #4
+ 608:	4620      	mov	r0, r4
+ 60a:	4619      	mov	r1, r3
+ 60c:	f7ff fffe 	bl	0 <_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKSbIS4_S5_T1_E>
+ 610:	4603      	mov	r3, r0
+ 612:	4618      	mov	r0, r3
+ 614:	f240 0100 	movw	r1, #0
+ 618:	f2c0 0100 	movt	r1, #0
+ 61c:	f7ff fffe 	bl	0 <_ZNSolsEPFRSoS_E>
+ 620:	687b      	ldr	r3, [r7, #4]
+ 622:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 624:	4618      	mov	r0, r3
+ 626:	f7ff fffe 	bl	0 <_ZN5Frame4dumpEv>
+ 62a:	f107 0308 	add.w	r3, r7, #8
+ 62e:	4618      	mov	r0, r3
+ 630:	f7ff fffe 	bl	0 <_ZNSsD1Ev>
+ 634:	e01e      	b.n	674 <_ZN11Interpreter7executeEv+0x37c>
+ 636:	f107 0320 	add.w	r3, r7, #32
+ 63a:	4618      	mov	r0, r3
+ 63c:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 640:	e011      	b.n	666 <_ZN11Interpreter7executeEv+0x36e>
+ 642:	f107 0330 	add.w	r3, r7, #48	; 0x30
+ 646:	4618      	mov	r0, r3
+ 648:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 64c:	e00b      	b.n	666 <_ZN11Interpreter7executeEv+0x36e>
+ 64e:	f107 0340 	add.w	r3, r7, #64	; 0x40
+ 652:	4618      	mov	r0, r3
+ 654:	f7ff fffe 	bl	0 <_ZNSaIcED1Ev>
+ 658:	e005      	b.n	666 <_ZN11Interpreter7executeEv+0x36e>
+ 65a:	f107 0344 	add.w	r3, r7, #68	; 0x44
+ 65e:	4618      	mov	r0, r3
+ 660:	f7ff fffe 	bl	0 <_ZNSsD1Ev>
+ 664:	e7ff      	b.n	666 <_ZN11Interpreter7executeEv+0x36e>
+ 666:	f107 0308 	add.w	r3, r7, #8
+ 66a:	4618      	mov	r0, r3
+ 66c:	f7ff fffe 	bl	0 <_ZNSsD1Ev>
+ 670:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+ 674:	3754      	adds	r7, #84	; 0x54
+ 676:	46bd      	mov	sp, r7
+ 678:	bd90      	pop	{r4, r7, pc}
+ 67a:	bf00      	nop
+
+0000067c <_Z13invokeVirtualP10MethodInfo>:
+ 67c:	b480      	push	{r7}
+ 67e:	b083      	sub	sp, #12
+ 680:	af00      	add	r7, sp, #0
+ 682:	6078      	str	r0, [r7, #4]
+ 684:	370c      	adds	r7, #12
+ 686:	46bd      	mov	sp, r7
+ 688:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 68c:	4770      	bx	lr
+ 68e:	bf00      	nop
+
+00000690 <_Z41__static_initialization_and_destruction_0ii>:
+ 690:	b580      	push	{r7, lr}
+ 692:	b082      	sub	sp, #8
+ 694:	af00      	add	r7, sp, #0
+ 696:	6078      	str	r0, [r7, #4]
+ 698:	6039      	str	r1, [r7, #0]
+ 69a:	687b      	ldr	r3, [r7, #4]
+ 69c:	2b01      	cmp	r3, #1
+ 69e:	d118      	bne.n	6d2 <_Z41__static_initialization_and_destruction_0ii+0x42>
+ 6a0:	683b      	ldr	r3, [r7, #0]
+ 6a2:	f64f 72ff 	movw	r2, #65535	; 0xffff
+ 6a6:	4293      	cmp	r3, r2
+ 6a8:	d113      	bne.n	6d2 <_Z41__static_initialization_and_destruction_0ii+0x42>
+ 6aa:	f240 0000 	movw	r0, #0
+ 6ae:	f2c0 0000 	movt	r0, #0
+ 6b2:	f7ff fffe 	bl	0 <_ZNSt8ios_base4InitC1Ev>
+ 6b6:	f240 0000 	movw	r0, #0
+ 6ba:	f2c0 0000 	movt	r0, #0
+ 6be:	f240 0100 	movw	r1, #0
+ 6c2:	f2c0 0100 	movt	r1, #0
+ 6c6:	f240 0200 	movw	r2, #0
+ 6ca:	f2c0 0200 	movt	r2, #0
+ 6ce:	f7ff fffe 	bl	0 <__aeabi_atexit>
+ 6d2:	3708      	adds	r7, #8
+ 6d4:	46bd      	mov	sp, r7
+ 6d6:	bd80      	pop	{r7, pc}
+
+000006d8 <_GLOBAL__sub_I__ZN11InterpreterC2EP9JavaClass>:
+ 6d8:	b580      	push	{r7, lr}
+ 6da:	af00      	add	r7, sp, #0
+ 6dc:	2001      	movs	r0, #1
+ 6de:	f64f 71ff 	movw	r1, #65535	; 0xffff
+ 6e2:	f7ff ffd5 	bl	690 <_Z41__static_initialization_and_destruction_0ii>
+ 6e6:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZnwjPv:
+
+00000000 <_ZnwjPv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZStanSt13_Ios_FmtflagsS_:
+
+00000000 <_ZStanSt13_Ios_FmtflagsS_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687a      	ldr	r2, [r7, #4]
+   c:	683b      	ldr	r3, [r7, #0]
+   e:	4013      	ands	r3, r2
+  10:	4618      	mov	r0, r3
+  12:	370c      	adds	r7, #12
+  14:	46bd      	mov	sp, r7
+  16:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1a:	4770      	bx	lr
+
+Disassembly of section .text._ZStorSt13_Ios_FmtflagsS_:
+
+00000000 <_ZStorSt13_Ios_FmtflagsS_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687a      	ldr	r2, [r7, #4]
+   c:	683b      	ldr	r3, [r7, #0]
+   e:	4313      	orrs	r3, r2
+  10:	4618      	mov	r0, r3
+  12:	370c      	adds	r7, #12
+  14:	46bd      	mov	sp, r7
+  16:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1a:	4770      	bx	lr
+
+Disassembly of section .text._ZStcoSt13_Ios_Fmtflags:
+
+00000000 <_ZStcoSt13_Ios_Fmtflags>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	43db      	mvns	r3, r3
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZStoRRSt13_Ios_FmtflagsS_:
+
+00000000 <_ZStoRRSt13_Ios_FmtflagsS_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	4618      	mov	r0, r3
+  10:	6839      	ldr	r1, [r7, #0]
+  12:	f7ff fffe 	bl	0 <_ZStoRRSt13_Ios_FmtflagsS_>
+  16:	4602      	mov	r2, r0
+  18:	687b      	ldr	r3, [r7, #4]
+  1a:	601a      	str	r2, [r3, #0]
+  1c:	687b      	ldr	r3, [r7, #4]
+  1e:	4618      	mov	r0, r3
+  20:	3708      	adds	r7, #8
+  22:	46bd      	mov	sp, r7
+  24:	bd80      	pop	{r7, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text._ZStaNRSt13_Ios_FmtflagsS_:
+
+00000000 <_ZStaNRSt13_Ios_FmtflagsS_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	4618      	mov	r0, r3
+  10:	6839      	ldr	r1, [r7, #0]
+  12:	f7ff fffe 	bl	0 <_ZStaNRSt13_Ios_FmtflagsS_>
+  16:	4602      	mov	r2, r0
+  18:	687b      	ldr	r3, [r7, #4]
+  1a:	601a      	str	r2, [r3, #0]
+  1c:	687b      	ldr	r3, [r7, #4]
+  1e:	4618      	mov	r0, r3
+  20:	3708      	adds	r7, #8
+  22:	46bd      	mov	sp, r7
+  24:	bd80      	pop	{r7, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text._ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_:
+
+00000000 <_ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b087      	sub	sp, #28
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68fb      	ldr	r3, [r7, #12]
+   e:	68db      	ldr	r3, [r3, #12]
+  10:	617b      	str	r3, [r7, #20]
+  12:	68fb      	ldr	r3, [r7, #12]
+  14:	f103 040c 	add.w	r4, r3, #12
+  18:	6878      	ldr	r0, [r7, #4]
+  1a:	f7ff fffe 	bl	0 <_ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_>
+  1e:	4603      	mov	r3, r0
+  20:	4620      	mov	r0, r4
+  22:	4619      	mov	r1, r3
+  24:	f7ff fffe 	bl	0 <_ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_>
+  28:	68fb      	ldr	r3, [r7, #12]
+  2a:	f103 040c 	add.w	r4, r3, #12
+  2e:	68b8      	ldr	r0, [r7, #8]
+  30:	6879      	ldr	r1, [r7, #4]
+  32:	f7ff fffe 	bl	0 <_ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_>
+  36:	4603      	mov	r3, r0
+  38:	4620      	mov	r0, r4
+  3a:	4619      	mov	r1, r3
+  3c:	f7ff fffe 	bl	0 <_ZNSt8ios_base4setfESt13_Ios_FmtflagsS0_>
+  40:	697b      	ldr	r3, [r7, #20]
+  42:	4618      	mov	r0, r3
+  44:	371c      	adds	r7, #28
+  46:	46bd      	mov	sp, r7
+  48:	bd90      	pop	{r4, r7, pc}
+  4a:	bf00      	nop
+
+Disassembly of section .text._ZSt3decRSt8ios_base:
+
+00000000 <_ZSt3decRSt8ios_base>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	2102      	movs	r1, #2
+   c:	224a      	movs	r2, #74	; 0x4a
+   e:	f7ff fffe 	bl	0 <_ZSt3decRSt8ios_base>
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	4618      	mov	r0, r3
+  16:	3708      	adds	r7, #8
+  18:	46bd      	mov	sp, r7
+  1a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt3hexRSt8ios_base:
+
+00000000 <_ZSt3hexRSt8ios_base>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	2108      	movs	r1, #8
+   c:	224a      	movs	r2, #74	; 0x4a
+   e:	f7ff fffe 	bl	0 <_ZSt3hexRSt8ios_base>
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	4618      	mov	r0, r3
+  16:	3708      	adds	r7, #8
+  18:	46bd      	mov	sp, r7
+  1a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt16__deque_buf_sizej:
+
+00000000 <_ZSt16__deque_buf_sizej>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	f5b3 7f00 	cmp.w	r3, #512	; 0x200
+   e:	d206      	bcs.n	1e <_ZSt16__deque_buf_sizej+0x1e>
+  10:	f44f 7000 	mov.w	r0, #512	; 0x200
+  14:	6879      	ldr	r1, [r7, #4]
+  16:	f7ff fffe 	bl	0 <__aeabi_uidiv>
+  1a:	4603      	mov	r3, r0
+  1c:	e000      	b.n	20 <_ZSt16__deque_buf_sizej+0x20>
+  1e:	2301      	movs	r3, #1
+  20:	4618      	mov	r0, r3
+  22:	3708      	adds	r7, #8
+  24:	46bd      	mov	sp, r7
+  26:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN5FrameC2EPSt6vectorIP12ConstantInfoSaIS2_EEii:
+
+00000000 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	603b      	str	r3, [r7, #0]
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	3304      	adds	r3, #4
+  12:	4618      	mov	r0, r3
+  14:	f7ff fffe 	bl	0 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii>
+  18:	68fb      	ldr	r3, [r7, #12]
+  1a:	3310      	adds	r3, #16
+  1c:	4618      	mov	r0, r3
+  1e:	f7ff fffe 	bl	0 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii>
+  22:	68fb      	ldr	r3, [r7, #12]
+  24:	68ba      	ldr	r2, [r7, #8]
+  26:	61da      	str	r2, [r3, #28]
+  28:	68fb      	ldr	r3, [r7, #12]
+  2a:	1d1a      	adds	r2, r3, #4
+  2c:	687b      	ldr	r3, [r7, #4]
+  2e:	4610      	mov	r0, r2
+  30:	4619      	mov	r1, r3
+  32:	f7ff fffe 	bl	0 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii>
+  36:	68fb      	ldr	r3, [r7, #12]
+  38:	f103 0210 	add.w	r2, r3, #16
+  3c:	683b      	ldr	r3, [r7, #0]
+  3e:	4610      	mov	r0, r2
+  40:	4619      	mov	r1, r3
+  42:	f7ff fffe 	bl	0 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii>
+  46:	68fb      	ldr	r3, [r7, #12]
+  48:	e00b      	b.n	62 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii+0x62>
+  4a:	68fb      	ldr	r3, [r7, #12]
+  4c:	3310      	adds	r3, #16
+  4e:	4618      	mov	r0, r3
+  50:	f7ff fffe 	bl	0 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii>
+  54:	68fb      	ldr	r3, [r7, #12]
+  56:	3304      	adds	r3, #4
+  58:	4618      	mov	r0, r3
+  5a:	f7ff fffe 	bl	0 <_ZN5FrameC1EPSt6vectorIP12ConstantInfoSaIS2_EEii>
+  5e:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  62:	4618      	mov	r0, r3
+  64:	3710      	adds	r7, #16
+  66:	46bd      	mov	sp, r7
+  68:	bd80      	pop	{r7, pc}
+  6a:	bf00      	nop
+
+Disassembly of section .text._ZN18instruction_structD2Ev:
+
+00000000 <_ZN18instruction_structD1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	3304      	adds	r3, #4
+   c:	4618      	mov	r0, r3
+   e:	f7ff fffe 	bl	0 <_ZNSsD1Ev>
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	4618      	mov	r0, r3
+  16:	3708      	adds	r7, #8
+  18:	46bd      	mov	sp, r7
+  1a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt6vectorImSaImEEC2Ev:
+
+00000000 <_ZNSt6vectorImSaImEEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEEC1Ev>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorImSaImEED2Ev:
+
+00000000 <_ZNSt6vectorImSaImEED1Ev>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681d      	ldr	r5, [r3, #0]
+   c:	687b      	ldr	r3, [r7, #4]
+   e:	685c      	ldr	r4, [r3, #4]
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEED1Ev>
+  18:	4603      	mov	r3, r0
+  1a:	4628      	mov	r0, r5
+  1c:	4621      	mov	r1, r4
+  1e:	461a      	mov	r2, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEED1Ev>
+  24:	687b      	ldr	r3, [r7, #4]
+  26:	4618      	mov	r0, r3
+  28:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEED1Ev>
+  2c:	687b      	ldr	r3, [r7, #4]
+  2e:	4618      	mov	r0, r3
+  30:	3708      	adds	r7, #8
+  32:	46bd      	mov	sp, r7
+  34:	bdb0      	pop	{r4, r5, r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorI13operand_valueSaIS0_EEC2Ev:
+
+00000000 <_ZNSt6vectorI13operand_valueSaIS0_EEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EEC1Ev>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorI13operand_valueSaIS0_EED2Ev:
+
+00000000 <_ZNSt6vectorI13operand_valueSaIS0_EED1Ev>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681d      	ldr	r5, [r3, #0]
+   c:	687b      	ldr	r3, [r7, #4]
+   e:	685c      	ldr	r4, [r3, #4]
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EED1Ev>
+  18:	4603      	mov	r3, r0
+  1a:	4628      	mov	r0, r5
+  1c:	4621      	mov	r1, r4
+  1e:	461a      	mov	r2, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EED1Ev>
+  24:	687b      	ldr	r3, [r7, #4]
+  26:	4618      	mov	r0, r3
+  28:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EED1Ev>
+  2c:	687b      	ldr	r3, [r7, #4]
+  2e:	4618      	mov	r0, r3
+  30:	3708      	adds	r7, #8
+  32:	46bd      	mov	sp, r7
+  34:	bdb0      	pop	{r4, r5, r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorImSaImEE7reserveEj:
+
+00000000 <_ZNSt6vectorImSaImEE7reserveEj>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  10:	4602      	mov	r2, r0
+  12:	683b      	ldr	r3, [r7, #0]
+  14:	429a      	cmp	r2, r3
+  16:	bf34      	ite	cc
+  18:	2301      	movcc	r3, #1
+  1a:	2300      	movcs	r3, #0
+  1c:	b2db      	uxtb	r3, r3
+  1e:	2b00      	cmp	r3, #0
+  20:	d005      	beq.n	2e <_ZNSt6vectorImSaImEE7reserveEj+0x2e>
+  22:	f240 0000 	movw	r0, #0
+  26:	f2c0 0000 	movt	r0, #0
+  2a:	f7ff fffe 	bl	0 <_ZSt20__throw_length_errorPKc>
+  2e:	6878      	ldr	r0, [r7, #4]
+  30:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  34:	4602      	mov	r2, r0
+  36:	683b      	ldr	r3, [r7, #0]
+  38:	429a      	cmp	r2, r3
+  3a:	bf34      	ite	cc
+  3c:	2301      	movcc	r3, #1
+  3e:	2300      	movcs	r3, #0
+  40:	b2db      	uxtb	r3, r3
+  42:	2b00      	cmp	r3, #0
+  44:	d043      	beq.n	ce <_ZNSt6vectorImSaImEE7reserveEj+0xce>
+  46:	6878      	ldr	r0, [r7, #4]
+  48:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  4c:	60f8      	str	r0, [r7, #12]
+  4e:	687b      	ldr	r3, [r7, #4]
+  50:	681b      	ldr	r3, [r3, #0]
+  52:	4618      	mov	r0, r3
+  54:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  58:	4604      	mov	r4, r0
+  5a:	687b      	ldr	r3, [r7, #4]
+  5c:	685b      	ldr	r3, [r3, #4]
+  5e:	4618      	mov	r0, r3
+  60:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  64:	4603      	mov	r3, r0
+  66:	6878      	ldr	r0, [r7, #4]
+  68:	6839      	ldr	r1, [r7, #0]
+  6a:	4622      	mov	r2, r4
+  6c:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  70:	4603      	mov	r3, r0
+  72:	60bb      	str	r3, [r7, #8]
+  74:	687b      	ldr	r3, [r7, #4]
+  76:	681d      	ldr	r5, [r3, #0]
+  78:	687b      	ldr	r3, [r7, #4]
+  7a:	685c      	ldr	r4, [r3, #4]
+  7c:	687b      	ldr	r3, [r7, #4]
+  7e:	4618      	mov	r0, r3
+  80:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  84:	4603      	mov	r3, r0
+  86:	4628      	mov	r0, r5
+  88:	4621      	mov	r1, r4
+  8a:	461a      	mov	r2, r3
+  8c:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  90:	6879      	ldr	r1, [r7, #4]
+  92:	687b      	ldr	r3, [r7, #4]
+  94:	681a      	ldr	r2, [r3, #0]
+  96:	687b      	ldr	r3, [r7, #4]
+  98:	689b      	ldr	r3, [r3, #8]
+  9a:	4618      	mov	r0, r3
+  9c:	687b      	ldr	r3, [r7, #4]
+  9e:	681b      	ldr	r3, [r3, #0]
+  a0:	1ac3      	subs	r3, r0, r3
+  a2:	109b      	asrs	r3, r3, #2
+  a4:	4608      	mov	r0, r1
+  a6:	4611      	mov	r1, r2
+  a8:	461a      	mov	r2, r3
+  aa:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE7reserveEj>
+  ae:	687b      	ldr	r3, [r7, #4]
+  b0:	68ba      	ldr	r2, [r7, #8]
+  b2:	601a      	str	r2, [r3, #0]
+  b4:	68fb      	ldr	r3, [r7, #12]
+  b6:	009b      	lsls	r3, r3, #2
+  b8:	68ba      	ldr	r2, [r7, #8]
+  ba:	441a      	add	r2, r3
+  bc:	687b      	ldr	r3, [r7, #4]
+  be:	605a      	str	r2, [r3, #4]
+  c0:	687b      	ldr	r3, [r7, #4]
+  c2:	681a      	ldr	r2, [r3, #0]
+  c4:	683b      	ldr	r3, [r7, #0]
+  c6:	009b      	lsls	r3, r3, #2
+  c8:	441a      	add	r2, r3
+  ca:	687b      	ldr	r3, [r7, #4]
+  cc:	609a      	str	r2, [r3, #8]
+  ce:	3710      	adds	r7, #16
+  d0:	46bd      	mov	sp, r7
+  d2:	bdb0      	pop	{r4, r5, r7, pc}
+
+Disassembly of section .text._ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj:
+
+00000000 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  10:	4602      	mov	r2, r0
+  12:	683b      	ldr	r3, [r7, #0]
+  14:	429a      	cmp	r2, r3
+  16:	bf34      	ite	cc
+  18:	2301      	movcc	r3, #1
+  1a:	2300      	movcs	r3, #0
+  1c:	b2db      	uxtb	r3, r3
+  1e:	2b00      	cmp	r3, #0
+  20:	d005      	beq.n	2e <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj+0x2e>
+  22:	f240 0000 	movw	r0, #0
+  26:	f2c0 0000 	movt	r0, #0
+  2a:	f7ff fffe 	bl	0 <_ZSt20__throw_length_errorPKc>
+  2e:	6878      	ldr	r0, [r7, #4]
+  30:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  34:	4602      	mov	r2, r0
+  36:	683b      	ldr	r3, [r7, #0]
+  38:	429a      	cmp	r2, r3
+  3a:	bf34      	ite	cc
+  3c:	2301      	movcc	r3, #1
+  3e:	2300      	movcs	r3, #0
+  40:	b2db      	uxtb	r3, r3
+  42:	2b00      	cmp	r3, #0
+  44:	d043      	beq.n	ce <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj+0xce>
+  46:	6878      	ldr	r0, [r7, #4]
+  48:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  4c:	60f8      	str	r0, [r7, #12]
+  4e:	687b      	ldr	r3, [r7, #4]
+  50:	681b      	ldr	r3, [r3, #0]
+  52:	4618      	mov	r0, r3
+  54:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  58:	4604      	mov	r4, r0
+  5a:	687b      	ldr	r3, [r7, #4]
+  5c:	685b      	ldr	r3, [r3, #4]
+  5e:	4618      	mov	r0, r3
+  60:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  64:	4603      	mov	r3, r0
+  66:	6878      	ldr	r0, [r7, #4]
+  68:	6839      	ldr	r1, [r7, #0]
+  6a:	4622      	mov	r2, r4
+  6c:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  70:	4603      	mov	r3, r0
+  72:	60bb      	str	r3, [r7, #8]
+  74:	687b      	ldr	r3, [r7, #4]
+  76:	681d      	ldr	r5, [r3, #0]
+  78:	687b      	ldr	r3, [r7, #4]
+  7a:	685c      	ldr	r4, [r3, #4]
+  7c:	687b      	ldr	r3, [r7, #4]
+  7e:	4618      	mov	r0, r3
+  80:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  84:	4603      	mov	r3, r0
+  86:	4628      	mov	r0, r5
+  88:	4621      	mov	r1, r4
+  8a:	461a      	mov	r2, r3
+  8c:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  90:	6879      	ldr	r1, [r7, #4]
+  92:	687b      	ldr	r3, [r7, #4]
+  94:	681a      	ldr	r2, [r3, #0]
+  96:	687b      	ldr	r3, [r7, #4]
+  98:	689b      	ldr	r3, [r3, #8]
+  9a:	4618      	mov	r0, r3
+  9c:	687b      	ldr	r3, [r7, #4]
+  9e:	681b      	ldr	r3, [r3, #0]
+  a0:	1ac3      	subs	r3, r0, r3
+  a2:	10db      	asrs	r3, r3, #3
+  a4:	4608      	mov	r0, r1
+  a6:	4611      	mov	r1, r2
+  a8:	461a      	mov	r2, r3
+  aa:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE7reserveEj>
+  ae:	687b      	ldr	r3, [r7, #4]
+  b0:	68ba      	ldr	r2, [r7, #8]
+  b2:	601a      	str	r2, [r3, #0]
+  b4:	68fb      	ldr	r3, [r7, #12]
+  b6:	00db      	lsls	r3, r3, #3
+  b8:	68ba      	ldr	r2, [r7, #8]
+  ba:	441a      	add	r2, r3
+  bc:	687b      	ldr	r3, [r7, #4]
+  be:	605a      	str	r2, [r3, #4]
+  c0:	687b      	ldr	r3, [r7, #4]
+  c2:	681a      	ldr	r2, [r3, #0]
+  c4:	683b      	ldr	r3, [r7, #0]
+  c6:	00db      	lsls	r3, r3, #3
+  c8:	441a      	add	r2, r3
+  ca:	687b      	ldr	r3, [r7, #4]
+  cc:	609a      	str	r2, [r3, #8]
+  ce:	3710      	adds	r7, #16
+  d0:	46bd      	mov	sp, r7
+  d2:	bdb0      	pop	{r4, r5, r7, pc}
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EEC2Ev:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EEC1Ev>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EED2Ev:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EED1Ev>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b08b      	sub	sp, #44	; 0x2c
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	f107 0308 	add.w	r3, r7, #8
+   c:	4618      	mov	r0, r3
+   e:	6879      	ldr	r1, [r7, #4]
+  10:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EED1Ev>
+  14:	f107 0318 	add.w	r3, r7, #24
+  18:	4618      	mov	r0, r3
+  1a:	6879      	ldr	r1, [r7, #4]
+  1c:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EED1Ev>
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	4618      	mov	r0, r3
+  24:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EED1Ev>
+  28:	4604      	mov	r4, r0
+  2a:	f107 0208 	add.w	r2, r7, #8
+  2e:	f107 0318 	add.w	r3, r7, #24
+  32:	6878      	ldr	r0, [r7, #4]
+  34:	4611      	mov	r1, r2
+  36:	461a      	mov	r2, r3
+  38:	4623      	mov	r3, r4
+  3a:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EED1Ev>
+  3e:	687b      	ldr	r3, [r7, #4]
+  40:	4618      	mov	r0, r3
+  42:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EED1Ev>
+  46:	687b      	ldr	r3, [r7, #4]
+  48:	4618      	mov	r0, r3
+  4a:	372c      	adds	r7, #44	; 0x2c
+  4c:	46bd      	mov	sp, r7
+  4e:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZSt4moveIRSt5dequeIP5FrameSaIS2_EEEONSt16remove_referenceIT_E4typeEOS7_:
+
+00000000 <_ZSt4moveIRSt5dequeIP5FrameSaIS2_EEEONSt16remove_referenceIT_E4typeEOS7_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt5stackIP5FrameSt5dequeIS1_SaIS1_EEEC2EOS4_:
+
+00000000 <_ZNSt5stackIP5FrameSt5dequeIS1_SaIS1_EEEC1EOS4_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687c      	ldr	r4, [r7, #4]
+   c:	6838      	ldr	r0, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZNSt5stackIP5FrameSt5dequeIS1_SaIS1_EEEC1EOS4_>
+  12:	4603      	mov	r3, r0
+  14:	4620      	mov	r0, r4
+  16:	4619      	mov	r1, r3
+  18:	f7ff fffe 	bl	0 <_ZNSt5stackIP5FrameSt5dequeIS1_SaIS1_EEEC1EOS4_>
+  1c:	687b      	ldr	r3, [r7, #4]
+  1e:	4618      	mov	r0, r3
+  20:	370c      	adds	r7, #12
+  22:	46bd      	mov	sp, r7
+  24:	bd90      	pop	{r4, r7, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorIP10MethodInfoSaIS1_EEixEj:
+
+00000000 <_ZNSt6vectorIP10MethodInfoSaIS1_EEixEj>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	683b      	ldr	r3, [r7, #0]
+  10:	009b      	lsls	r3, r3, #2
+  12:	4413      	add	r3, r2
+  14:	4618      	mov	r0, r3
+  16:	370c      	adds	r7, #12
+  18:	46bd      	mov	sp, r7
+  1a:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1e:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt6vectorIP12ConstantInfoSaIS1_EEixEj:
+
+00000000 <_ZNSt6vectorIP12ConstantInfoSaIS1_EEixEj>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	683b      	ldr	r3, [r7, #0]
+  10:	009b      	lsls	r3, r3, #2
+  12:	4413      	add	r3, r2
+  14:	4618      	mov	r0, r3
+  16:	370c      	adds	r7, #12
+  18:	46bd      	mov	sp, r7
+  1a:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1e:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt6vectorIcSaIcEE4dataEv:
+
+00000000 <_ZNSt6vectorIcSaIcEE4dataEv>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	6878      	ldr	r0, [r7, #4]
+   e:	4619      	mov	r1, r3
+  10:	f7ff fffe 	bl	0 <_ZNSt6vectorIcSaIcEE4dataEv>
+  14:	4603      	mov	r3, r0
+  16:	4618      	mov	r0, r3
+  18:	3708      	adds	r7, #8
+  1a:	46bd      	mov	sp, r7
+  1c:	bd80      	pop	{r7, pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_:
+
+00000000 <_ZSteqIcSt11char_traitsIcESaIcEEbRKSbIT_T0_T1_EPKS3_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZNKSs7compareEPKc>
+  12:	4603      	mov	r3, r0
+  14:	2b00      	cmp	r3, #0
+  16:	bf0c      	ite	eq
+  18:	2301      	moveq	r3, #1
+  1a:	2300      	movne	r3, #0
+  1c:	b2db      	uxtb	r3, r3
+  1e:	4618      	mov	r0, r3
+  20:	3708      	adds	r7, #8
+  22:	46bd      	mov	sp, r7
+  24:	bd80      	pop	{r7, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text._ZNSt5stackIP5FrameSt5dequeIS1_SaIS1_EEE4pushERKS1_:
+
+00000000 <_ZNSt5stackIP5FrameSt5dequeIS1_SaIS1_EEE4pushERKS1_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	4618      	mov	r0, r3
+   e:	6839      	ldr	r1, [r7, #0]
+  10:	f7ff fffe 	bl	0 <_ZNSt5stackIP5FrameSt5dequeIS1_SaIS1_EEE4pushERKS1_>
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNKSt6vectorIcSaIcEEixEj:
+
+00000000 <_ZNKSt6vectorIcSaIcEEixEj>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	683b      	ldr	r3, [r7, #0]
+  10:	4413      	add	r3, r2
+  12:	4618      	mov	r0, r3
+  14:	370c      	adds	r7, #12
+  16:	46bd      	mov	sp, r7
+  18:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZSt7forwardIRK13operand_valueEOT_RNSt16remove_referenceIS3_E4typeE:
+
+00000000 <_ZSt7forwardIRK13operand_valueEOT_RNSt16remove_referenceIS3_E4typeE>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorI13operand_valueSaIS0_EE9push_backERKS0_:
+
+00000000 <_ZNSt6vectorI13operand_valueSaIS0_EE9push_backERKS0_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	685a      	ldr	r2, [r3, #4]
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	689b      	ldr	r3, [r3, #8]
+  12:	429a      	cmp	r2, r3
+  14:	d00e      	beq.n	34 <_ZNSt6vectorI13operand_valueSaIS0_EE9push_backERKS0_+0x34>
+  16:	687a      	ldr	r2, [r7, #4]
+  18:	687b      	ldr	r3, [r7, #4]
+  1a:	685b      	ldr	r3, [r3, #4]
+  1c:	4610      	mov	r0, r2
+  1e:	4619      	mov	r1, r3
+  20:	683a      	ldr	r2, [r7, #0]
+  22:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE9push_backERKS0_>
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	685b      	ldr	r3, [r3, #4]
+  2a:	f103 0208 	add.w	r2, r3, #8
+  2e:	687b      	ldr	r3, [r7, #4]
+  30:	605a      	str	r2, [r3, #4]
+  32:	e003      	b.n	3c <_ZNSt6vectorI13operand_valueSaIS0_EE9push_backERKS0_+0x3c>
+  34:	6878      	ldr	r0, [r7, #4]
+  36:	6839      	ldr	r1, [r7, #0]
+  38:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE9push_backERKS0_>
+  3c:	3708      	adds	r7, #8
+  3e:	46bd      	mov	sp, r7
+  40:	bd80      	pop	{r7, pc}
+  42:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseImSaImEE12_Vector_implD2Ev:
+
+00000000 <_ZNSt12_Vector_baseImSaImEE12_Vector_implD1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseImSaImEE12_Vector_implD1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt12_Vector_baseImSaImEEC2Ev:
+
+00000000 <_ZNSt12_Vector_baseImSaImEEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseImSaImEEC1Ev>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseImSaImEED2Ev:
+
+00000000 <_ZNSt12_Vector_baseImSaImEED1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681a      	ldr	r2, [r3, #0]
+   c:	687b      	ldr	r3, [r7, #4]
+   e:	689b      	ldr	r3, [r3, #8]
+  10:	4619      	mov	r1, r3
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	681b      	ldr	r3, [r3, #0]
+  16:	1acb      	subs	r3, r1, r3
+  18:	109b      	asrs	r3, r3, #2
+  1a:	6878      	ldr	r0, [r7, #4]
+  1c:	4611      	mov	r1, r2
+  1e:	461a      	mov	r2, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseImSaImEED1Ev>
+  24:	687b      	ldr	r3, [r7, #4]
+  26:	4618      	mov	r0, r3
+  28:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseImSaImEED1Ev>
+  2c:	687b      	ldr	r3, [r7, #4]
+  2e:	4618      	mov	r0, r3
+  30:	3708      	adds	r7, #8
+  32:	46bd      	mov	sp, r7
+  34:	bd80      	pop	{r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseImSaImEE19_M_get_Tp_allocatorEv:
+
+00000000 <_ZNSt12_Vector_baseImSaImEE19_M_get_Tp_allocatorEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt8_DestroyIPmmEvT_S1_RSaIT0_E:
+
+00000000 <_ZSt8_DestroyIPmmEvT_S1_RSaIT0_E>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	68b9      	ldr	r1, [r7, #8]
+  10:	f7ff fffe 	bl	0 <_ZSt8_DestroyIPmmEvT_S1_RSaIT0_E>
+  14:	3710      	adds	r7, #16
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseI13operand_valueSaIS0_EE12_Vector_implD2Ev:
+
+00000000 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE12_Vector_implD1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE12_Vector_implD1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt12_Vector_baseI13operand_valueSaIS0_EEC2Ev:
+
+00000000 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EEC1Ev>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseI13operand_valueSaIS0_EED2Ev:
+
+00000000 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EED1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681a      	ldr	r2, [r3, #0]
+   c:	687b      	ldr	r3, [r7, #4]
+   e:	689b      	ldr	r3, [r3, #8]
+  10:	4619      	mov	r1, r3
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	681b      	ldr	r3, [r3, #0]
+  16:	1acb      	subs	r3, r1, r3
+  18:	10db      	asrs	r3, r3, #3
+  1a:	6878      	ldr	r0, [r7, #4]
+  1c:	4611      	mov	r1, r2
+  1e:	461a      	mov	r2, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EED1Ev>
+  24:	687b      	ldr	r3, [r7, #4]
+  26:	4618      	mov	r0, r3
+  28:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EED1Ev>
+  2c:	687b      	ldr	r3, [r7, #4]
+  2e:	4618      	mov	r0, r3
+  30:	3708      	adds	r7, #8
+  32:	46bd      	mov	sp, r7
+  34:	bd80      	pop	{r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseI13operand_valueSaIS0_EE19_M_get_Tp_allocatorEv:
+
+00000000 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE19_M_get_Tp_allocatorEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt8_DestroyIP13operand_valueS0_EvT_S2_RSaIT0_E:
+
+00000000 <_ZSt8_DestroyIP13operand_valueS0_EvT_S2_RSaIT0_E>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	68b9      	ldr	r1, [r7, #8]
+  10:	f7ff fffe 	bl	0 <_ZSt8_DestroyIP13operand_valueS0_EvT_S2_RSaIT0_E>
+  14:	3710      	adds	r7, #16
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNKSt6vectorImSaImEE8max_sizeEv:
+
+00000000 <_ZNKSt6vectorImSaImEE8max_sizeEv>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNKSt6vectorImSaImEE8max_sizeEv>
+  10:	4603      	mov	r3, r0
+  12:	4618      	mov	r0, r3
+  14:	f7ff fffe 	bl	0 <_ZNKSt6vectorImSaImEE8max_sizeEv>
+  18:	4603      	mov	r3, r0
+  1a:	4618      	mov	r0, r3
+  1c:	3708      	adds	r7, #8
+  1e:	46bd      	mov	sp, r7
+  20:	bd80      	pop	{r7, pc}
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNKSt6vectorImSaImEE8capacityEv:
+
+00000000 <_ZNKSt6vectorImSaImEE8capacityEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	689b      	ldr	r3, [r3, #8]
+   c:	461a      	mov	r2, r3
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	1ad3      	subs	r3, r2, r3
+  14:	109b      	asrs	r3, r3, #2
+  16:	4618      	mov	r0, r3
+  18:	370c      	adds	r7, #12
+  1a:	46bd      	mov	sp, r7
+  1c:	f85d 7b04 	ldr.w	r7, [sp], #4
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNKSt6vectorImSaImEE4sizeEv:
+
+00000000 <_ZNKSt6vectorImSaImEE4sizeEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	685b      	ldr	r3, [r3, #4]
+   c:	461a      	mov	r2, r3
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	1ad3      	subs	r3, r2, r3
+  14:	109b      	asrs	r3, r3, #2
+  16:	4618      	mov	r0, r3
+  18:	370c      	adds	r7, #12
+  1a:	46bd      	mov	sp, r7
+  1c:	f85d 7b04 	ldr.w	r7, [sp], #4
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text._ZSt32__make_move_if_noexcept_iteratorIPmSt13move_iteratorIS0_EET0_T_:
+
+00000000 <_ZSt32__make_move_if_noexcept_iteratorIPmSt13move_iteratorIS0_EET0_T_>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	f107 030c 	add.w	r3, r7, #12
+   c:	4618      	mov	r0, r3
+   e:	6879      	ldr	r1, [r7, #4]
+  10:	f7ff fffe 	bl	0 <_ZSt32__make_move_if_noexcept_iteratorIPmSt13move_iteratorIS0_EET0_T_>
+  14:	68fb      	ldr	r3, [r7, #12]
+  16:	4618      	mov	r0, r3
+  18:	3710      	adds	r7, #16
+  1a:	46bd      	mov	sp, r7
+  1c:	bd80      	pop	{r7, pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorImSaImEE20_M_allocate_and_copyISt13move_iteratorIPmEEES4_jT_S6_:
+
+00000000 <_ZNSt6vectorImSaImEE20_M_allocate_and_copyISt13move_iteratorIPmEEES4_jT_S6_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	603b      	str	r3, [r7, #0]
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	4618      	mov	r0, r3
+  12:	68b9      	ldr	r1, [r7, #8]
+  14:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE20_M_allocate_and_copyISt13move_iteratorIPmEEES4_jT_S6_>
+  18:	4603      	mov	r3, r0
+  1a:	617b      	str	r3, [r7, #20]
+  1c:	68fb      	ldr	r3, [r7, #12]
+  1e:	4618      	mov	r0, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE20_M_allocate_and_copyISt13move_iteratorIPmEEES4_jT_S6_>
+  24:	4603      	mov	r3, r0
+  26:	6878      	ldr	r0, [r7, #4]
+  28:	6839      	ldr	r1, [r7, #0]
+  2a:	697a      	ldr	r2, [r7, #20]
+  2c:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE20_M_allocate_and_copyISt13move_iteratorIPmEEES4_jT_S6_>
+  30:	697b      	ldr	r3, [r7, #20]
+  32:	e00f      	b.n	54 <_ZNSt6vectorImSaImEE20_M_allocate_and_copyISt13move_iteratorIPmEEES4_jT_S6_+0x54>
+  34:	f7ff fffe 	bl	0 <__cxa_end_catch>
+  38:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  3c:	4603      	mov	r3, r0
+  3e:	4618      	mov	r0, r3
+  40:	f7ff fffe 	bl	0 <__cxa_begin_catch>
+  44:	68fb      	ldr	r3, [r7, #12]
+  46:	4618      	mov	r0, r3
+  48:	6979      	ldr	r1, [r7, #20]
+  4a:	68ba      	ldr	r2, [r7, #8]
+  4c:	f7ff fffe 	bl	0 <_ZNSt6vectorImSaImEE20_M_allocate_and_copyISt13move_iteratorIPmEEES4_jT_S6_>
+  50:	f7ff fffe 	bl	0 <__cxa_rethrow>
+  54:	4618      	mov	r0, r3
+  56:	3718      	adds	r7, #24
+  58:	46bd      	mov	sp, r7
+  5a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmj:
+
+00000000 <_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmj>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68bb      	ldr	r3, [r7, #8]
+   e:	2b00      	cmp	r3, #0
+  10:	d005      	beq.n	1e <_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmj+0x1e>
+  12:	68fb      	ldr	r3, [r7, #12]
+  14:	4618      	mov	r0, r3
+  16:	68b9      	ldr	r1, [r7, #8]
+  18:	687a      	ldr	r2, [r7, #4]
+  1a:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmj>
+  1e:	3710      	adds	r7, #16
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNKSt6vectorI13operand_valueSaIS0_EE8max_sizeEv:
+
+00000000 <_ZNKSt6vectorI13operand_valueSaIS0_EE8max_sizeEv>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE8max_sizeEv>
+  10:	4603      	mov	r3, r0
+  12:	4618      	mov	r0, r3
+  14:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE8max_sizeEv>
+  18:	4603      	mov	r3, r0
+  1a:	4618      	mov	r0, r3
+  1c:	3708      	adds	r7, #8
+  1e:	46bd      	mov	sp, r7
+  20:	bd80      	pop	{r7, pc}
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNKSt6vectorI13operand_valueSaIS0_EE8capacityEv:
+
+00000000 <_ZNKSt6vectorI13operand_valueSaIS0_EE8capacityEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	689b      	ldr	r3, [r3, #8]
+   c:	461a      	mov	r2, r3
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	1ad3      	subs	r3, r2, r3
+  14:	10db      	asrs	r3, r3, #3
+  16:	4618      	mov	r0, r3
+  18:	370c      	adds	r7, #12
+  1a:	46bd      	mov	sp, r7
+  1c:	f85d 7b04 	ldr.w	r7, [sp], #4
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNKSt6vectorI13operand_valueSaIS0_EE4sizeEv:
+
+00000000 <_ZNKSt6vectorI13operand_valueSaIS0_EE4sizeEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	685b      	ldr	r3, [r3, #4]
+   c:	461a      	mov	r2, r3
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	1ad3      	subs	r3, r2, r3
+  14:	10db      	asrs	r3, r3, #3
+  16:	4618      	mov	r0, r3
+  18:	370c      	adds	r7, #12
+  1a:	46bd      	mov	sp, r7
+  1c:	f85d 7b04 	ldr.w	r7, [sp], #4
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text._ZSt32__make_move_if_noexcept_iteratorIP13operand_valueSt13move_iteratorIS1_EET0_T_:
+
+00000000 <_ZSt32__make_move_if_noexcept_iteratorIP13operand_valueSt13move_iteratorIS1_EET0_T_>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	f107 030c 	add.w	r3, r7, #12
+   c:	4618      	mov	r0, r3
+   e:	6879      	ldr	r1, [r7, #4]
+  10:	f7ff fffe 	bl	0 <_ZSt32__make_move_if_noexcept_iteratorIP13operand_valueSt13move_iteratorIS1_EET0_T_>
+  14:	68fb      	ldr	r3, [r7, #12]
+  16:	4618      	mov	r0, r3
+  18:	3710      	adds	r7, #16
+  1a:	46bd      	mov	sp, r7
+  1c:	bd80      	pop	{r7, pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZNSt6vectorI13operand_valueSaIS0_EE20_M_allocate_and_copyISt13move_iteratorIPS0_EEES5_jT_S7_:
+
+00000000 <_ZNSt6vectorI13operand_valueSaIS0_EE20_M_allocate_and_copyISt13move_iteratorIPS0_EEES5_jT_S7_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	603b      	str	r3, [r7, #0]
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	4618      	mov	r0, r3
+  12:	68b9      	ldr	r1, [r7, #8]
+  14:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE20_M_allocate_and_copyISt13move_iteratorIPS0_EEES5_jT_S7_>
+  18:	4603      	mov	r3, r0
+  1a:	617b      	str	r3, [r7, #20]
+  1c:	68fb      	ldr	r3, [r7, #12]
+  1e:	4618      	mov	r0, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE20_M_allocate_and_copyISt13move_iteratorIPS0_EEES5_jT_S7_>
+  24:	4603      	mov	r3, r0
+  26:	6878      	ldr	r0, [r7, #4]
+  28:	6839      	ldr	r1, [r7, #0]
+  2a:	697a      	ldr	r2, [r7, #20]
+  2c:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE20_M_allocate_and_copyISt13move_iteratorIPS0_EEES5_jT_S7_>
+  30:	697b      	ldr	r3, [r7, #20]
+  32:	e00f      	b.n	54 <_ZNSt6vectorI13operand_valueSaIS0_EE20_M_allocate_and_copyISt13move_iteratorIPS0_EEES5_jT_S7_+0x54>
+  34:	f7ff fffe 	bl	0 <__cxa_end_catch>
+  38:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  3c:	4603      	mov	r3, r0
+  3e:	4618      	mov	r0, r3
+  40:	f7ff fffe 	bl	0 <__cxa_begin_catch>
+  44:	68fb      	ldr	r3, [r7, #12]
+  46:	4618      	mov	r0, r3
+  48:	6979      	ldr	r1, [r7, #20]
+  4a:	68ba      	ldr	r2, [r7, #8]
+  4c:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE20_M_allocate_and_copyISt13move_iteratorIPS0_EEES5_jT_S7_>
+  50:	f7ff fffe 	bl	0 <__cxa_rethrow>
+  54:	4618      	mov	r0, r3
+  56:	3718      	adds	r7, #24
+  58:	46bd      	mov	sp, r7
+  5a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt12_Vector_baseI13operand_valueSaIS0_EE13_M_deallocateEPS0_j:
+
+00000000 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE13_M_deallocateEPS0_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68bb      	ldr	r3, [r7, #8]
+   e:	2b00      	cmp	r3, #0
+  10:	d005      	beq.n	1e <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE13_M_deallocateEPS0_j+0x1e>
+  12:	68fb      	ldr	r3, [r7, #12]
+  14:	4618      	mov	r0, r3
+  16:	68b9      	ldr	r1, [r7, #8]
+  18:	687a      	ldr	r2, [r7, #4]
+  1a:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE13_M_deallocateEPS0_j>
+  1e:	3710      	adds	r7, #16
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implD2Ev:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implD1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implD1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EEC2Ev:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1Ev>
+  10:	6878      	ldr	r0, [r7, #4]
+  12:	2100      	movs	r1, #0
+  14:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1Ev>
+  18:	687b      	ldr	r3, [r7, #4]
+  1a:	e005      	b.n	28 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1Ev+0x28>
+  1c:	687b      	ldr	r3, [r7, #4]
+  1e:	4618      	mov	r0, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1Ev>
+  24:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  28:	4618      	mov	r0, r3
+  2a:	3708      	adds	r7, #8
+  2c:	46bd      	mov	sp, r7
+  2e:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EED2Ev:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EED1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	2b00      	cmp	r3, #0
+   e:	d012      	beq.n	36 <_ZNSt11_Deque_baseIP5FrameSaIS1_EED1Ev+0x36>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	695a      	ldr	r2, [r3, #20]
+  14:	687b      	ldr	r3, [r7, #4]
+  16:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  18:	3304      	adds	r3, #4
+  1a:	6878      	ldr	r0, [r7, #4]
+  1c:	4611      	mov	r1, r2
+  1e:	461a      	mov	r2, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EED1Ev>
+  24:	687b      	ldr	r3, [r7, #4]
+  26:	681a      	ldr	r2, [r3, #0]
+  28:	687b      	ldr	r3, [r7, #4]
+  2a:	685b      	ldr	r3, [r3, #4]
+  2c:	6878      	ldr	r0, [r7, #4]
+  2e:	4611      	mov	r1, r2
+  30:	461a      	mov	r2, r3
+  32:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EED1Ev>
+  36:	687b      	ldr	r3, [r7, #4]
+  38:	4618      	mov	r0, r3
+  3a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EED1Ev>
+  3e:	687b      	ldr	r3, [r7, #4]
+  40:	4618      	mov	r0, r3
+  42:	3708      	adds	r7, #8
+  44:	46bd      	mov	sp, r7
+  46:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EE5beginEv:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EE5beginEv>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	3308      	adds	r3, #8
+   e:	6878      	ldr	r0, [r7, #4]
+  10:	4619      	mov	r1, r3
+  12:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE5beginEv>
+  16:	6878      	ldr	r0, [r7, #4]
+  18:	3708      	adds	r7, #8
+  1a:	46bd      	mov	sp, r7
+  1c:	bd80      	pop	{r7, pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EE3endEv:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EE3endEv>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	3318      	adds	r3, #24
+   e:	6878      	ldr	r0, [r7, #4]
+  10:	4619      	mov	r1, r3
+  12:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE3endEv>
+  16:	6878      	ldr	r0, [r7, #4]
+  18:	3708      	adds	r7, #8
+  1a:	46bd      	mov	sp, r7
+  1c:	bd80      	pop	{r7, pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE19_M_get_Tp_allocatorEv:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE19_M_get_Tp_allocatorEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt15_Deque_iteratorIP5FrameRS1_PS1_EC2ERKS4_:
+
+00000000 <_ZNSt15_Deque_iteratorIP5FrameRS1_PS1_EC1ERKS4_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	601a      	str	r2, [r3, #0]
+  12:	683b      	ldr	r3, [r7, #0]
+  14:	685a      	ldr	r2, [r3, #4]
+  16:	687b      	ldr	r3, [r7, #4]
+  18:	605a      	str	r2, [r3, #4]
+  1a:	683b      	ldr	r3, [r7, #0]
+  1c:	689a      	ldr	r2, [r3, #8]
+  1e:	687b      	ldr	r3, [r7, #4]
+  20:	609a      	str	r2, [r3, #8]
+  22:	683b      	ldr	r3, [r7, #0]
+  24:	68da      	ldr	r2, [r3, #12]
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	60da      	str	r2, [r3, #12]
+  2a:	687b      	ldr	r3, [r7, #4]
+  2c:	4618      	mov	r0, r3
+  2e:	370c      	adds	r7, #12
+  30:	46bd      	mov	sp, r7
+  32:	f85d 7b04 	ldr.w	r7, [sp], #4
+  36:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EE15_M_destroy_dataESt15_Deque_iteratorIS1_RS1_PS1_ES7_RKS2_>:
+   0:	b480      	push	{r7}
+   2:	b08d      	sub	sp, #52	; 0x34
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	603b      	str	r3, [r7, #0]
+   e:	3734      	adds	r7, #52	; 0x34
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EEC2EOS3_:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EEC1EOS3_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687c      	ldr	r4, [r7, #4]
+   c:	6838      	ldr	r0, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EEC1EOS3_>
+  12:	4603      	mov	r3, r0
+  14:	4620      	mov	r0, r4
+  16:	4619      	mov	r1, r3
+  18:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EEC1EOS3_>
+  1c:	687b      	ldr	r3, [r7, #4]
+  1e:	4618      	mov	r0, r3
+  20:	370c      	adds	r7, #12
+  22:	46bd      	mov	sp, r7
+  24:	bd90      	pop	{r4, r7, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text._ZNKSt6vectorIcSaIcEE11_M_data_ptrIcEEPT_S4_:
+
+00000000 <_ZNKSt6vectorIcSaIcEE11_M_data_ptrIcEEPT_S4_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EE9push_backERKS1_:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EE9push_backERKS1_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	699a      	ldr	r2, [r3, #24]
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	6a1b      	ldr	r3, [r3, #32]
+  12:	3b04      	subs	r3, #4
+  14:	429a      	cmp	r2, r3
+  16:	d00d      	beq.n	34 <_ZNSt5dequeIP5FrameSaIS1_EE9push_backERKS1_+0x34>
+  18:	687a      	ldr	r2, [r7, #4]
+  1a:	687b      	ldr	r3, [r7, #4]
+  1c:	699b      	ldr	r3, [r3, #24]
+  1e:	4610      	mov	r0, r2
+  20:	4619      	mov	r1, r3
+  22:	683a      	ldr	r2, [r7, #0]
+  24:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE9push_backERKS1_>
+  28:	687b      	ldr	r3, [r7, #4]
+  2a:	699b      	ldr	r3, [r3, #24]
+  2c:	1d1a      	adds	r2, r3, #4
+  2e:	687b      	ldr	r3, [r7, #4]
+  30:	619a      	str	r2, [r3, #24]
+  32:	e003      	b.n	3c <_ZNSt5dequeIP5FrameSaIS1_EE9push_backERKS1_+0x3c>
+  34:	6878      	ldr	r0, [r7, #4]
+  36:	6839      	ldr	r1, [r7, #0]
+  38:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE9push_backERKS1_>
+  3c:	3708      	adds	r7, #8
+  3e:	46bd      	mov	sp, r7
+  40:	bd80      	pop	{r7, pc}
+  42:	bf00      	nop
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE9constructIS0_IRKS0_EEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS1_PT_DpOS6_:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE9constructIS0_IRKS0_EEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS1_PT_DpOS6_>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	6878      	ldr	r0, [r7, #4]
+   e:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE9constructIS0_IRKS0_EEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS1_PT_DpOS6_>
+  12:	4603      	mov	r3, r0
+  14:	68f8      	ldr	r0, [r7, #12]
+  16:	68b9      	ldr	r1, [r7, #8]
+  18:	461a      	mov	r2, r3
+  1a:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE9constructIS0_IRKS0_EEEDTcl12_S_constructfp_fp0_spcl7forwardIT0_Efp1_EEERS1_PT_DpOS6_>
+  1e:	3710      	adds	r7, #16
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_:
+
+00000000 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	2101      	movs	r1, #1
+   e:	f240 0200 	movw	r2, #0
+  12:	f2c0 0200 	movt	r2, #0
+  16:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  1a:	4603      	mov	r3, r0
+  1c:	613b      	str	r3, [r7, #16]
+  1e:	687b      	ldr	r3, [r7, #4]
+  20:	4618      	mov	r0, r3
+  22:	6939      	ldr	r1, [r7, #16]
+  24:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  28:	4603      	mov	r3, r0
+  2a:	60fb      	str	r3, [r7, #12]
+  2c:	68fb      	ldr	r3, [r7, #12]
+  2e:	617b      	str	r3, [r7, #20]
+  30:	687d      	ldr	r5, [r7, #4]
+  32:	6878      	ldr	r0, [r7, #4]
+  34:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  38:	4603      	mov	r3, r0
+  3a:	00db      	lsls	r3, r3, #3
+  3c:	68fa      	ldr	r2, [r7, #12]
+  3e:	18d4      	adds	r4, r2, r3
+  40:	6838      	ldr	r0, [r7, #0]
+  42:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  46:	4603      	mov	r3, r0
+  48:	4628      	mov	r0, r5
+  4a:	4621      	mov	r1, r4
+  4c:	461a      	mov	r2, r3
+  4e:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  52:	2300      	movs	r3, #0
+  54:	617b      	str	r3, [r7, #20]
+  56:	687b      	ldr	r3, [r7, #4]
+  58:	681d      	ldr	r5, [r3, #0]
+  5a:	687b      	ldr	r3, [r7, #4]
+  5c:	685c      	ldr	r4, [r3, #4]
+  5e:	687b      	ldr	r3, [r7, #4]
+  60:	4618      	mov	r0, r3
+  62:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  66:	4603      	mov	r3, r0
+  68:	4628      	mov	r0, r5
+  6a:	4621      	mov	r1, r4
+  6c:	68fa      	ldr	r2, [r7, #12]
+  6e:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  72:	4603      	mov	r3, r0
+  74:	617b      	str	r3, [r7, #20]
+  76:	697b      	ldr	r3, [r7, #20]
+  78:	3308      	adds	r3, #8
+  7a:	617b      	str	r3, [r7, #20]
+  7c:	687b      	ldr	r3, [r7, #4]
+  7e:	681d      	ldr	r5, [r3, #0]
+  80:	687b      	ldr	r3, [r7, #4]
+  82:	685c      	ldr	r4, [r3, #4]
+  84:	687b      	ldr	r3, [r7, #4]
+  86:	4618      	mov	r0, r3
+  88:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  8c:	4603      	mov	r3, r0
+  8e:	4628      	mov	r0, r5
+  90:	4621      	mov	r1, r4
+  92:	461a      	mov	r2, r3
+  94:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  98:	6879      	ldr	r1, [r7, #4]
+  9a:	687b      	ldr	r3, [r7, #4]
+  9c:	681a      	ldr	r2, [r3, #0]
+  9e:	687b      	ldr	r3, [r7, #4]
+  a0:	689b      	ldr	r3, [r3, #8]
+  a2:	4618      	mov	r0, r3
+  a4:	687b      	ldr	r3, [r7, #4]
+  a6:	681b      	ldr	r3, [r3, #0]
+  a8:	1ac3      	subs	r3, r0, r3
+  aa:	10db      	asrs	r3, r3, #3
+  ac:	4608      	mov	r0, r1
+  ae:	4611      	mov	r1, r2
+  b0:	461a      	mov	r2, r3
+  b2:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  b6:	687b      	ldr	r3, [r7, #4]
+  b8:	68fa      	ldr	r2, [r7, #12]
+  ba:	601a      	str	r2, [r3, #0]
+  bc:	687b      	ldr	r3, [r7, #4]
+  be:	697a      	ldr	r2, [r7, #20]
+  c0:	605a      	str	r2, [r3, #4]
+  c2:	693b      	ldr	r3, [r7, #16]
+  c4:	00db      	lsls	r3, r3, #3
+  c6:	68fa      	ldr	r2, [r7, #12]
+  c8:	441a      	add	r2, r3
+  ca:	687b      	ldr	r3, [r7, #4]
+  cc:	609a      	str	r2, [r3, #8]
+  ce:	e029      	b.n	124 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_+0x124>
+  d0:	f7ff fffe 	bl	0 <__cxa_end_catch>
+  d4:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  d8:	4603      	mov	r3, r0
+  da:	4618      	mov	r0, r3
+  dc:	f7ff fffe 	bl	0 <__cxa_begin_catch>
+  e0:	697b      	ldr	r3, [r7, #20]
+  e2:	2b00      	cmp	r3, #0
+  e4:	d10c      	bne.n	100 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_+0x100>
+  e6:	687c      	ldr	r4, [r7, #4]
+  e8:	6878      	ldr	r0, [r7, #4]
+  ea:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  ee:	4603      	mov	r3, r0
+  f0:	00db      	lsls	r3, r3, #3
+  f2:	68fa      	ldr	r2, [r7, #12]
+  f4:	4413      	add	r3, r2
+  f6:	4620      	mov	r0, r4
+  f8:	4619      	mov	r1, r3
+  fa:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+  fe:	e009      	b.n	114 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_+0x114>
+ 100:	687b      	ldr	r3, [r7, #4]
+ 102:	4618      	mov	r0, r3
+ 104:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+ 108:	4603      	mov	r3, r0
+ 10a:	68f8      	ldr	r0, [r7, #12]
+ 10c:	6979      	ldr	r1, [r7, #20]
+ 10e:	461a      	mov	r2, r3
+ 110:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+ 114:	687b      	ldr	r3, [r7, #4]
+ 116:	4618      	mov	r0, r3
+ 118:	68f9      	ldr	r1, [r7, #12]
+ 11a:	693a      	ldr	r2, [r7, #16]
+ 11c:	f7ff fffe 	bl	0 <_ZNSt6vectorI13operand_valueSaIS0_EE19_M_emplace_back_auxIIRKS0_EEEvDpOT_>
+ 120:	f7ff fffe 	bl	0 <__cxa_rethrow>
+ 124:	3718      	adds	r7, #24
+ 126:	46bd      	mov	sp, r7
+ 128:	bdb0      	pop	{r4, r5, r7, pc}
+ 12a:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseImSaImEE12_Vector_implC2Ev:
+
+00000000 <_ZNSt12_Vector_baseImSaImEE12_Vector_implC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseImSaImEE12_Vector_implC1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	2200      	movs	r2, #0
+  12:	601a      	str	r2, [r3, #0]
+  14:	687b      	ldr	r3, [r7, #4]
+  16:	2200      	movs	r2, #0
+  18:	605a      	str	r2, [r3, #4]
+  1a:	687b      	ldr	r3, [r7, #4]
+  1c:	2200      	movs	r2, #0
+  1e:	609a      	str	r2, [r3, #8]
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	4618      	mov	r0, r3
+  24:	3708      	adds	r7, #8
+  26:	46bd      	mov	sp, r7
+  28:	bd80      	pop	{r7, pc}
+  2a:	bf00      	nop
+
+Disassembly of section .text._ZNSaImED2Ev:
+
+00000000 <_ZNSaImED1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSaImED1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt8_DestroyIPmEvT_S1_:
+
+00000000 <_ZSt8_DestroyIPmEvT_S1_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZSt8_DestroyIPmEvT_S1_>
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt12_Vector_baseI13operand_valueSaIS0_EE12_Vector_implC2Ev:
+
+00000000 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE12_Vector_implC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE12_Vector_implC1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	2200      	movs	r2, #0
+  12:	601a      	str	r2, [r3, #0]
+  14:	687b      	ldr	r3, [r7, #4]
+  16:	2200      	movs	r2, #0
+  18:	605a      	str	r2, [r3, #4]
+  1a:	687b      	ldr	r3, [r7, #4]
+  1c:	2200      	movs	r2, #0
+  1e:	609a      	str	r2, [r3, #8]
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	4618      	mov	r0, r3
+  24:	3708      	adds	r7, #8
+  26:	46bd      	mov	sp, r7
+  28:	bd80      	pop	{r7, pc}
+  2a:	bf00      	nop
+
+Disassembly of section .text._ZNSaI13operand_valueED2Ev:
+
+00000000 <_ZNSaI13operand_valueED1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSaI13operand_valueED1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt8_DestroyIP13operand_valueEvT_S2_:
+
+00000000 <_ZSt8_DestroyIP13operand_valueEvT_S2_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZSt8_DestroyIP13operand_valueEvT_S2_>
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt16allocator_traitsISaImEE8max_sizeERKS0_:
+
+00000000 <_ZNSt16allocator_traitsISaImEE8max_sizeERKS0_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	2100      	movs	r1, #0
+   c:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaImEE8max_sizeERKS0_>
+  10:	4603      	mov	r3, r0
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNKSt12_Vector_baseImSaImEE19_M_get_Tp_allocatorEv:
+
+00000000 <_ZNKSt12_Vector_baseImSaImEE19_M_get_Tp_allocatorEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt13move_iteratorIPmEC2ES0_:
+
+00000000 <_ZNSt13move_iteratorIPmEC1ES0_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	683a      	ldr	r2, [r7, #0]
+   e:	601a      	str	r2, [r3, #0]
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	370c      	adds	r7, #12
+  16:	46bd      	mov	sp, r7
+  18:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseImSaImEE11_M_allocateEj:
+
+00000000 <_ZNSt12_Vector_baseImSaImEE11_M_allocateEj>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	2b00      	cmp	r3, #0
+   e:	d006      	beq.n	1e <_ZNSt12_Vector_baseImSaImEE11_M_allocateEj+0x1e>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	6839      	ldr	r1, [r7, #0]
+  16:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseImSaImEE11_M_allocateEj>
+  1a:	4603      	mov	r3, r0
+  1c:	e000      	b.n	20 <_ZNSt12_Vector_baseImSaImEE11_M_allocateEj+0x20>
+  1e:	2300      	movs	r3, #0
+  20:	4618      	mov	r0, r3
+  22:	3708      	adds	r7, #8
+  24:	46bd      	mov	sp, r7
+  26:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt22__uninitialized_copy_aISt13move_iteratorIPmES1_mET0_T_S4_S3_RSaIT1_E:
+
+00000000 <_ZSt22__uninitialized_copy_aISt13move_iteratorIPmES1_mET0_T_S4_S3_RSaIT1_E>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	603b      	str	r3, [r7, #0]
+   e:	68f8      	ldr	r0, [r7, #12]
+  10:	68b9      	ldr	r1, [r7, #8]
+  12:	687a      	ldr	r2, [r7, #4]
+  14:	f7ff fffe 	bl	0 <_ZSt22__uninitialized_copy_aISt13move_iteratorIPmES1_mET0_T_S4_S3_RSaIT1_E>
+  18:	4603      	mov	r3, r0
+  1a:	4618      	mov	r0, r3
+  1c:	3710      	adds	r7, #16
+  1e:	46bd      	mov	sp, r7
+  20:	bd80      	pop	{r7, pc}
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNSt16allocator_traitsISaImEE10deallocateERS0_Pmj:
+
+00000000 <_ZNSt16allocator_traitsISaImEE10deallocateERS0_Pmj>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	68b9      	ldr	r1, [r7, #8]
+  10:	687a      	ldr	r2, [r7, #4]
+  12:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaImEE10deallocateERS0_Pmj>
+  16:	3710      	adds	r7, #16
+  18:	46bd      	mov	sp, r7
+  1a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE8max_sizeERKS1_:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE8max_sizeERKS1_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	2100      	movs	r1, #0
+   c:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE8max_sizeERKS1_>
+  10:	4603      	mov	r3, r0
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNKSt12_Vector_baseI13operand_valueSaIS0_EE19_M_get_Tp_allocatorEv:
+
+00000000 <_ZNKSt12_Vector_baseI13operand_valueSaIS0_EE19_M_get_Tp_allocatorEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt13move_iteratorIP13operand_valueEC2ES1_:
+
+00000000 <_ZNSt13move_iteratorIP13operand_valueEC1ES1_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	683a      	ldr	r2, [r7, #0]
+   e:	601a      	str	r2, [r3, #0]
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	370c      	adds	r7, #12
+  16:	46bd      	mov	sp, r7
+  18:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Vector_baseI13operand_valueSaIS0_EE11_M_allocateEj:
+
+00000000 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE11_M_allocateEj>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	2b00      	cmp	r3, #0
+   e:	d006      	beq.n	1e <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE11_M_allocateEj+0x1e>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	6839      	ldr	r1, [r7, #0]
+  16:	f7ff fffe 	bl	0 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE11_M_allocateEj>
+  1a:	4603      	mov	r3, r0
+  1c:	e000      	b.n	20 <_ZNSt12_Vector_baseI13operand_valueSaIS0_EE11_M_allocateEj+0x20>
+  1e:	2300      	movs	r3, #0
+  20:	4618      	mov	r0, r3
+  22:	3708      	adds	r7, #8
+  24:	46bd      	mov	sp, r7
+  26:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt22__uninitialized_copy_aISt13move_iteratorIP13operand_valueES2_S1_ET0_T_S5_S4_RSaIT1_E:
+
+00000000 <_ZSt22__uninitialized_copy_aISt13move_iteratorIP13operand_valueES2_S1_ET0_T_S5_S4_RSaIT1_E>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	603b      	str	r3, [r7, #0]
+   e:	68f8      	ldr	r0, [r7, #12]
+  10:	68b9      	ldr	r1, [r7, #8]
+  12:	687a      	ldr	r2, [r7, #4]
+  14:	f7ff fffe 	bl	0 <_ZSt22__uninitialized_copy_aISt13move_iteratorIP13operand_valueES2_S1_ET0_T_S5_S4_RSaIT1_E>
+  18:	4603      	mov	r3, r0
+  1a:	4618      	mov	r0, r3
+  1c:	3710      	adds	r7, #16
+  1e:	46bd      	mov	sp, r7
+  20:	bd80      	pop	{r7, pc}
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE10deallocateERS1_PS0_j:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE10deallocateERS1_PS0_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	68b9      	ldr	r1, [r7, #8]
+  10:	687a      	ldr	r2, [r7, #4]
+  12:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE10deallocateERS1_PS0_j>
+  16:	3710      	adds	r7, #16
+  18:	46bd      	mov	sp, r7
+  1a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC2Ev:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	2200      	movs	r2, #0
+  12:	601a      	str	r2, [r3, #0]
+  14:	687b      	ldr	r3, [r7, #4]
+  16:	2200      	movs	r2, #0
+  18:	605a      	str	r2, [r3, #4]
+  1a:	687b      	ldr	r3, [r7, #4]
+  1c:	3308      	adds	r3, #8
+  1e:	4618      	mov	r0, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1Ev>
+  24:	687b      	ldr	r3, [r7, #4]
+  26:	3318      	adds	r3, #24
+  28:	4618      	mov	r0, r3
+  2a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1Ev>
+  2e:	687b      	ldr	r3, [r7, #4]
+  30:	4618      	mov	r0, r3
+  32:	3708      	adds	r7, #8
+  34:	46bd      	mov	sp, r7
+  36:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSaIP5FrameED2Ev:
+
+00000000 <_ZNSaIP5FrameED1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSaIP5FrameED1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b089      	sub	sp, #36	; 0x24
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	2004      	movs	r0, #4
+   c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  10:	4603      	mov	r3, r0
+  12:	6838      	ldr	r0, [r7, #0]
+  14:	4619      	mov	r1, r3
+  16:	f7ff fffe 	bl	0 <__aeabi_uidiv>
+  1a:	4603      	mov	r3, r0
+  1c:	3301      	adds	r3, #1
+  1e:	61fb      	str	r3, [r7, #28]
+  20:	2308      	movs	r3, #8
+  22:	60fb      	str	r3, [r7, #12]
+  24:	69fb      	ldr	r3, [r7, #28]
+  26:	3302      	adds	r3, #2
+  28:	613b      	str	r3, [r7, #16]
+  2a:	f107 020c 	add.w	r2, r7, #12
+  2e:	f107 0310 	add.w	r3, r7, #16
+  32:	4610      	mov	r0, r2
+  34:	4619      	mov	r1, r3
+  36:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  3a:	4603      	mov	r3, r0
+  3c:	681a      	ldr	r2, [r3, #0]
+  3e:	687b      	ldr	r3, [r7, #4]
+  40:	605a      	str	r2, [r3, #4]
+  42:	687b      	ldr	r3, [r7, #4]
+  44:	685b      	ldr	r3, [r3, #4]
+  46:	6878      	ldr	r0, [r7, #4]
+  48:	4619      	mov	r1, r3
+  4a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  4e:	4602      	mov	r2, r0
+  50:	687b      	ldr	r3, [r7, #4]
+  52:	601a      	str	r2, [r3, #0]
+  54:	687b      	ldr	r3, [r7, #4]
+  56:	681a      	ldr	r2, [r3, #0]
+  58:	687b      	ldr	r3, [r7, #4]
+  5a:	6859      	ldr	r1, [r3, #4]
+  5c:	69fb      	ldr	r3, [r7, #28]
+  5e:	1acb      	subs	r3, r1, r3
+  60:	085b      	lsrs	r3, r3, #1
+  62:	009b      	lsls	r3, r3, #2
+  64:	4413      	add	r3, r2
+  66:	61bb      	str	r3, [r7, #24]
+  68:	69fb      	ldr	r3, [r7, #28]
+  6a:	009b      	lsls	r3, r3, #2
+  6c:	69ba      	ldr	r2, [r7, #24]
+  6e:	4413      	add	r3, r2
+  70:	617b      	str	r3, [r7, #20]
+  72:	6878      	ldr	r0, [r7, #4]
+  74:	69b9      	ldr	r1, [r7, #24]
+  76:	697a      	ldr	r2, [r7, #20]
+  78:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  7c:	687b      	ldr	r3, [r7, #4]
+  7e:	3308      	adds	r3, #8
+  80:	4618      	mov	r0, r3
+  82:	69b9      	ldr	r1, [r7, #24]
+  84:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  88:	687b      	ldr	r3, [r7, #4]
+  8a:	f103 0218 	add.w	r2, r3, #24
+  8e:	697b      	ldr	r3, [r7, #20]
+  90:	3b04      	subs	r3, #4
+  92:	4610      	mov	r0, r2
+  94:	4619      	mov	r1, r3
+  96:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  9a:	687b      	ldr	r3, [r7, #4]
+  9c:	68da      	ldr	r2, [r3, #12]
+  9e:	687b      	ldr	r3, [r7, #4]
+  a0:	609a      	str	r2, [r3, #8]
+  a2:	687b      	ldr	r3, [r7, #4]
+  a4:	69dc      	ldr	r4, [r3, #28]
+  a6:	2004      	movs	r0, #4
+  a8:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  ac:	4602      	mov	r2, r0
+  ae:	683b      	ldr	r3, [r7, #0]
+  b0:	4618      	mov	r0, r3
+  b2:	4611      	mov	r1, r2
+  b4:	f7ff fffe 	bl	0 <__aeabi_uidivmod>
+  b8:	460b      	mov	r3, r1
+  ba:	009b      	lsls	r3, r3, #2
+  bc:	18e2      	adds	r2, r4, r3
+  be:	687b      	ldr	r3, [r7, #4]
+  c0:	619a      	str	r2, [r3, #24]
+  c2:	e018      	b.n	f6 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj+0xf6>
+  c4:	f7ff fffe 	bl	0 <__cxa_end_catch>
+  c8:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  cc:	4603      	mov	r3, r0
+  ce:	4618      	mov	r0, r3
+  d0:	f7ff fffe 	bl	0 <__cxa_begin_catch>
+  d4:	687b      	ldr	r3, [r7, #4]
+  d6:	681a      	ldr	r2, [r3, #0]
+  d8:	687b      	ldr	r3, [r7, #4]
+  da:	685b      	ldr	r3, [r3, #4]
+  dc:	6878      	ldr	r0, [r7, #4]
+  de:	4611      	mov	r1, r2
+  e0:	461a      	mov	r2, r3
+  e2:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_initialize_mapEj>
+  e6:	687b      	ldr	r3, [r7, #4]
+  e8:	2200      	movs	r2, #0
+  ea:	601a      	str	r2, [r3, #0]
+  ec:	687b      	ldr	r3, [r7, #4]
+  ee:	2200      	movs	r2, #0
+  f0:	605a      	str	r2, [r3, #4]
+  f2:	f7ff fffe 	bl	0 <__cxa_rethrow>
+  f6:	3724      	adds	r7, #36	; 0x24
+  f8:	46bd      	mov	sp, r7
+  fa:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_destroy_nodesEPPS1_S5_:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_destroy_nodesEPPS1_S5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68bb      	ldr	r3, [r7, #8]
+   e:	617b      	str	r3, [r7, #20]
+  10:	e008      	b.n	24 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_destroy_nodesEPPS1_S5_+0x24>
+  12:	697b      	ldr	r3, [r7, #20]
+  14:	681b      	ldr	r3, [r3, #0]
+  16:	68f8      	ldr	r0, [r7, #12]
+  18:	4619      	mov	r1, r3
+  1a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_destroy_nodesEPPS1_S5_>
+  1e:	697b      	ldr	r3, [r7, #20]
+  20:	3304      	adds	r3, #4
+  22:	617b      	str	r3, [r7, #20]
+  24:	697a      	ldr	r2, [r7, #20]
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	429a      	cmp	r2, r3
+  2a:	d3f2      	bcc.n	12 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_destroy_nodesEPPS1_S5_+0x12>
+  2c:	3718      	adds	r7, #24
+  2e:	46bd      	mov	sp, r7
+  30:	bd80      	pop	{r7, pc}
+  32:	bf00      	nop
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_deallocate_mapEPPS1_j:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_deallocate_mapEPPS1_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	f107 0314 	add.w	r3, r7, #20
+  10:	4618      	mov	r0, r3
+  12:	68f9      	ldr	r1, [r7, #12]
+  14:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_deallocate_mapEPPS1_j>
+  18:	f107 0314 	add.w	r3, r7, #20
+  1c:	4618      	mov	r0, r3
+  1e:	68b9      	ldr	r1, [r7, #8]
+  20:	687a      	ldr	r2, [r7, #4]
+  22:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_deallocate_mapEPPS1_j>
+  26:	f107 0314 	add.w	r3, r7, #20
+  2a:	4618      	mov	r0, r3
+  2c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE17_M_deallocate_mapEPPS1_j>
+  30:	3718      	adds	r7, #24
+  32:	46bd      	mov	sp, r7
+  34:	bd80      	pop	{r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text._ZSt4moveIRSaIP5FrameEEONSt16remove_referenceIT_E4typeEOS5_:
+
+00000000 <_ZSt4moveIRSaIP5FrameEEONSt16remove_referenceIT_E4typeEOS5_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EEC2EOS3_:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687c      	ldr	r4, [r7, #4]
+   c:	6838      	ldr	r0, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  12:	4603      	mov	r3, r0
+  14:	4618      	mov	r0, r3
+  16:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  1a:	4603      	mov	r3, r0
+  1c:	4620      	mov	r0, r4
+  1e:	4619      	mov	r1, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  24:	6878      	ldr	r0, [r7, #4]
+  26:	2100      	movs	r1, #0
+  28:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  2c:	683b      	ldr	r3, [r7, #0]
+  2e:	681b      	ldr	r3, [r3, #0]
+  30:	2b00      	cmp	r3, #0
+  32:	d01f      	beq.n	74 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_+0x74>
+  34:	687b      	ldr	r3, [r7, #4]
+  36:	f103 0208 	add.w	r2, r3, #8
+  3a:	683b      	ldr	r3, [r7, #0]
+  3c:	3308      	adds	r3, #8
+  3e:	4610      	mov	r0, r2
+  40:	4619      	mov	r1, r3
+  42:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  46:	687b      	ldr	r3, [r7, #4]
+  48:	f103 0218 	add.w	r2, r3, #24
+  4c:	683b      	ldr	r3, [r7, #0]
+  4e:	3318      	adds	r3, #24
+  50:	4610      	mov	r0, r2
+  52:	4619      	mov	r1, r3
+  54:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  58:	687a      	ldr	r2, [r7, #4]
+  5a:	683b      	ldr	r3, [r7, #0]
+  5c:	4610      	mov	r0, r2
+  5e:	4619      	mov	r1, r3
+  60:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  64:	687b      	ldr	r3, [r7, #4]
+  66:	1d1a      	adds	r2, r3, #4
+  68:	683b      	ldr	r3, [r7, #0]
+  6a:	3304      	adds	r3, #4
+  6c:	4610      	mov	r0, r2
+  6e:	4619      	mov	r1, r3
+  70:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  74:	687b      	ldr	r3, [r7, #4]
+  76:	e005      	b.n	84 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_+0x84>
+  78:	687b      	ldr	r3, [r7, #4]
+  7a:	4618      	mov	r0, r3
+  7c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EEC1EOS3_>
+  80:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  84:	4618      	mov	r0, r3
+  86:	370c      	adds	r7, #12
+  88:	46bd      	mov	sp, r7
+  8a:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZSt7forwardIRKP5FrameEOT_RNSt16remove_referenceIS4_E4typeE:
+
+00000000 <_ZSt7forwardIRKP5FrameEOT_RNSt16remove_referenceIS4_E4typeE>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIP5FrameE9constructIS2_IRKS2_EEEvPT_DpOT0_:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIP5FrameE9constructIS2_IRKS2_EEEvPT_DpOT0_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	6878      	ldr	r0, [r7, #4]
+   e:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorIP5FrameE9constructIS2_IRKS2_EEEvPT_DpOT0_>
+  12:	4603      	mov	r3, r0
+  14:	681c      	ldr	r4, [r3, #0]
+  16:	68bb      	ldr	r3, [r7, #8]
+  18:	2004      	movs	r0, #4
+  1a:	4619      	mov	r1, r3
+  1c:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorIP5FrameE9constructIS2_IRKS2_EEEvPT_DpOT0_>
+  20:	4603      	mov	r3, r0
+  22:	2b00      	cmp	r3, #0
+  24:	d000      	beq.n	28 <_ZN9__gnu_cxx13new_allocatorIP5FrameE9constructIS2_IRKS2_EEEvPT_DpOT0_+0x28>
+  26:	601c      	str	r4, [r3, #0]
+  28:	3714      	adds	r7, #20
+  2a:	46bd      	mov	sp, r7
+  2c:	bd90      	pop	{r4, r7, pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EE16_M_push_back_auxIIRKS1_EEEvDpOT_:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EE16_M_push_back_auxIIRKS1_EEEvDpOT_>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	2101      	movs	r1, #1
+   e:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE16_M_push_back_auxIIRKS1_EEEvDpOT_>
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  16:	1d1c      	adds	r4, r3, #4
+  18:	687b      	ldr	r3, [r7, #4]
+  1a:	4618      	mov	r0, r3
+  1c:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE16_M_push_back_auxIIRKS1_EEEvDpOT_>
+  20:	4603      	mov	r3, r0
+  22:	6023      	str	r3, [r4, #0]
+  24:	687d      	ldr	r5, [r7, #4]
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	699c      	ldr	r4, [r3, #24]
+  2a:	6838      	ldr	r0, [r7, #0]
+  2c:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE16_M_push_back_auxIIRKS1_EEEvDpOT_>
+  30:	4603      	mov	r3, r0
+  32:	4628      	mov	r0, r5
+  34:	4621      	mov	r1, r4
+  36:	461a      	mov	r2, r3
+  38:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE16_M_push_back_auxIIRKS1_EEEvDpOT_>
+  3c:	687b      	ldr	r3, [r7, #4]
+  3e:	f103 0218 	add.w	r2, r3, #24
+  42:	687b      	ldr	r3, [r7, #4]
+  44:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  46:	3304      	adds	r3, #4
+  48:	4610      	mov	r0, r2
+  4a:	4619      	mov	r1, r3
+  4c:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE16_M_push_back_auxIIRKS1_EEEvDpOT_>
+  50:	687b      	ldr	r3, [r7, #4]
+  52:	69da      	ldr	r2, [r3, #28]
+  54:	687b      	ldr	r3, [r7, #4]
+  56:	619a      	str	r2, [r3, #24]
+  58:	3708      	adds	r7, #8
+  5a:	46bd      	mov	sp, r7
+  5c:	bdb0      	pop	{r4, r5, r7, pc}
+  5e:	bf00      	nop
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE12_S_constructIS0_IRKS0_EEENSt9enable_ifIXsrSt6__and_IINS2_18__construct_helperIT_IDpT0_EE4typeEEE5valueEvE4typeERS1_PS9_DpOSA_:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE12_S_constructIS0_IRKS0_EEENSt9enable_ifIXsrSt6__and_IINS2_18__construct_helperIT_IDpT0_EE4typeEEE5valueEvE4typeERS1_PS9_DpOSA_>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	6878      	ldr	r0, [r7, #4]
+   e:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE12_S_constructIS0_IRKS0_EEENSt9enable_ifIXsrSt6__and_IINS2_18__construct_helperIT_IDpT0_EE4typeEEE5valueEvE4typeERS1_PS9_DpOSA_>
+  12:	4603      	mov	r3, r0
+  14:	68f8      	ldr	r0, [r7, #12]
+  16:	68b9      	ldr	r1, [r7, #8]
+  18:	461a      	mov	r2, r3
+  1a:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE12_S_constructIS0_IRKS0_EEENSt9enable_ifIXsrSt6__and_IINS2_18__construct_helperIT_IDpT0_EE4typeEEE5valueEvE4typeERS1_PS9_DpOSA_>
+  1e:	3710      	adds	r7, #16
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc:
+
+00000000 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b087      	sub	sp, #28
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  12:	4604      	mov	r4, r0
+  14:	68f8      	ldr	r0, [r7, #12]
+  16:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  1a:	4603      	mov	r3, r0
+  1c:	1ae2      	subs	r2, r4, r3
+  1e:	68bb      	ldr	r3, [r7, #8]
+  20:	429a      	cmp	r2, r3
+  22:	bf34      	ite	cc
+  24:	2301      	movcc	r3, #1
+  26:	2300      	movcs	r3, #0
+  28:	b2db      	uxtb	r3, r3
+  2a:	2b00      	cmp	r3, #0
+  2c:	d002      	beq.n	34 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc+0x34>
+  2e:	6878      	ldr	r0, [r7, #4]
+  30:	f7ff fffe 	bl	0 <_ZSt20__throw_length_errorPKc>
+  34:	68f8      	ldr	r0, [r7, #12]
+  36:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  3a:	4604      	mov	r4, r0
+  3c:	68f8      	ldr	r0, [r7, #12]
+  3e:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  42:	4603      	mov	r3, r0
+  44:	613b      	str	r3, [r7, #16]
+  46:	f107 0210 	add.w	r2, r7, #16
+  4a:	f107 0308 	add.w	r3, r7, #8
+  4e:	4610      	mov	r0, r2
+  50:	4619      	mov	r1, r3
+  52:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  56:	4603      	mov	r3, r0
+  58:	681b      	ldr	r3, [r3, #0]
+  5a:	4423      	add	r3, r4
+  5c:	617b      	str	r3, [r7, #20]
+  5e:	68f8      	ldr	r0, [r7, #12]
+  60:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  64:	4602      	mov	r2, r0
+  66:	697b      	ldr	r3, [r7, #20]
+  68:	429a      	cmp	r2, r3
+  6a:	d806      	bhi.n	7a <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc+0x7a>
+  6c:	68f8      	ldr	r0, [r7, #12]
+  6e:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  72:	4602      	mov	r2, r0
+  74:	697b      	ldr	r3, [r7, #20]
+  76:	429a      	cmp	r2, r3
+  78:	d204      	bcs.n	84 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc+0x84>
+  7a:	68f8      	ldr	r0, [r7, #12]
+  7c:	f7ff fffe 	bl	0 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc>
+  80:	4603      	mov	r3, r0
+  82:	e000      	b.n	86 <_ZNKSt6vectorI13operand_valueSaIS0_EE12_M_check_lenEjPKc+0x86>
+  84:	697b      	ldr	r3, [r7, #20]
+  86:	4618      	mov	r0, r3
+  88:	371c      	adds	r7, #28
+  8a:	46bd      	mov	sp, r7
+  8c:	bd90      	pop	{r4, r7, pc}
+  8e:	bf00      	nop
+
+Disassembly of section .text._ZSt34__uninitialized_move_if_noexcept_aIP13operand_valueS1_SaIS0_EET0_T_S4_S3_RT1_:
+
+00000000 <_ZSt34__uninitialized_move_if_noexcept_aIP13operand_valueS1_SaIS0_EET0_T_S4_S3_RT1_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	603b      	str	r3, [r7, #0]
+   e:	68f8      	ldr	r0, [r7, #12]
+  10:	f7ff fffe 	bl	0 <_ZSt34__uninitialized_move_if_noexcept_aIP13operand_valueS1_SaIS0_EET0_T_S4_S3_RT1_>
+  14:	4604      	mov	r4, r0
+  16:	68b8      	ldr	r0, [r7, #8]
+  18:	f7ff fffe 	bl	0 <_ZSt34__uninitialized_move_if_noexcept_aIP13operand_valueS1_SaIS0_EET0_T_S4_S3_RT1_>
+  1c:	4603      	mov	r3, r0
+  1e:	4620      	mov	r0, r4
+  20:	4619      	mov	r1, r3
+  22:	687a      	ldr	r2, [r7, #4]
+  24:	683b      	ldr	r3, [r7, #0]
+  26:	f7ff fffe 	bl	0 <_ZSt34__uninitialized_move_if_noexcept_aIP13operand_valueS1_SaIS0_EET0_T_S4_S3_RT1_>
+  2a:	4603      	mov	r3, r0
+  2c:	4618      	mov	r0, r3
+  2e:	3714      	adds	r7, #20
+  30:	46bd      	mov	sp, r7
+  32:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE7destroyIS0_EEvRS1_PT_:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE7destroyIS0_EEvRS1_PT_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE7destroyIS0_EEvRS1_PT_>
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSaImEC2Ev:
+
+00000000 <_ZNSaImEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSaImEC1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorImED2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorImED1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Destroy_auxILb1EE9__destroyIPmEEvT_S3_:
+
+00000000 <_ZNSt12_Destroy_auxILb1EE9__destroyIPmEEvT_S3_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	370c      	adds	r7, #12
+   c:	46bd      	mov	sp, r7
+   e:	f85d 7b04 	ldr.w	r7, [sp], #4
+  12:	4770      	bx	lr
+
+Disassembly of section .text._ZNSaI13operand_valueEC2Ev:
+
+00000000 <_ZNSaI13operand_valueEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSaI13operand_valueEC1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorI13operand_valueED2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorI13operand_valueED1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt12_Destroy_auxILb1EE9__destroyIP13operand_valueEEvT_S4_:
+
+00000000 <_ZNSt12_Destroy_auxILb1EE9__destroyIP13operand_valueEEvT_S4_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	370c      	adds	r7, #12
+   c:	46bd      	mov	sp, r7
+   e:	f85d 7b04 	ldr.w	r7, [sp], #4
+  12:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt16allocator_traitsISaImEE11_S_max_sizeIKS0_vEEjRT_i:
+
+00000000 <_ZNSt16allocator_traitsISaImEE11_S_max_sizeIKS0_vEEjRT_i>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaImEE11_S_max_sizeIKS0_vEEjRT_i>
+  10:	4603      	mov	r3, r0
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt16allocator_traitsISaImEE8allocateERS0_j:
+
+00000000 <_ZNSt16allocator_traitsISaImEE8allocateERS0_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	2200      	movs	r2, #0
+  10:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaImEE8allocateERS0_j>
+  14:	4603      	mov	r3, r0
+  16:	4618      	mov	r0, r3
+  18:	3708      	adds	r7, #8
+  1a:	46bd      	mov	sp, r7
+  1c:	bd80      	pop	{r7, pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZSt18uninitialized_copyISt13move_iteratorIPmES1_ET0_T_S4_S3_:
+
+00000000 <_ZSt18uninitialized_copyISt13move_iteratorIPmES1_ET0_T_S4_S3_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	2300      	movs	r3, #0
+   e:	75fb      	strb	r3, [r7, #23]
+  10:	68f8      	ldr	r0, [r7, #12]
+  12:	68b9      	ldr	r1, [r7, #8]
+  14:	687a      	ldr	r2, [r7, #4]
+  16:	f7ff fffe 	bl	0 <_ZSt18uninitialized_copyISt13move_iteratorIPmES1_ET0_T_S4_S3_>
+  1a:	4603      	mov	r3, r0
+  1c:	4618      	mov	r0, r3
+  1e:	3718      	adds	r7, #24
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorImE10deallocateEPmj:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorImE10deallocateEPmj>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68b8      	ldr	r0, [r7, #8]
+   e:	f7ff fffe 	bl	0 <_ZdlPv>
+  12:	3710      	adds	r7, #16
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE11_S_max_sizeIKS1_vEEjRT_i:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE11_S_max_sizeIKS1_vEEjRT_i>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE11_S_max_sizeIKS1_vEEjRT_i>
+  10:	4603      	mov	r3, r0
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE8allocateERS1_j:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE8allocateERS1_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	2200      	movs	r2, #0
+  10:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE8allocateERS1_j>
+  14:	4603      	mov	r3, r0
+  16:	4618      	mov	r0, r3
+  18:	3708      	adds	r7, #8
+  1a:	46bd      	mov	sp, r7
+  1c:	bd80      	pop	{r7, pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text._ZSt18uninitialized_copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_:
+
+00000000 <_ZSt18uninitialized_copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	2301      	movs	r3, #1
+   e:	75fb      	strb	r3, [r7, #23]
+  10:	68f8      	ldr	r0, [r7, #12]
+  12:	68b9      	ldr	r1, [r7, #8]
+  14:	687a      	ldr	r2, [r7, #4]
+  16:	f7ff fffe 	bl	0 <_ZSt18uninitialized_copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_>
+  1a:	4603      	mov	r3, r0
+  1c:	4618      	mov	r0, r3
+  1e:	3718      	adds	r7, #24
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorI13operand_valueE10deallocateEPS1_j:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE10deallocateEPS1_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68b8      	ldr	r0, [r7, #8]
+   e:	f7ff fffe 	bl	0 <_ZdlPv>
+  12:	3710      	adds	r7, #16
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSaIP5FrameEC2Ev:
+
+00000000 <_ZNSaIP5FrameEC1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSaIP5FrameEC1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt15_Deque_iteratorIP5FrameRS1_PS1_EC2Ev:
+
+00000000 <_ZNSt15_Deque_iteratorIP5FrameRS1_PS1_EC1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	2200      	movs	r2, #0
+   c:	601a      	str	r2, [r3, #0]
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	2200      	movs	r2, #0
+  12:	605a      	str	r2, [r3, #4]
+  14:	687b      	ldr	r3, [r7, #4]
+  16:	2200      	movs	r2, #0
+  18:	609a      	str	r2, [r3, #8]
+  1a:	687b      	ldr	r3, [r7, #4]
+  1c:	2200      	movs	r2, #0
+  1e:	60da      	str	r2, [r3, #12]
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	4618      	mov	r0, r3
+  24:	370c      	adds	r7, #12
+  26:	46bd      	mov	sp, r7
+  28:	f85d 7b04 	ldr.w	r7, [sp], #4
+  2c:	4770      	bx	lr
+  2e:	bf00      	nop
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIP5FrameED2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIP5FrameED1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt3maxIjERKT_S2_S2_:
+
+00000000 <_ZSt3maxIjERKT_S2_S2_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	683b      	ldr	r3, [r7, #0]
+  10:	681b      	ldr	r3, [r3, #0]
+  12:	429a      	cmp	r2, r3
+  14:	d201      	bcs.n	1a <_ZSt3maxIjERKT_S2_S2_+0x1a>
+  16:	683b      	ldr	r3, [r7, #0]
+  18:	e000      	b.n	1c <_ZSt3maxIjERKT_S2_S2_+0x1c>
+  1a:	687b      	ldr	r3, [r7, #4]
+  1c:	4618      	mov	r0, r3
+  1e:	370c      	adds	r7, #12
+  20:	46bd      	mov	sp, r7
+  22:	f85d 7b04 	ldr.w	r7, [sp], #4
+  26:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_allocate_mapEj:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_allocate_mapEj>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	f107 030c 	add.w	r3, r7, #12
+   e:	4618      	mov	r0, r3
+  10:	6879      	ldr	r1, [r7, #4]
+  12:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_allocate_mapEj>
+  16:	f107 030c 	add.w	r3, r7, #12
+  1a:	4618      	mov	r0, r3
+  1c:	6839      	ldr	r1, [r7, #0]
+  1e:	2200      	movs	r2, #0
+  20:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_allocate_mapEj>
+  24:	4604      	mov	r4, r0
+  26:	f107 030c 	add.w	r3, r7, #12
+  2a:	4618      	mov	r0, r3
+  2c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_allocate_mapEj>
+  30:	4623      	mov	r3, r4
+  32:	e006      	b.n	42 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_allocate_mapEj+0x42>
+  34:	f107 030c 	add.w	r3, r7, #12
+  38:	4618      	mov	r0, r3
+  3a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_allocate_mapEj>
+  3e:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  42:	4618      	mov	r0, r3
+  44:	3714      	adds	r7, #20
+  46:	46bd      	mov	sp, r7
+  48:	bd90      	pop	{r4, r7, pc}
+  4a:	bf00      	nop
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_create_nodesEPPS1_S5_:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_create_nodesEPPS1_S5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68bb      	ldr	r3, [r7, #8]
+   e:	617b      	str	r3, [r7, #20]
+  10:	e008      	b.n	24 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_create_nodesEPPS1_S5_+0x24>
+  12:	68f8      	ldr	r0, [r7, #12]
+  14:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_create_nodesEPPS1_S5_>
+  18:	4602      	mov	r2, r0
+  1a:	697b      	ldr	r3, [r7, #20]
+  1c:	601a      	str	r2, [r3, #0]
+  1e:	697b      	ldr	r3, [r7, #20]
+  20:	3304      	adds	r3, #4
+  22:	617b      	str	r3, [r7, #20]
+  24:	697a      	ldr	r2, [r7, #20]
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	429a      	cmp	r2, r3
+  2a:	d3f2      	bcc.n	12 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_create_nodesEPPS1_S5_+0x12>
+  2c:	e00e      	b.n	4c <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_create_nodesEPPS1_S5_+0x4c>
+  2e:	f7ff fffe 	bl	0 <__cxa_end_catch>
+  32:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  36:	4603      	mov	r3, r0
+  38:	4618      	mov	r0, r3
+  3a:	f7ff fffe 	bl	0 <__cxa_begin_catch>
+  3e:	68f8      	ldr	r0, [r7, #12]
+  40:	68b9      	ldr	r1, [r7, #8]
+  42:	697a      	ldr	r2, [r7, #20]
+  44:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE15_M_create_nodesEPPS1_S5_>
+  48:	f7ff fffe 	bl	0 <__cxa_rethrow>
+  4c:	3718      	adds	r7, #24
+  4e:	46bd      	mov	sp, r7
+  50:	bd80      	pop	{r7, pc}
+  52:	bf00      	nop
+
+Disassembly of section .text._ZNSt15_Deque_iteratorIP5FrameRS1_PS1_E11_M_set_nodeEPS3_:
+
+00000000 <_ZNSt15_Deque_iteratorIP5FrameRS1_PS1_E11_M_set_nodeEPS3_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	683a      	ldr	r2, [r7, #0]
+   e:	60da      	str	r2, [r3, #12]
+  10:	683b      	ldr	r3, [r7, #0]
+  12:	681a      	ldr	r2, [r3, #0]
+  14:	687b      	ldr	r3, [r7, #4]
+  16:	605a      	str	r2, [r3, #4]
+  18:	687b      	ldr	r3, [r7, #4]
+  1a:	685c      	ldr	r4, [r3, #4]
+  1c:	f7ff fffe 	bl	0 <_ZNSt15_Deque_iteratorIP5FrameRS1_PS1_E11_M_set_nodeEPS3_>
+  20:	4603      	mov	r3, r0
+  22:	009b      	lsls	r3, r3, #2
+  24:	18e2      	adds	r2, r4, r3
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	609a      	str	r2, [r3, #8]
+  2a:	370c      	adds	r7, #12
+  2c:	46bd      	mov	sp, r7
+  2e:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE18_M_deallocate_nodeEPS1_:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE18_M_deallocate_nodeEPS1_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687c      	ldr	r4, [r7, #4]
+   c:	2004      	movs	r0, #4
+   e:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE18_M_deallocate_nodeEPS1_>
+  12:	4603      	mov	r3, r0
+  14:	4620      	mov	r0, r4
+  16:	6839      	ldr	r1, [r7, #0]
+  18:	461a      	mov	r2, r3
+  1a:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE18_M_deallocate_nodeEPS1_>
+  1e:	370c      	adds	r7, #12
+  20:	46bd      	mov	sp, r7
+  22:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNKSt11_Deque_baseIP5FrameSaIS1_EE20_M_get_map_allocatorEv:
+
+00000000 <_ZNKSt11_Deque_baseIP5FrameSaIS1_EE20_M_get_map_allocatorEv>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6838      	ldr	r0, [r7, #0]
+   c:	f7ff fffe 	bl	0 <_ZNKSt11_Deque_baseIP5FrameSaIS1_EE20_M_get_map_allocatorEv>
+  10:	4603      	mov	r3, r0
+  12:	6878      	ldr	r0, [r7, #4]
+  14:	4619      	mov	r1, r3
+  16:	f7ff fffe 	bl	0 <_ZNKSt11_Deque_baseIP5FrameSaIS1_EE20_M_get_map_allocatorEv>
+  1a:	6878      	ldr	r0, [r7, #4]
+  1c:	3708      	adds	r7, #8
+  1e:	46bd      	mov	sp, r7
+  20:	bd80      	pop	{r7, pc}
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNSaIPP5FrameED2Ev:
+
+00000000 <_ZNSaIPP5FrameED1Ev>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZNSaIPP5FrameED1Ev>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIPP5FrameE10deallocateEPS3_j:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIPP5FrameE10deallocateEPS3_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68b8      	ldr	r0, [r7, #8]
+   e:	f7ff fffe 	bl	0 <_ZdlPv>
+  12:	3710      	adds	r7, #16
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC2EOS2_:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1EOS2_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6838      	ldr	r0, [r7, #0]
+   c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1EOS2_>
+  10:	4603      	mov	r3, r0
+  12:	6878      	ldr	r0, [r7, #4]
+  14:	4619      	mov	r1, r3
+  16:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1EOS2_>
+  1a:	687b      	ldr	r3, [r7, #4]
+  1c:	2200      	movs	r2, #0
+  1e:	601a      	str	r2, [r3, #0]
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	2200      	movs	r2, #0
+  24:	605a      	str	r2, [r3, #4]
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	3308      	adds	r3, #8
+  2a:	4618      	mov	r0, r3
+  2c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1EOS2_>
+  30:	687b      	ldr	r3, [r7, #4]
+  32:	3318      	adds	r3, #24
+  34:	4618      	mov	r0, r3
+  36:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE11_Deque_implC1EOS2_>
+  3a:	687b      	ldr	r3, [r7, #4]
+  3c:	4618      	mov	r0, r3
+  3e:	3708      	adds	r7, #8
+  40:	46bd      	mov	sp, r7
+  42:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt4moveIRSt15_Deque_iteratorIP5FrameRS2_PS2_EEONSt16remove_referenceIT_E4typeEOS8_:
+
+00000000 <_ZSt4moveIRSt15_Deque_iteratorIP5FrameRS2_PS2_EEONSt16remove_referenceIT_E4typeEOS8_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt4swapISt15_Deque_iteratorIP5FrameRS2_PS2_EEvRT_S7_:
+
+00000000 <_ZSt4swapISt15_Deque_iteratorIP5FrameRS2_PS2_EEvRT_S7_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b087      	sub	sp, #28
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZSt4swapISt15_Deque_iteratorIP5FrameRS2_PS2_EEvRT_S7_>
+  10:	4602      	mov	r2, r0
+  12:	f107 0308 	add.w	r3, r7, #8
+  16:	4618      	mov	r0, r3
+  18:	4611      	mov	r1, r2
+  1a:	f7ff fffe 	bl	0 <_ZSt4swapISt15_Deque_iteratorIP5FrameRS2_PS2_EEvRT_S7_>
+  1e:	6838      	ldr	r0, [r7, #0]
+  20:	f7ff fffe 	bl	0 <_ZSt4swapISt15_Deque_iteratorIP5FrameRS2_PS2_EEvRT_S7_>
+  24:	4602      	mov	r2, r0
+  26:	687b      	ldr	r3, [r7, #4]
+  28:	461c      	mov	r4, r3
+  2a:	4613      	mov	r3, r2
+  2c:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+  2e:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+  32:	f107 0308 	add.w	r3, r7, #8
+  36:	4618      	mov	r0, r3
+  38:	f7ff fffe 	bl	0 <_ZSt4swapISt15_Deque_iteratorIP5FrameRS2_PS2_EEvRT_S7_>
+  3c:	4602      	mov	r2, r0
+  3e:	683b      	ldr	r3, [r7, #0]
+  40:	461c      	mov	r4, r3
+  42:	4613      	mov	r3, r2
+  44:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+  46:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+  4a:	371c      	adds	r7, #28
+  4c:	46bd      	mov	sp, r7
+  4e:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZSt4moveIRPPP5FrameEONSt16remove_referenceIT_E4typeEOS6_:
+
+00000000 <_ZSt4moveIRPPP5FrameEONSt16remove_referenceIT_E4typeEOS6_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt4swapIPPP5FrameEvRT_S5_:
+
+00000000 <_ZSt4swapIPPP5FrameEvRT_S5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZSt4swapIPPP5FrameEvRT_S5_>
+  10:	4603      	mov	r3, r0
+  12:	681b      	ldr	r3, [r3, #0]
+  14:	60fb      	str	r3, [r7, #12]
+  16:	6838      	ldr	r0, [r7, #0]
+  18:	f7ff fffe 	bl	0 <_ZSt4swapIPPP5FrameEvRT_S5_>
+  1c:	4603      	mov	r3, r0
+  1e:	681a      	ldr	r2, [r3, #0]
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	601a      	str	r2, [r3, #0]
+  24:	f107 030c 	add.w	r3, r7, #12
+  28:	4618      	mov	r0, r3
+  2a:	f7ff fffe 	bl	0 <_ZSt4swapIPPP5FrameEvRT_S5_>
+  2e:	4603      	mov	r3, r0
+  30:	681a      	ldr	r2, [r3, #0]
+  32:	683b      	ldr	r3, [r7, #0]
+  34:	601a      	str	r2, [r3, #0]
+  36:	3710      	adds	r7, #16
+  38:	46bd      	mov	sp, r7
+  3a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt4moveIRjEONSt16remove_referenceIT_E4typeEOS2_:
+
+00000000 <_ZSt4moveIRjEONSt16remove_referenceIT_E4typeEOS2_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt4swapIjEvRT_S1_:
+
+00000000 <_ZSt4swapIjEvRT_S1_>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZSt4swapIjEvRT_S1_>
+  10:	4603      	mov	r3, r0
+  12:	681b      	ldr	r3, [r3, #0]
+  14:	60fb      	str	r3, [r7, #12]
+  16:	6838      	ldr	r0, [r7, #0]
+  18:	f7ff fffe 	bl	0 <_ZSt4swapIjEvRT_S1_>
+  1c:	4603      	mov	r3, r0
+  1e:	681a      	ldr	r2, [r3, #0]
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	601a      	str	r2, [r3, #0]
+  24:	f107 030c 	add.w	r3, r7, #12
+  28:	4618      	mov	r0, r3
+  2a:	f7ff fffe 	bl	0 <_ZSt4swapIjEvRT_S1_>
+  2e:	4603      	mov	r3, r0
+  30:	681a      	ldr	r2, [r3, #0]
+  32:	683b      	ldr	r3, [r7, #0]
+  34:	601a      	str	r2, [r3, #0]
+  36:	3710      	adds	r7, #16
+  38:	46bd      	mov	sp, r7
+  3a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EE22_M_reserve_map_at_backEj:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EE22_M_reserve_map_at_backEj>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	683b      	ldr	r3, [r7, #0]
+   c:	1c5a      	adds	r2, r3, #1
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	685b      	ldr	r3, [r3, #4]
+  12:	6879      	ldr	r1, [r7, #4]
+  14:	6a49      	ldr	r1, [r1, #36]	; 0x24
+  16:	4608      	mov	r0, r1
+  18:	6879      	ldr	r1, [r7, #4]
+  1a:	6809      	ldr	r1, [r1, #0]
+  1c:	1a41      	subs	r1, r0, r1
+  1e:	1089      	asrs	r1, r1, #2
+  20:	1a5b      	subs	r3, r3, r1
+  22:	429a      	cmp	r2, r3
+  24:	d904      	bls.n	30 <_ZNSt5dequeIP5FrameSaIS1_EE22_M_reserve_map_at_backEj+0x30>
+  26:	6878      	ldr	r0, [r7, #4]
+  28:	6839      	ldr	r1, [r7, #0]
+  2a:	2200      	movs	r2, #0
+  2c:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE22_M_reserve_map_at_backEj>
+  30:	3708      	adds	r7, #8
+  32:	46bd      	mov	sp, r7
+  34:	bd80      	pop	{r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text._ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_allocate_nodeEv:
+
+00000000 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_allocate_nodeEv>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687c      	ldr	r4, [r7, #4]
+   a:	2004      	movs	r0, #4
+   c:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_allocate_nodeEv>
+  10:	4603      	mov	r3, r0
+  12:	4620      	mov	r0, r4
+  14:	4619      	mov	r1, r3
+  16:	2200      	movs	r2, #0
+  18:	f7ff fffe 	bl	0 <_ZNSt11_Deque_baseIP5FrameSaIS1_EE16_M_allocate_nodeEv>
+  1c:	4603      	mov	r3, r0
+  1e:	4618      	mov	r0, r3
+  20:	370c      	adds	r7, #12
+  22:	46bd      	mov	sp, r7
+  24:	bd90      	pop	{r4, r7, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorI13operand_valueE9constructIS1_IRKS1_EEEvPT_DpOT0_:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE9constructIS1_IRKS1_EEEvPT_DpOT0_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	6878      	ldr	r0, [r7, #4]
+   e:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE9constructIS1_IRKS1_EEEvPT_DpOT0_>
+  12:	4604      	mov	r4, r0
+  14:	68bb      	ldr	r3, [r7, #8]
+  16:	2008      	movs	r0, #8
+  18:	4619      	mov	r1, r3
+  1a:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE9constructIS1_IRKS1_EEEvPT_DpOT0_>
+  1e:	4603      	mov	r3, r0
+  20:	2b00      	cmp	r3, #0
+  22:	d004      	beq.n	2e <_ZN9__gnu_cxx13new_allocatorI13operand_valueE9constructIS1_IRKS1_EEEvPT_DpOT0_+0x2e>
+  24:	4622      	mov	r2, r4
+  26:	e892 0003 	ldmia.w	r2, {r0, r1}
+  2a:	e883 0003 	stmia.w	r3, {r0, r1}
+  2e:	3714      	adds	r7, #20
+  30:	46bd      	mov	sp, r7
+  32:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNSt16allocator_traitsISaI13operand_valueEE10_S_destroyIS0_EENSt9enable_ifIXsrSt6__and_IINS2_16__destroy_helperIT_E4typeEEE5valueEvE4typeERS1_PS7_:
+
+00000000 <_ZNSt16allocator_traitsISaI13operand_valueEE10_S_destroyIS0_EENSt9enable_ifIXsrSt6__and_IINS2_16__destroy_helperIT_E4typeEEE5valueEvE4typeERS1_PS7_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZNSt16allocator_traitsISaI13operand_valueEE10_S_destroyIS0_EENSt9enable_ifIXsrSt6__and_IINS2_16__destroy_helperIT_E4typeEEE5valueEvE4typeERS1_PS7_>
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorImEC2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorImEC1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorI13operand_valueEC2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorI13operand_valueEC1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNK9__gnu_cxx13new_allocatorImE8max_sizeEv:
+
+00000000 <_ZNK9__gnu_cxx13new_allocatorImE8max_sizeEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	f06f 4340 	mvn.w	r3, #3221225472	; 0xc0000000
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorImE8allocateEjPKv:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorImE8allocateEjPKv>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorImE8allocateEjPKv>
+  12:	4602      	mov	r2, r0
+  14:	68bb      	ldr	r3, [r7, #8]
+  16:	429a      	cmp	r2, r3
+  18:	bf34      	ite	cc
+  1a:	2301      	movcc	r3, #1
+  1c:	2300      	movcs	r3, #0
+  1e:	b2db      	uxtb	r3, r3
+  20:	2b00      	cmp	r3, #0
+  22:	d001      	beq.n	28 <_ZN9__gnu_cxx13new_allocatorImE8allocateEjPKv+0x28>
+  24:	f7ff fffe 	bl	0 <_ZSt17__throw_bad_allocv>
+  28:	68bb      	ldr	r3, [r7, #8]
+  2a:	009b      	lsls	r3, r3, #2
+  2c:	4618      	mov	r0, r3
+  2e:	f7ff fffe 	bl	0 <_Znwj>
+  32:	4603      	mov	r3, r0
+  34:	4618      	mov	r0, r3
+  36:	3710      	adds	r7, #16
+  38:	46bd      	mov	sp, r7
+  3a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_:
+
+00000000 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b087      	sub	sp, #28
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	687b      	ldr	r3, [r7, #4]
+   e:	617b      	str	r3, [r7, #20]
+  10:	e015      	b.n	3e <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_+0x3e>
+  12:	6978      	ldr	r0, [r7, #20]
+  14:	f7ff fffe 	bl	0 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_>
+  18:	4604      	mov	r4, r0
+  1a:	f107 030c 	add.w	r3, r7, #12
+  1e:	4618      	mov	r0, r3
+  20:	f7ff fffe 	bl	0 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_>
+  24:	4603      	mov	r3, r0
+  26:	4620      	mov	r0, r4
+  28:	4619      	mov	r1, r3
+  2a:	f7ff fffe 	bl	0 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_>
+  2e:	f107 030c 	add.w	r3, r7, #12
+  32:	4618      	mov	r0, r3
+  34:	f7ff fffe 	bl	0 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_>
+  38:	697b      	ldr	r3, [r7, #20]
+  3a:	3304      	adds	r3, #4
+  3c:	617b      	str	r3, [r7, #20]
+  3e:	f107 020c 	add.w	r2, r7, #12
+  42:	f107 0308 	add.w	r3, r7, #8
+  46:	4610      	mov	r0, r2
+  48:	4619      	mov	r1, r3
+  4a:	f7ff fffe 	bl	0 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_>
+  4e:	4603      	mov	r3, r0
+  50:	2b00      	cmp	r3, #0
+  52:	d1de      	bne.n	12 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_+0x12>
+  54:	697b      	ldr	r3, [r7, #20]
+  56:	e00d      	b.n	74 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_+0x74>
+  58:	f7ff fffe 	bl	0 <__cxa_end_catch>
+  5c:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+  60:	4603      	mov	r3, r0
+  62:	4618      	mov	r0, r3
+  64:	f7ff fffe 	bl	0 <__cxa_begin_catch>
+  68:	6878      	ldr	r0, [r7, #4]
+  6a:	6979      	ldr	r1, [r7, #20]
+  6c:	f7ff fffe 	bl	0 <_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPmES3_EET0_T_S6_S5_>
+  70:	f7ff fffe 	bl	0 <__cxa_rethrow>
+  74:	4618      	mov	r0, r3
+  76:	371c      	adds	r7, #28
+  78:	46bd      	mov	sp, r7
+  7a:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNK9__gnu_cxx13new_allocatorI13operand_valueE8max_sizeEv:
+
+00000000 <_ZNK9__gnu_cxx13new_allocatorI13operand_valueE8max_sizeEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	f06f 4360 	mvn.w	r3, #3758096384	; 0xe0000000
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorI13operand_valueE8allocateEjPKv:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE8allocateEjPKv>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE8allocateEjPKv>
+  12:	4602      	mov	r2, r0
+  14:	68bb      	ldr	r3, [r7, #8]
+  16:	429a      	cmp	r2, r3
+  18:	bf34      	ite	cc
+  1a:	2301      	movcc	r3, #1
+  1c:	2300      	movcs	r3, #0
+  1e:	b2db      	uxtb	r3, r3
+  20:	2b00      	cmp	r3, #0
+  22:	d001      	beq.n	28 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE8allocateEjPKv+0x28>
+  24:	f7ff fffe 	bl	0 <_ZSt17__throw_bad_allocv>
+  28:	68bb      	ldr	r3, [r7, #8]
+  2a:	00db      	lsls	r3, r3, #3
+  2c:	4618      	mov	r0, r3
+  2e:	f7ff fffe 	bl	0 <_Znwj>
+  32:	4603      	mov	r3, r0
+  34:	4618      	mov	r0, r3
+  36:	3710      	adds	r7, #16
+  38:	46bd      	mov	sp, r7
+  3a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIP13operand_valueES4_EET0_T_S7_S6_:
+
+00000000 <_ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIP13operand_valueES4_EET0_T_S7_S6_>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	68b9      	ldr	r1, [r7, #8]
+  10:	687a      	ldr	r2, [r7, #4]
+  12:	f7ff fffe 	bl	0 <_ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIP13operand_valueES4_EET0_T_S7_S6_>
+  16:	4603      	mov	r3, r0
+  18:	4618      	mov	r0, r3
+  1a:	3710      	adds	r7, #16
+  1c:	46bd      	mov	sp, r7
+  1e:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIP5FrameEC2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIP5FrameEC1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIPP5FrameE8allocateEjPKv:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIPP5FrameE8allocateEjPKv>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorIPP5FrameE8allocateEjPKv>
+  12:	4602      	mov	r2, r0
+  14:	68bb      	ldr	r3, [r7, #8]
+  16:	429a      	cmp	r2, r3
+  18:	bf34      	ite	cc
+  1a:	2301      	movcc	r3, #1
+  1c:	2300      	movcs	r3, #0
+  1e:	b2db      	uxtb	r3, r3
+  20:	2b00      	cmp	r3, #0
+  22:	d001      	beq.n	28 <_ZN9__gnu_cxx13new_allocatorIPP5FrameE8allocateEjPKv+0x28>
+  24:	f7ff fffe 	bl	0 <_ZSt17__throw_bad_allocv>
+  28:	68bb      	ldr	r3, [r7, #8]
+  2a:	009b      	lsls	r3, r3, #2
+  2c:	4618      	mov	r0, r3
+  2e:	f7ff fffe 	bl	0 <_Znwj>
+  32:	4603      	mov	r3, r0
+  34:	4618      	mov	r0, r3
+  36:	3710      	adds	r7, #16
+  38:	46bd      	mov	sp, r7
+  3a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt15_Deque_iteratorIP5FrameRS1_PS1_E14_S_buffer_sizeEv:
+
+00000000 <_ZNSt15_Deque_iteratorIP5FrameRS1_PS1_E14_S_buffer_sizeEv>:
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+   4:	2004      	movs	r0, #4
+   6:	f7ff fffe 	bl	0 <_ZNSt15_Deque_iteratorIP5FrameRS1_PS1_E14_S_buffer_sizeEv>
+   a:	4603      	mov	r3, r0
+   c:	4618      	mov	r0, r3
+   e:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIP5FrameE10deallocateEPS2_j:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIP5FrameE10deallocateEPS2_j>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68b8      	ldr	r0, [r7, #8]
+   e:	f7ff fffe 	bl	0 <_ZdlPv>
+  12:	3710      	adds	r7, #16
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNKSt11_Deque_baseIP5FrameSaIS1_EE19_M_get_Tp_allocatorEv:
+
+00000000 <_ZNKSt11_Deque_baseIP5FrameSaIS1_EE19_M_get_Tp_allocatorEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSaIPP5FrameEC2IS0_EERKSaIT_E:
+
+00000000 <_ZNSaIPP5FrameEC1IS0_EERKSaIT_E>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZNSaIPP5FrameEC1IS0_EERKSaIT_E>
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIPP5FrameED2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIPP5FrameED1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSaIP5FrameEC2ERKS1_:
+
+00000000 <_ZNSaIP5FrameEC1ERKS1_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZNSaIP5FrameEC1ERKS1_>
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	4618      	mov	r0, r3
+  16:	3708      	adds	r7, #8
+  18:	46bd      	mov	sp, r7
+  1a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb:
+
+00000000 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b08b      	sub	sp, #44	; 0x2c
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	4613      	mov	r3, r2
+   c:	71fb      	strb	r3, [r7, #7]
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  12:	461a      	mov	r2, r3
+  14:	68fb      	ldr	r3, [r7, #12]
+  16:	695b      	ldr	r3, [r3, #20]
+  18:	1ad3      	subs	r3, r2, r3
+  1a:	109b      	asrs	r3, r3, #2
+  1c:	3301      	adds	r3, #1
+  1e:	623b      	str	r3, [r7, #32]
+  20:	68bb      	ldr	r3, [r7, #8]
+  22:	6a3a      	ldr	r2, [r7, #32]
+  24:	4413      	add	r3, r2
+  26:	61fb      	str	r3, [r7, #28]
+  28:	68fb      	ldr	r3, [r7, #12]
+  2a:	685a      	ldr	r2, [r3, #4]
+  2c:	69fb      	ldr	r3, [r7, #28]
+  2e:	005b      	lsls	r3, r3, #1
+  30:	429a      	cmp	r2, r3
+  32:	d92e      	bls.n	92 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0x92>
+  34:	68fb      	ldr	r3, [r7, #12]
+  36:	681a      	ldr	r2, [r3, #0]
+  38:	68fb      	ldr	r3, [r7, #12]
+  3a:	6859      	ldr	r1, [r3, #4]
+  3c:	69fb      	ldr	r3, [r7, #28]
+  3e:	1acb      	subs	r3, r1, r3
+  40:	085b      	lsrs	r3, r3, #1
+  42:	0099      	lsls	r1, r3, #2
+  44:	79fb      	ldrb	r3, [r7, #7]
+  46:	2b00      	cmp	r3, #0
+  48:	d002      	beq.n	50 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0x50>
+  4a:	68bb      	ldr	r3, [r7, #8]
+  4c:	009b      	lsls	r3, r3, #2
+  4e:	e000      	b.n	52 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0x52>
+  50:	2300      	movs	r3, #0
+  52:	440b      	add	r3, r1
+  54:	4413      	add	r3, r2
+  56:	627b      	str	r3, [r7, #36]	; 0x24
+  58:	68fb      	ldr	r3, [r7, #12]
+  5a:	695a      	ldr	r2, [r3, #20]
+  5c:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  5e:	429a      	cmp	r2, r3
+  60:	d90a      	bls.n	78 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0x78>
+  62:	68fb      	ldr	r3, [r7, #12]
+  64:	695a      	ldr	r2, [r3, #20]
+  66:	68fb      	ldr	r3, [r7, #12]
+  68:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  6a:	3304      	adds	r3, #4
+  6c:	4610      	mov	r0, r2
+  6e:	4619      	mov	r1, r3
+  70:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+  72:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+  76:	e04c      	b.n	112 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0x112>
+  78:	68fb      	ldr	r3, [r7, #12]
+  7a:	6958      	ldr	r0, [r3, #20]
+  7c:	68fb      	ldr	r3, [r7, #12]
+  7e:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  80:	1d19      	adds	r1, r3, #4
+  82:	6a3b      	ldr	r3, [r7, #32]
+  84:	009b      	lsls	r3, r3, #2
+  86:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+  88:	4413      	add	r3, r2
+  8a:	461a      	mov	r2, r3
+  8c:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+  90:	e03f      	b.n	112 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0x112>
+  92:	68fb      	ldr	r3, [r7, #12]
+  94:	685c      	ldr	r4, [r3, #4]
+  96:	68fb      	ldr	r3, [r7, #12]
+  98:	1d1a      	adds	r2, r3, #4
+  9a:	f107 0308 	add.w	r3, r7, #8
+  9e:	4610      	mov	r0, r2
+  a0:	4619      	mov	r1, r3
+  a2:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+  a6:	4603      	mov	r3, r0
+  a8:	681b      	ldr	r3, [r3, #0]
+  aa:	4423      	add	r3, r4
+  ac:	3302      	adds	r3, #2
+  ae:	61bb      	str	r3, [r7, #24]
+  b0:	68fb      	ldr	r3, [r7, #12]
+  b2:	4618      	mov	r0, r3
+  b4:	69b9      	ldr	r1, [r7, #24]
+  b6:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+  ba:	4603      	mov	r3, r0
+  bc:	617b      	str	r3, [r7, #20]
+  be:	69ba      	ldr	r2, [r7, #24]
+  c0:	69fb      	ldr	r3, [r7, #28]
+  c2:	1ad3      	subs	r3, r2, r3
+  c4:	085b      	lsrs	r3, r3, #1
+  c6:	009a      	lsls	r2, r3, #2
+  c8:	79fb      	ldrb	r3, [r7, #7]
+  ca:	2b00      	cmp	r3, #0
+  cc:	d002      	beq.n	d4 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0xd4>
+  ce:	68bb      	ldr	r3, [r7, #8]
+  d0:	009b      	lsls	r3, r3, #2
+  d2:	e000      	b.n	d6 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb+0xd6>
+  d4:	2300      	movs	r3, #0
+  d6:	4413      	add	r3, r2
+  d8:	697a      	ldr	r2, [r7, #20]
+  da:	4413      	add	r3, r2
+  dc:	627b      	str	r3, [r7, #36]	; 0x24
+  de:	68fb      	ldr	r3, [r7, #12]
+  e0:	695a      	ldr	r2, [r3, #20]
+  e2:	68fb      	ldr	r3, [r7, #12]
+  e4:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  e6:	3304      	adds	r3, #4
+  e8:	4610      	mov	r0, r2
+  ea:	4619      	mov	r1, r3
+  ec:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+  ee:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+  f2:	68f9      	ldr	r1, [r7, #12]
+  f4:	68fb      	ldr	r3, [r7, #12]
+  f6:	681a      	ldr	r2, [r3, #0]
+  f8:	68fb      	ldr	r3, [r7, #12]
+  fa:	685b      	ldr	r3, [r3, #4]
+  fc:	4608      	mov	r0, r1
+  fe:	4611      	mov	r1, r2
+ 100:	461a      	mov	r2, r3
+ 102:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+ 106:	68fb      	ldr	r3, [r7, #12]
+ 108:	697a      	ldr	r2, [r7, #20]
+ 10a:	601a      	str	r2, [r3, #0]
+ 10c:	68fb      	ldr	r3, [r7, #12]
+ 10e:	69ba      	ldr	r2, [r7, #24]
+ 110:	605a      	str	r2, [r3, #4]
+ 112:	68fb      	ldr	r3, [r7, #12]
+ 114:	3308      	adds	r3, #8
+ 116:	4618      	mov	r0, r3
+ 118:	6a79      	ldr	r1, [r7, #36]	; 0x24
+ 11a:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+ 11e:	68fb      	ldr	r3, [r7, #12]
+ 120:	f103 0118 	add.w	r1, r3, #24
+ 124:	6a3b      	ldr	r3, [r7, #32]
+ 126:	f103 4380 	add.w	r3, r3, #1073741824	; 0x40000000
+ 12a:	3b01      	subs	r3, #1
+ 12c:	009b      	lsls	r3, r3, #2
+ 12e:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 130:	4413      	add	r3, r2
+ 132:	4608      	mov	r0, r1
+ 134:	4619      	mov	r1, r3
+ 136:	f7ff fffe 	bl	0 <_ZNSt5dequeIP5FrameSaIS1_EE17_M_reallocate_mapEjb>
+ 13a:	372c      	adds	r7, #44	; 0x2c
+ 13c:	46bd      	mov	sp, r7
+ 13e:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIP5FrameE8allocateEjPKv:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIP5FrameE8allocateEjPKv>:
+   0:	b580      	push	{r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZN9__gnu_cxx13new_allocatorIP5FrameE8allocateEjPKv>
+  12:	4602      	mov	r2, r0
+  14:	68bb      	ldr	r3, [r7, #8]
+  16:	429a      	cmp	r2, r3
+  18:	bf34      	ite	cc
+  1a:	2301      	movcc	r3, #1
+  1c:	2300      	movcs	r3, #0
+  1e:	b2db      	uxtb	r3, r3
+  20:	2b00      	cmp	r3, #0
+  22:	d001      	beq.n	28 <_ZN9__gnu_cxx13new_allocatorIP5FrameE8allocateEjPKv+0x28>
+  24:	f7ff fffe 	bl	0 <_ZSt17__throw_bad_allocv>
+  28:	68bb      	ldr	r3, [r7, #8]
+  2a:	009b      	lsls	r3, r3, #2
+  2c:	4618      	mov	r0, r3
+  2e:	f7ff fffe 	bl	0 <_Znwj>
+  32:	4603      	mov	r3, r0
+  34:	4618      	mov	r0, r3
+  36:	3710      	adds	r7, #16
+  38:	46bd      	mov	sp, r7
+  3a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorI13operand_valueE7destroyIS1_EEvPT_:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorI13operand_valueE7destroyIS1_EEvPT_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	370c      	adds	r7, #12
+   c:	46bd      	mov	sp, r7
+   e:	f85d 7b04 	ldr.w	r7, [sp], #4
+  12:	4770      	bx	lr
+
+Disassembly of section .text._ZStneIPmEbRKSt13move_iteratorIT_ES5_:
+
+00000000 <_ZStneIPmEbRKSt13move_iteratorIT_ES5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	6839      	ldr	r1, [r7, #0]
+   e:	f7ff fffe 	bl	0 <_ZStneIPmEbRKSt13move_iteratorIT_ES5_>
+  12:	4603      	mov	r3, r0
+  14:	f083 0301 	eor.w	r3, r3, #1
+  18:	b2db      	uxtb	r3, r3
+  1a:	4618      	mov	r0, r3
+  1c:	3708      	adds	r7, #8
+  1e:	46bd      	mov	sp, r7
+  20:	bd80      	pop	{r7, pc}
+  22:	bf00      	nop
+
+Disassembly of section .text._ZNSt13move_iteratorIPmEppEv:
+
+00000000 <_ZNSt13move_iteratorIPmEppEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	1d1a      	adds	r2, r3, #4
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	601a      	str	r2, [r3, #0]
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	4618      	mov	r0, r3
+  16:	370c      	adds	r7, #12
+  18:	46bd      	mov	sp, r7
+  1a:	f85d 7b04 	ldr.w	r7, [sp], #4
+  1e:	4770      	bx	lr
+
+Disassembly of section .text._ZSt11__addressofImEPT_RS0_:
+
+00000000 <_ZSt11__addressofImEPT_RS0_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt4moveIRmEONSt16remove_referenceIT_E4typeEOS2_:
+
+00000000 <_ZSt4moveIRmEONSt16remove_referenceIT_E4typeEOS2_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNKSt13move_iteratorIPmEdeEv:
+
+00000000 <_ZNKSt13move_iteratorIPmEdeEv>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	4618      	mov	r0, r3
+   e:	f7ff fffe 	bl	0 <_ZNKSt13move_iteratorIPmEdeEv>
+  12:	4603      	mov	r3, r0
+  14:	4618      	mov	r0, r3
+  16:	3708      	adds	r7, #8
+  18:	46bd      	mov	sp, r7
+  1a:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt7forwardImEOT_RNSt16remove_referenceIS0_E4typeE:
+
+00000000 <_ZSt7forwardImEOT_RNSt16remove_referenceIS0_E4typeE>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt10_ConstructImImEEvPT_DpOT0_:
+
+00000000 <_ZSt10_ConstructImImEEvPT_DpOT0_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6838      	ldr	r0, [r7, #0]
+   c:	f7ff fffe 	bl	0 <_ZSt10_ConstructImImEEvPT_DpOT0_>
+  10:	4603      	mov	r3, r0
+  12:	681c      	ldr	r4, [r3, #0]
+  14:	687b      	ldr	r3, [r7, #4]
+  16:	2004      	movs	r0, #4
+  18:	4619      	mov	r1, r3
+  1a:	f7ff fffe 	bl	0 <_ZSt10_ConstructImImEEvPT_DpOT0_>
+  1e:	4603      	mov	r3, r0
+  20:	2b00      	cmp	r3, #0
+  22:	d000      	beq.n	26 <_ZSt10_ConstructImImEEvPT_DpOT0_+0x26>
+  24:	601c      	str	r4, [r3, #0]
+  26:	370c      	adds	r7, #12
+  28:	46bd      	mov	sp, r7
+  2a:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZSt4copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_:
+
+00000000 <_ZSt4copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZSt4copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_>
+  12:	4604      	mov	r4, r0
+  14:	68b8      	ldr	r0, [r7, #8]
+  16:	f7ff fffe 	bl	0 <_ZSt4copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_>
+  1a:	4603      	mov	r3, r0
+  1c:	4620      	mov	r0, r4
+  1e:	4619      	mov	r1, r3
+  20:	687a      	ldr	r2, [r7, #4]
+  22:	f7ff fffe 	bl	0 <_ZSt4copyISt13move_iteratorIP13operand_valueES2_ET0_T_S5_S4_>
+  26:	4603      	mov	r3, r0
+  28:	4618      	mov	r0, r3
+  2a:	3714      	adds	r7, #20
+  2c:	46bd      	mov	sp, r7
+  2e:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNK9__gnu_cxx13new_allocatorIPP5FrameE8max_sizeEv:
+
+00000000 <_ZNK9__gnu_cxx13new_allocatorIPP5FrameE8max_sizeEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	f06f 4340 	mvn.w	r3, #3221225472	; 0xc0000000
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIPP5FrameEC2Ev:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIPP5FrameEC1Ev>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZN9__gnu_cxx13new_allocatorIP5FrameEC2ERKS3_:
+
+00000000 <_ZN9__gnu_cxx13new_allocatorIP5FrameEC1ERKS3_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	687b      	ldr	r3, [r7, #4]
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZSt4copyIPPP5FrameS3_ET0_T_S5_S4_:
+
+00000000 <_ZSt4copyIPPP5FrameS3_ET0_T_S5_S4_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZSt4copyIPPP5FrameS3_ET0_T_S5_S4_>
+  12:	4604      	mov	r4, r0
+  14:	68b8      	ldr	r0, [r7, #8]
+  16:	f7ff fffe 	bl	0 <_ZSt4copyIPPP5FrameS3_ET0_T_S5_S4_>
+  1a:	4603      	mov	r3, r0
+  1c:	4620      	mov	r0, r4
+  1e:	4619      	mov	r1, r3
+  20:	687a      	ldr	r2, [r7, #4]
+  22:	f7ff fffe 	bl	0 <_ZSt4copyIPPP5FrameS3_ET0_T_S5_S4_>
+  26:	4603      	mov	r3, r0
+  28:	4618      	mov	r0, r3
+  2a:	3714      	adds	r7, #20
+  2c:	46bd      	mov	sp, r7
+  2e:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZSt13copy_backwardIPPP5FrameS3_ET0_T_S5_S4_:
+
+00000000 <_ZSt13copy_backwardIPPP5FrameS3_ET0_T_S5_S4_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZSt13copy_backwardIPPP5FrameS3_ET0_T_S5_S4_>
+  12:	4604      	mov	r4, r0
+  14:	68b8      	ldr	r0, [r7, #8]
+  16:	f7ff fffe 	bl	0 <_ZSt13copy_backwardIPPP5FrameS3_ET0_T_S5_S4_>
+  1a:	4603      	mov	r3, r0
+  1c:	4620      	mov	r0, r4
+  1e:	4619      	mov	r1, r3
+  20:	687a      	ldr	r2, [r7, #4]
+  22:	f7ff fffe 	bl	0 <_ZSt13copy_backwardIPPP5FrameS3_ET0_T_S5_S4_>
+  26:	4603      	mov	r3, r0
+  28:	4618      	mov	r0, r3
+  2a:	3714      	adds	r7, #20
+  2c:	46bd      	mov	sp, r7
+  2e:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZNK9__gnu_cxx13new_allocatorIP5FrameE8max_sizeEv:
+
+00000000 <_ZNK9__gnu_cxx13new_allocatorIP5FrameE8max_sizeEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	f06f 4340 	mvn.w	r3, #3221225472	; 0xc0000000
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZSteqIPmEbRKSt13move_iteratorIT_ES5_:
+
+00000000 <_ZSteqIPmEbRKSt13move_iteratorIT_ES5_>:
+   0:	b590      	push	{r4, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6039      	str	r1, [r7, #0]
+   a:	6878      	ldr	r0, [r7, #4]
+   c:	f7ff fffe 	bl	0 <_ZSteqIPmEbRKSt13move_iteratorIT_ES5_>
+  10:	4604      	mov	r4, r0
+  12:	6838      	ldr	r0, [r7, #0]
+  14:	f7ff fffe 	bl	0 <_ZSteqIPmEbRKSt13move_iteratorIT_ES5_>
+  18:	4603      	mov	r3, r0
+  1a:	429c      	cmp	r4, r3
+  1c:	bf0c      	ite	eq
+  1e:	2301      	moveq	r3, #1
+  20:	2300      	movne	r3, #0
+  22:	b2db      	uxtb	r3, r3
+  24:	4618      	mov	r0, r3
+  26:	370c      	adds	r7, #12
+  28:	46bd      	mov	sp, r7
+  2a:	bd90      	pop	{r4, r7, pc}
+
+Disassembly of section .text._ZSt12__miter_baseISt13move_iteratorIP13operand_valueEENSt11_Miter_baseIT_E13iterator_typeES5_:
+
+00000000 <_ZSt12__miter_baseISt13move_iteratorIP13operand_valueEENSt11_Miter_baseIT_E13iterator_typeES5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZSt12__miter_baseISt13move_iteratorIP13operand_valueEENSt11_Miter_baseIT_E13iterator_typeES5_>
+   e:	4603      	mov	r3, r0
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt14__copy_move_a2ILb1EP13operand_valueS1_ET1_T0_S3_S2_:
+
+00000000 <_ZSt14__copy_move_a2ILb1EP13operand_valueS1_ET1_T0_S3_S2_>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb1EP13operand_valueS1_ET1_T0_S3_S2_>
+  12:	4605      	mov	r5, r0
+  14:	68b8      	ldr	r0, [r7, #8]
+  16:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb1EP13operand_valueS1_ET1_T0_S3_S2_>
+  1a:	4604      	mov	r4, r0
+  1c:	6878      	ldr	r0, [r7, #4]
+  1e:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb1EP13operand_valueS1_ET1_T0_S3_S2_>
+  22:	4603      	mov	r3, r0
+  24:	4628      	mov	r0, r5
+  26:	4621      	mov	r1, r4
+  28:	461a      	mov	r2, r3
+  2a:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb1EP13operand_valueS1_ET1_T0_S3_S2_>
+  2e:	4603      	mov	r3, r0
+  30:	4618      	mov	r0, r3
+  32:	3710      	adds	r7, #16
+  34:	46bd      	mov	sp, r7
+  36:	bdb0      	pop	{r4, r5, r7, pc}
+
+Disassembly of section .text._ZSt12__miter_baseIPPP5FrameENSt11_Miter_baseIT_E13iterator_typeES5_:
+
+00000000 <_ZSt12__miter_baseIPPP5FrameENSt11_Miter_baseIT_E13iterator_typeES5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZSt12__miter_baseIPPP5FrameENSt11_Miter_baseIT_E13iterator_typeES5_>
+   e:	4603      	mov	r3, r0
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt14__copy_move_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_:
+
+00000000 <_ZSt14__copy_move_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  12:	4605      	mov	r5, r0
+  14:	68b8      	ldr	r0, [r7, #8]
+  16:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  1a:	4604      	mov	r4, r0
+  1c:	6878      	ldr	r0, [r7, #4]
+  1e:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  22:	4603      	mov	r3, r0
+  24:	4628      	mov	r0, r5
+  26:	4621      	mov	r1, r4
+  28:	461a      	mov	r2, r3
+  2a:	f7ff fffe 	bl	0 <_ZSt14__copy_move_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  2e:	4603      	mov	r3, r0
+  30:	4618      	mov	r0, r3
+  32:	3710      	adds	r7, #16
+  34:	46bd      	mov	sp, r7
+  36:	bdb0      	pop	{r4, r5, r7, pc}
+
+Disassembly of section .text._ZSt23__copy_move_backward_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_:
+
+00000000 <_ZSt23__copy_move_backward_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>:
+   0:	b5b0      	push	{r4, r5, r7, lr}
+   2:	b084      	sub	sp, #16
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68f8      	ldr	r0, [r7, #12]
+   e:	f7ff fffe 	bl	0 <_ZSt23__copy_move_backward_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  12:	4605      	mov	r5, r0
+  14:	68b8      	ldr	r0, [r7, #8]
+  16:	f7ff fffe 	bl	0 <_ZSt23__copy_move_backward_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  1a:	4604      	mov	r4, r0
+  1c:	6878      	ldr	r0, [r7, #4]
+  1e:	f7ff fffe 	bl	0 <_ZSt23__copy_move_backward_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  22:	4603      	mov	r3, r0
+  24:	4628      	mov	r0, r5
+  26:	4621      	mov	r1, r4
+  28:	461a      	mov	r2, r3
+  2a:	f7ff fffe 	bl	0 <_ZSt23__copy_move_backward_a2ILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  2e:	4603      	mov	r3, r0
+  30:	4618      	mov	r0, r3
+  32:	3710      	adds	r7, #16
+  34:	46bd      	mov	sp, r7
+  36:	bdb0      	pop	{r4, r5, r7, pc}
+
+Disassembly of section .text._ZNKSt13move_iteratorIPmE4baseEv:
+
+00000000 <_ZNKSt13move_iteratorIPmE4baseEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt10_Iter_baseISt13move_iteratorIP13operand_valueELb1EE7_S_baseES3_:
+
+00000000 <_ZNSt10_Iter_baseISt13move_iteratorIP13operand_valueELb1EE7_S_baseES3_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	1d3b      	adds	r3, r7, #4
+   a:	4618      	mov	r0, r3
+   c:	f7ff fffe 	bl	0 <_ZNSt10_Iter_baseISt13move_iteratorIP13operand_valueELb1EE7_S_baseES3_>
+  10:	4603      	mov	r3, r0
+  12:	4618      	mov	r0, r3
+  14:	3708      	adds	r7, #8
+  16:	46bd      	mov	sp, r7
+  18:	bd80      	pop	{r7, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text._ZSt12__niter_baseIP13operand_valueENSt11_Niter_baseIT_E13iterator_typeES3_:
+
+00000000 <_ZSt12__niter_baseIP13operand_valueENSt11_Niter_baseIT_E13iterator_typeES3_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZSt12__niter_baseIP13operand_valueENSt11_Niter_baseIT_E13iterator_typeES3_>
+   e:	4603      	mov	r3, r0
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt13__copy_move_aILb1EP13operand_valueS1_ET1_T0_S3_S2_:
+
+00000000 <_ZSt13__copy_move_aILb1EP13operand_valueS1_ET1_T0_S3_S2_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	2301      	movs	r3, #1
+   e:	75fb      	strb	r3, [r7, #23]
+  10:	68f8      	ldr	r0, [r7, #12]
+  12:	68b9      	ldr	r1, [r7, #8]
+  14:	687a      	ldr	r2, [r7, #4]
+  16:	f7ff fffe 	bl	0 <_ZSt13__copy_move_aILb1EP13operand_valueS1_ET1_T0_S3_S2_>
+  1a:	4603      	mov	r3, r0
+  1c:	4618      	mov	r0, r3
+  1e:	3718      	adds	r7, #24
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNSt10_Iter_baseIPPP5FrameLb0EE7_S_baseES3_:
+
+00000000 <_ZNSt10_Iter_baseIPPP5FrameLb0EE7_S_baseES3_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZSt12__niter_baseIPPP5FrameENSt11_Niter_baseIT_E13iterator_typeES5_:
+
+00000000 <_ZSt12__niter_baseIPPP5FrameENSt11_Niter_baseIT_E13iterator_typeES5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	6878      	ldr	r0, [r7, #4]
+   a:	f7ff fffe 	bl	0 <_ZSt12__niter_baseIPPP5FrameENSt11_Niter_baseIT_E13iterator_typeES5_>
+   e:	4603      	mov	r3, r0
+  10:	4618      	mov	r0, r3
+  12:	3708      	adds	r7, #8
+  14:	46bd      	mov	sp, r7
+  16:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt13__copy_move_aILb0EPPP5FrameS3_ET1_T0_S5_S4_:
+
+00000000 <_ZSt13__copy_move_aILb0EPPP5FrameS3_ET1_T0_S5_S4_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	2301      	movs	r3, #1
+   e:	75fb      	strb	r3, [r7, #23]
+  10:	68f8      	ldr	r0, [r7, #12]
+  12:	68b9      	ldr	r1, [r7, #8]
+  14:	687a      	ldr	r2, [r7, #4]
+  16:	f7ff fffe 	bl	0 <_ZSt13__copy_move_aILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  1a:	4603      	mov	r3, r0
+  1c:	4618      	mov	r0, r3
+  1e:	3718      	adds	r7, #24
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZSt22__copy_move_backward_aILb0EPPP5FrameS3_ET1_T0_S5_S4_:
+
+00000000 <_ZSt22__copy_move_backward_aILb0EPPP5FrameS3_ET1_T0_S5_S4_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	2301      	movs	r3, #1
+   e:	75fb      	strb	r3, [r7, #23]
+  10:	68f8      	ldr	r0, [r7, #12]
+  12:	68b9      	ldr	r1, [r7, #8]
+  14:	687a      	ldr	r2, [r7, #4]
+  16:	f7ff fffe 	bl	0 <_ZSt22__copy_move_backward_aILb0EPPP5FrameS3_ET1_T0_S5_S4_>
+  1a:	4603      	mov	r3, r0
+  1c:	4618      	mov	r0, r3
+  1e:	3718      	adds	r7, #24
+  20:	46bd      	mov	sp, r7
+  22:	bd80      	pop	{r7, pc}
+
+Disassembly of section .text._ZNKSt13move_iteratorIP13operand_valueE4baseEv:
+
+00000000 <_ZNKSt13move_iteratorIP13operand_valueE4baseEv>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	4618      	mov	r0, r3
+   e:	370c      	adds	r7, #12
+  10:	46bd      	mov	sp, r7
+  12:	f85d 7b04 	ldr.w	r7, [sp], #4
+  16:	4770      	bx	lr
+
+Disassembly of section .text._ZNSt10_Iter_baseIP13operand_valueLb0EE7_S_baseES1_:
+
+00000000 <_ZNSt10_Iter_baseIP13operand_valueLb0EE7_S_baseES1_>:
+   0:	b480      	push	{r7}
+   2:	b083      	sub	sp, #12
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	4618      	mov	r0, r3
+   c:	370c      	adds	r7, #12
+   e:	46bd      	mov	sp, r7
+  10:	f85d 7b04 	ldr.w	r7, [sp], #4
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text._ZNSt11__copy_moveILb1ELb1ESt26random_access_iterator_tagE8__copy_mI13operand_valueEEPT_PKS4_S7_S5_:
+
+00000000 <_ZNSt11__copy_moveILb1ELb1ESt26random_access_iterator_tagE8__copy_mI13operand_valueEEPT_PKS4_S7_S5_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68ba      	ldr	r2, [r7, #8]
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	1ad3      	subs	r3, r2, r3
+  12:	10db      	asrs	r3, r3, #3
+  14:	617b      	str	r3, [r7, #20]
+  16:	697b      	ldr	r3, [r7, #20]
+  18:	2b00      	cmp	r3, #0
+  1a:	d006      	beq.n	2a <_ZNSt11__copy_moveILb1ELb1ESt26random_access_iterator_tagE8__copy_mI13operand_valueEEPT_PKS4_S7_S5_+0x2a>
+  1c:	697b      	ldr	r3, [r7, #20]
+  1e:	00db      	lsls	r3, r3, #3
+  20:	6878      	ldr	r0, [r7, #4]
+  22:	68f9      	ldr	r1, [r7, #12]
+  24:	461a      	mov	r2, r3
+  26:	f7ff fffe 	bl	0 <memmove>
+  2a:	697b      	ldr	r3, [r7, #20]
+  2c:	00db      	lsls	r3, r3, #3
+  2e:	687a      	ldr	r2, [r7, #4]
+  30:	4413      	add	r3, r2
+  32:	4618      	mov	r0, r3
+  34:	3718      	adds	r7, #24
+  36:	46bd      	mov	sp, r7
+  38:	bd80      	pop	{r7, pc}
+  3a:	bf00      	nop
+
+Disassembly of section .text._ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIPP5FrameEEPT_PKS6_S9_S7_:
+
+00000000 <_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIPP5FrameEEPT_PKS6_S9_S7_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68ba      	ldr	r2, [r7, #8]
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	1ad3      	subs	r3, r2, r3
+  12:	109b      	asrs	r3, r3, #2
+  14:	617b      	str	r3, [r7, #20]
+  16:	697b      	ldr	r3, [r7, #20]
+  18:	2b00      	cmp	r3, #0
+  1a:	d006      	beq.n	2a <_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIPP5FrameEEPT_PKS6_S9_S7_+0x2a>
+  1c:	697b      	ldr	r3, [r7, #20]
+  1e:	009b      	lsls	r3, r3, #2
+  20:	6878      	ldr	r0, [r7, #4]
+  22:	68f9      	ldr	r1, [r7, #12]
+  24:	461a      	mov	r2, r3
+  26:	f7ff fffe 	bl	0 <memmove>
+  2a:	697b      	ldr	r3, [r7, #20]
+  2c:	009b      	lsls	r3, r3, #2
+  2e:	687a      	ldr	r2, [r7, #4]
+  30:	4413      	add	r3, r2
+  32:	4618      	mov	r0, r3
+  34:	3718      	adds	r7, #24
+  36:	46bd      	mov	sp, r7
+  38:	bd80      	pop	{r7, pc}
+  3a:	bf00      	nop
+
+Disassembly of section .text._ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIPP5FrameEEPT_PKS6_S9_S7_:
+
+00000000 <_ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIPP5FrameEEPT_PKS6_S9_S7_>:
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+   c:	68ba      	ldr	r2, [r7, #8]
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	1ad3      	subs	r3, r2, r3
+  12:	109b      	asrs	r3, r3, #2
+  14:	617b      	str	r3, [r7, #20]
+  16:	697b      	ldr	r3, [r7, #20]
+  18:	2b00      	cmp	r3, #0
+  1a:	d00b      	beq.n	34 <_ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIPP5FrameEEPT_PKS6_S9_S7_+0x34>
+  1c:	697b      	ldr	r3, [r7, #20]
+  1e:	009b      	lsls	r3, r3, #2
+  20:	425b      	negs	r3, r3
+  22:	687a      	ldr	r2, [r7, #4]
+  24:	441a      	add	r2, r3
+  26:	697b      	ldr	r3, [r7, #20]
+  28:	009b      	lsls	r3, r3, #2
+  2a:	4610      	mov	r0, r2
+  2c:	68f9      	ldr	r1, [r7, #12]
+  2e:	461a      	mov	r2, r3
+  30:	f7ff fffe 	bl	0 <memmove>
+  34:	697b      	ldr	r3, [r7, #20]
+  36:	009b      	lsls	r3, r3, #2
+  38:	425b      	negs	r3, r3
+  3a:	687a      	ldr	r2, [r7, #4]
+  3c:	4413      	add	r3, r2
+  3e:	4618      	mov	r0, r3
+  40:	3718      	adds	r7, #24
+  42:	46bd      	mov	sp, r7
+  44:	bd80      	pop	{r7, pc}
+  46:	bf00      	nop

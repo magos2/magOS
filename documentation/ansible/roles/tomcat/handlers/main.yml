@@ -1,0 +1,5 @@
+---
+- name: restart tomcat
+  shell: su - webadmin -c {{catalina_home}}/bin/startup.sh
+
+...

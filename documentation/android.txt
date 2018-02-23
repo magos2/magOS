@@ -1,0 +1,71 @@
+
+#### GNURoot Debian ####
+- External Sdcard
+  mounted on '/host-rootfs/extSdCard'
+  # ln -s /host-rootfs/extSdCard sdcard1
+- Permissions denied :
+  - connect to TerminalEmulator using root, and modify access on FS
+  # mount -o rw,remount /system
+  reset access to ro
+  - To execute some restrected command, use TerminalEmulator with root,
+
+- Permission denied for execute an binary: you must put it in /usr/local/bin.
+  # gcc divers.c -o /usr/local/bin/divers
+
+#### Decompile a DEX ####
+- Install JDK on Gnuroot, easy
+  tar xfz jdk-8u111-linux-arm32-vfp-hflt.tar.gz
+- Edit "/home/.bashrc"
+  JAVA_HOME=/opt/jdk1.8
+  export JAVA_HOME
+  PATH=$PATH:$JAVA_HOME/bin
+- get and use tools ;
+  dex2jar; convert an .apk to a .jar
+  jd-cli or jd-gui: famous java decompiler
+  
+#### Divers ####
+- BusyBox combines many common UNIX utilities into a single small executable. like swiss knife for embedded unix.
+  example : busybox ls
+  busybox --help
+  
+- /system/etc/mkshrc : to use instead of .bashrc, to define aliases, ps1 prompt.
+- mount /system FS writable (ReadOnly files)
+  connect to TerminalEmulator
+  # su -
+  # mount -o rw,remount /system
+  you should remount with the original readonly.
+  # mount -o ro,remount /system
+  
+- wath are the process using a file or directory?
+  busybox lsof /path-to-file
+  
+- FS utilisation
+   busybox df -m
+
+- Process managment
+   busybox top
+   busybos kill -9 <pid>
+   busybox ps   
+
+** TerminalEmulator tricks
+  - modify the PS1
+    # su -
+    # mount -o rw,remount /system
+    # vi /etc/mkshrc
+    # mount -o ro,remount /system
+
+#### Android file hierarchy ####
+the file system is organized by partions:
+/system : this partition includes the Android GUI and all the system applications that come pre-installed 
+          on the device.
+/data   : This partition contains the user’s data like your contacts, sms, settings and all android applications 
+          that you have installed.
+/SDcard : this is your storage space to use as you see fit, to store your media, documents, ROMs etc. on it.
+
+#### utilitaires ####
+- SGit : client git
+- DroitEdit : editor for programmer
+- Terminal emulator
+- Terminal IDE
+- WPS : editeur .doc, excel ...
+- OS Monitor 

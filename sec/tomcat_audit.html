@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tomcat8 Audit</title>
+
+  <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even){background-color: #f2f2f2}
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  </style>
+  
+</head>
+<body>
+<table style="width:80%">
+
+  <tr>
+    <th>Level</th>
+    <th>Problem</th>
+    <th>Action</th>
+  </tr>
+  
+<tr>
+ <td> Warn</td>
+ <td> Setting the port attribute to -1 disables the shutdown port</td>
+ <td> If the shutdown port is not disabled, a strong password should be configured for shutdown</td>
+</tr>
+</table>
+</body>
+</html>

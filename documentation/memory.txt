@@ -1,0 +1,246 @@
+#### Memory Managment ###
+- http://www.tldp.org/LDP/khg/HyperNews/get/memory/linuxmm.html
+- http://duartes.org/gustavo/blog/post/how-the-kernel-manages-your-memory/
+- https://www.kernel.org/doc/gorman/html/understand/
+- http://www.brokenthorn.com/Resources/OSDev18.html
+- http://www.makelinux.net/books/7
+- http://www.chudov.com/tmp/LinuxVM/html/understand/node1.html
+
+-  virtual and physical memory are divided into handy sized chunks 
+   called pages(4ko generaly). 
+   Each of these pages is given a unique number; the page frame number (PFN).
+- PAGE_OFFSET
+ PAGE_OFFSET est egal à 0xc0000000(3Go). l'espace d'adressage lineaire d'un process
+ est divisé en deux:
+ * de 0x00000000 à PAGE_OFFSET-1 que le process peut acceder en mode user ou kernel.
+ * de PAGE_OFFSET à 0xffffffff(4Go) que le process peut acceder en mode kernel uniquemet.
+
+- Kernel memory is split up into 256MB-regions as follows:
+  0xC0000000	Kernel code, data, bss, etc.
+				Probably too much but, hey, we might see a 256MB kernel one day.
+  0xD0000000	Kernel heap
+  0xE0000000	Space reserved for device drivers
+  0xF0000000	Some physical memory (useful for video memory access)
+				Page directory and page tables of the current process
+
+- GDTR/IDTR : registres pour charger les descripteurs gdt/idt. chaque descripteur est compsé de deux champs
+   limt(2 octets), et base(adresse lineaire!). utiliser les instructions lgdt et lidt pour les charger.
+- GDT descriptor 64 bits:
+  ---------------------------------------------------------------------
+ |base:8|flags:4|limit hi:4|access:8|base mi:8|base low:16|limit low:16|
+ 63--------------------------------------------31----------------------0
+
+- GDTR descriptor 48 bits:
+  ---------------------
+ |base:32    |limit:16 |
+ 47----------15--------0
+
+- CPU Privilege Levels(x86)
+  * CPL - Current Privilege Level. 
+        15------------------------0
+   CS : |selector:13   |TI:1|CPL:2|
+         -------------------------
+  * RPL - Request PL. RPL is locatated on lowest two  bits of the selectors DS/ES/SS/FS/GS.
+        15------------------------0
+   DS : |selector:13   |TI:1|RPL:2|
+         -------------------------
+  * DPL - Data PL: DPL is located on segement descriptors(GDT/LDT). 
+  if max(CPL,RPL) <= DPL : ok
+  else General-protection exception.
+                          31-------------------------------------------0  
+-Virtual address format : |Directory:10  |Page table:10   |Offset:12   |
+                           --------------------------------------------  
+- Page Table Entry:
+  31----------------12-11----------------------------0
+  |phy frame:20      |AVAIL:3|0 0|D|A|0 0|U/S:1|R/W|P|
+   --------------------------------------------------
+  - Present: if p=0, a page fault occurs if we attempt to use this entry for address translation.
+  - R/W: read only access(R/W=0). read/write(R/W=1).    
+  - U/S: Supervisor level(U/S=0). User level(U/S=1).
+  - Dirty.
+  - Accessed.
+                   
+- PAE : physical address extension. The Pentium Pro processor also supports an extension of the physical address space to 236 bytes
+(64 GBytes), with a maximum physical address of FFFFFFFFFH. This extension is invoked
+with the physical address extension (PAE) flag, located in bit 5 of control register CR4.
+
+- Bitmap: Un bitmap est un tableau dont chaque élément est un bit(donc 0 ou 1). utilisé pour
+  gerer l'utilisation de la memoire physique. chaque page est representé par un bit(free=0, used=1). 
+
+- Organisation RAM au boot(Linux 0.1)
+  -------------  16Mo 
+ | mai memory  |
+ | area        |
+ |-------------| 4.5Mo 
+ | ram disk    |
+ |-------------| 4Mo 
+ | cache       |
+ |-------------| 1Mo (0x100000)
+ | BIOS        |
+ | Video       |
+ |-------------| 640Ko (0xa0000)
+ | cache       |
+ |-------------| end
+ |             |     
+ | kernel      |
+  -------------  0x0
+
+- L'espace linéaire du noyau est équivalent à l'espace physique du noyau.
+- Les segments de pile doivent être contigus (selon la définition de pile)
+- les fonctions du noyau ne sont jamais:
+   * recursives
+   * intercalling plus de N fois.
+- CR3 : registre utilisé pour stocker l'addresse physique du Page Directory de la tache.
+- En Mode Utilisateur une Tâche ne peut pas dépasser la limite de 3 Go (0xC0000000), c-a-d les 768 premières entrées du page directory (768*4mb = 3Go).
+  Quand une Tâche passe en Mode Noyau (par Appel System ou par IRQ) les 256 entrées(1Go) suivantes seront utilisées, c'est l'espace d'adressage noyau, et elles pointent vers les mêmes pages tables que les autres Tâches (qui sont les même que le noyau).
+  le répertoire de pages de la tâche utilisateur comprend une partie qui lui permet d'accéder à son propre espace d'adressage, et une autre partie qui lui permet d'accéder à l'espace d'adressage du noyau.
+
+- vm_area_struct : virtual memory area (VMA) is a contiguous range of virtual addresses; these areas never overlap(jamais chauvaucher).
+  une vm_area peut stocker une des zones : text, data, bss, stack, heap(brk), memory mapping(des fichiers).
+  A VMA that does not map a file is anonymous.
+  VMA must be a multiple of page size.
+  brk() system_call: augmente le heap d'une tache
+- page frame = physical page
+- Buddy(ami) algorithm for memory allocation:
+   * Tous les cadres libres sont mis dans des groupes de tailles différentes
+     1, 2, 4, 8, 16, 32, 64, 128, 256 et 512 cadres contigus
+   * Ces groupes sont maintenus dans des listes (une par taille de groupe)
+   * L’adresse physique du premier cadre du bloc est un multiple de la taille du groupe
+     Ex: l’adresse initiale d’un bloc de 16 cadres est un multiple de 16x212
+   * Algorithme
+   ** Une demande est faite pour n cadres consécutifs
+   ** Si n a une liste correspondante, on l’utilise
+   ** Sinon, utilisation de la liste supérieure la plus proche
+   ** Allocation des cadres nécessaire
+   ** Les cadres restants sont mis dans la liste correspondante
+- Each user process has a local descriptor table(LDT). These user segments extend from 0 to 3 GB (0xc0000000). The space above 
+  3 GB appears in a process' page directory as pointers to kernel page tables. This space is invisible to the process in user 
+  mode but the mapping becomes relevant when privileged mode is entered, for example, to handle a system call.
+- In user space, linear addresses and logical addresses are identical.
+- The kernel code and data segments are priveleged segments defined in the global descriptor table and extend 
+  from 3 GB to 4 GB. The swapper page directory (swapper_page_dir is set up so that logical addresses and physical addresses 
+  are identical in kernel space.
+- red-black tree for vm areas kuick search
+- Physical page 0 is special; it's not touched by Linux since BIOS may need it.  It is read
+  and write protected to detect null pointer references in the kernel.
+- Invalidating entries
+   When cr3 changes, all TLB entries are invalidated, because a new page table for a new process is going to be used, so it is unlikely that any of the old entries have any meaning.
+   The x86 also offers the invlpg instruction which explicitly invalidates a single TLB entry. 
+
+- Note that Kernel (and only kernel) Linear Space is equal to Kernel Physical Space, so:
+
+ 
+            ________________ _____                    
+           |Other KernelData|___  |  |                |
+           |----------------|   | |__|                |
+           |     Kernel     |\  |____|   Real Other   |
+  3 GB --->|----------------| \      |   Kernel Data  |
+           |                |\ \     |                |
+           |              __|_\_\____|__   Real       |
+           |      Tasks     |  \ \   |     Tasks      |
+           |              __|___\_\__|__   Space      |
+           |                |    \ \ |                |
+           |                |     \ \|----------------|
+           |                |      \ |Real KernelSpace|
+           |________________|       \|________________|
+      
+           Logical Addresses          Physical Addresses
+
+**** Memory initialization ****
+   - In start_kernel() (main.c) there are 3 variables related to memory initialization:
+     * memory_start : starts out at 1 MB. Updated by device initialization.
+     * memory_end : end of physical memory: 8 MB, 16 MB, or whatever.
+     * low_memory_start : end of the kernel code and data that is loaded initially.
+   - Each device init typically takes memory_start and returns an updated value if it allocates space at memory_start (by simply grabbing it). 
+   - paging_init() initializes the page tables in the {swapper_pg_dir} (starting at 0xc0000000) to cover all of the physical memory.
+     from memory_start to memory_end. Actually the first 4 MB is done in startup_32 (head.S). 
+     memory_start is incremented if any new page_tables are added. 
+   - The first page is zeroed to trap null pointer references in the kernel.
+   - mem_map is then constructed by mem_init() to reflect the current usage of physical pages. 
+
+- le mapping pour kernel est fait une fois pour toute au startup(paging_init). le kernel peut acceder
+  a n'importe quelle addresse physique. pas de "page_fault" dans le kernel!
+    
+- Memory Layout for a programm 
+ High mem  ----------------------   
+          | Args and env vars    | Command line arguments and environment variables
+          |                      |
+          |----------------------| 
+          |    Stack             |
+          |      |               |
+          |      v               |
+          |----------------------| 
+          |    Unused            |
+          |----------------------| 
+          |      ^               |
+          |      |               |
+          |    Heap              |
+          |----------------------| 
+          |    Uninitialized Data|  Initialized to zero by exec. 
+          |     Segment (.bss)   |
+          |----------------------| 
+          |    Initialized Data  |  Read from the program file by exec
+          |     Segment (.data)  |
+          |----------------------| 
+          |  Text Segment(.text) |  Read from the program file by exec
+ Low mem   ---------------------- 
+
+** kmalloc, malloc
+- GFP_KERNEL, means that the kmalloc allocation (internally performed by calling, eventually, 
+  __get_free_pages) is performed on behalf of a process running in kernel space.
+  this means that the calling function is executing a system call on behalf of a process. 
+
+- kmalloc vs malloc
+  kmalloc returns physically contiguous memory, malloc does not guarantee anything about the physical memory mapping.
+  The other main difference is that kmalloc'ed memory is reserved and locked, it cannot be swapped. 
+  malloc does not actually allocate physical memory. Physical memory gets mapped later, during use.
+
+- Virtual Address Space : represented by the Page Directory.
+
+** Memory Address Translation
+   ---------     ---------------     -----------------     --------------     ------------     ----------------     -----------     ----
+  |Programm |-->|Logical Address|-->|Segmentation Unit|-->|Linear Address|-->|Paging Unit |-->|Physical Address|-->|NorthBridge|-->|RAM |
+   ---------     ---------------     -----------------     --------------     ------------     ----------------     -----------     ----
+  linear_addr = gdt_base + virt_addr
+  than use page directory and page tables to translate linear addr to phy addr
+  without paging : linear addr = phisycal addr
+
+########## Page Fault ##########
+** Page fault error code
+31                4                             0
++-----+-...-+-----+-----+-----+-----+-----+-----+
+|     Reserved    | I/D | RSVD| U/S | W/R |  P  |
++-----+-...-+-----+-----+-----+-----+-----+-----+
+	P: When set, the fault was caused by a protection violation.
+	   When not set, it was caused by a non-present page.
+	W/R: When set, write access caused the fault; otherwise read access.
+	U/S: When set, the fault occurred in user mode; otherwise in supervisor mode.
+	RSVD: When set, one or more page directory entries contain reserved bits which are set to 1.
+	     This only applies when the PSE or PAE flags in CR4 are set to 1.
+	I/D: When set, the fault was caused by an instruction fetch.
+	
+** Copy-On-Write(COW):
+   an exception is handled whenever a process try to write on a read-only/present page .
+   the frame is shared if page.count >= 2. that is, two or more process share it.
+   
+** Sequence Diagram
+isr_page_fault
+ |
+ '-- page_fault
+      |
+      '-- do_page_fault (esp,err_code)
+           |
+           '-- if  cr2==0; NullPointer. exit
+           '-- if err_code == PAGE_NOT_PRESENT
+               |
+               '-- addr = cr2
+               '-- do_no_page(addr)
+                   |
+                   '-- page = get_free_page (GFP_USER)
+                   '-- mmap_page (addr, _pa(page), PAGE_PRESENT|PAGE_RW|PAGE_USER)
+                       |
+                       '-- pgdir =  current->mm.pgdir
+                       '-- if page_table not present: page_table_alloc()
+                       '-- do mapping [addr:page] in page_table
+  
+  

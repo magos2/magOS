@@ -1,0 +1,194 @@
+/*_ Copyright 2016 @AR
+ *
+ * kmalloc : kernel heap allocator
+ *
+ * very simple kmalloc, using a pseudo buddy algorithm.
+ * a page frame is divided into blocks with same size/order.
+ */
+#include <Types.h>
+#include <errno.h>
+#include <mm.h>
+#include <kernel.h>    
+#include <list.h>
+
+#define KMALLOC_MIN_SIZE  4  //bytes
+#define KMALLOC_MAX_SIZE  (PAGE_SIZE - sizeof(struct chunk_head)) 
+
+#define next_chunk(chunk)  ((struct chunk_head*)((unsigned long)chunk + sizeof(struct chunk_head) + chunk->size))
+#define real_size(chunk)   (chunk->size + sizeof(struct chunk_head))
+#define is_free(chunk)    (chunk->inuse == 0)
+
+
+#define DEBUG 0
+
+struct chunk_head {
+  size_t size;
+  int inuse; /*0 free, >0 used*/
+};
+
+unsigned long kheap_start;
+unsigned long kbrk;  /*kheap end. brk=break*/
+unsigned long kheap_end;
+
+extern unsigned long start_mem;
+extern unsigned long end_mem;
+
+/* ksbrk : augmenter la taille du heap kernel de <n> pages
+   vars
+     swapper_pg_dir : kernel page directory
+     kbrk  : kheap end
+   augmenter la taille du heap de <n> pages
+     * pour i in 1..n, allouer une page physique et la mapper
+     -- pgt = swapper_pg_dir[PGD_INDEX(brk)]
+     -- si pgt n est pas present
+           allouer une frame et la dedier a pgt
+           swapper_pg_dir[PGD_INDEX(brk)] = ADDR(pgt)
+     -- allouer un frame : page
+     -- pgt[PGT_IDX(brk)] = ADDR(page)
+     -- kbrk = kbrk + PAGE_SIZE
+     * return kbrk
+ */
+int ksbrk (int n)
+{
+  int i, ret;
+  struct chunk_head * new_chunk;
+  
+  if (kbrk >= kheap_end)
+    panic("cannot extend kheap, oom");
+  new_chunk = (struct chunk_head  *)kbrk;
+  new_chunk->inuse = 0;
+  new_chunk->size = 0 - sizeof(struct chunk_head);
+  i = 0;
+  while (i++<n) {
+    if ((ret = mmap_pages(kbrk, 1, KERNEL_PAGE)))
+      return ret;
+    kbrk += PAGE_SIZE;
+    new_chunk->size += PAGE_SIZE;
+  }
+  return 0;
+}
+	
+/*kmalloc algo
+Constantes
+- KHEAP-DMA-START  1MB
+...
+- Structures
+  chunk :
+     - size : int
+     - free : int
+- ALGO
+- variable : chunk pointe sur debut du heap
+             realsz = size + taille(structure chunk)
+- Allouer sz bytes dans le heap kernel
+  - parcourir le heap depuis le debut et trouver
+  un chunk free dont la chunk.size >= realsz
+    --tester chaque chunk si corrompu
+      si taille < Minsize 
+  - si non trouve, il faut augmenter le kheap via ksbrk
+    -- OOM si on ne peut pas augmenter le heap
+    -- prendre le premier chunk
+  - ici le chunk est trouvé
+  -- spliter le chunk si sa taille est grande.
+     -- si chunk.size > realsz + MALLOC-MINSIZE
+        new-chunk = loc(chunk) + realsz
+        new-chunk.free=yes
+        new-chunk.size = chunk.sz - realsz
+  -- chunk.free = used
+  -- returner loc(chunck) + size(struct chunk) 
+*/
+void * kmalloc (size_t size) 
+{
+  size_t realsz, sz;
+  struct chunk_head *chunk, *new_chunk;
+  int err;
+  
+  if (size > PAGE_SIZE - sizeof(struct chunk_head)) {
+     printk ("error, we cannot allocate more than %d bytes\n", KMALLOC_MAX_SIZE);
+     return NULL;
+  }
+  sz = (size > KMALLOC_MIN_SIZE)?size:KMALLOC_MIN_SIZE;
+  realsz = sz + sizeof(struct chunk_head);
+  chunk = (struct chunk_head*) kheap_start;
+  while (((unsigned long)chunk < kbrk) && (!is_free(chunk) || chunk->size < sz)) {
+    if (chunk->size <= 0) {
+      panic("error , corrupted chunk  at %p, size=%d, inuse=%d\n", chunk, chunk->size, chunk->inuse);
+      return NULL;
+    }
+    chunk = next_chunk(chunk);
+  }
+  if ((unsigned long)chunk >= kbrk) { //increase the heap de 1 page
+      err = ksbrk(1);
+      if (err) {
+        panic("OOM, cannot extend heap beyond %d\n", kbrk);
+        return NULL;
+      }
+  }
+  if(chunk->size > sz + sizeof(struct chunk_head) + KMALLOC_MIN_SIZE) {
+    new_chunk = (struct chunk_head*)((unsigned long)chunk + realsz);
+    new_chunk->inuse = 0;
+    new_chunk->size = chunk->size - realsz;
+  }
+  chunk->size = sz;
+  chunk->inuse = 1;
+#if DEBUG
+  printk("allocated chunk at %p, size=%d, inuse=%d\n", chunk, chunk->size, chunk->inuse);
+#endif
+  return (char*)chunk + sizeof(struct chunk_head);
+}
+
+/* ALGO
+ * liberer la memoire a <addr>
+   F1: recuperer le chunk
+       si free , ne rien faire return.
+   F2: p = chunk suivant
+       si p est free
+         chunk.size += p.size
+         goto F2
+   F3: chunk.free = yes
+  */
+void kfree (void *addr)
+{
+  struct chunk_head *chunk, *chp;
+  
+  chunk = (struct chunk_head *)((char*)addr - sizeof(struct chunk_head));
+  if (!chunk->inuse)
+    return;
+  chp = next_chunk(chunk);
+  while ((unsigned long)chp < kbrk && is_free(chp)){
+    if (chp->size <= 0)
+      panic("error , corrupted chunk  at %p, size=%d, inuse=%d\n", chp, chp->size, chp->inuse);
+    chunk->size += real_size(chp);
+    chp = next_chunk(chp);
+  }
+  chunk->inuse = 0;
+}
+
+void show_kheap ()
+{
+  struct chunk_head *chunk;
+  size_t free_mem, used_mem, total_mem;
+  
+  free_mem=used_mem=total_mem=0;
+  printk("chunks: ");
+  chunk = (struct chunk_head*) kheap_start;
+  while ((unsigned long)chunk < kbrk) {
+    printk("[%x,%dB,%s]", (int)chunk, chunk->size, (chunk->inuse)?"used":"free");
+    if (is_free(chunk))
+      free_mem += chunk->size;
+    else
+      used_mem += chunk->size;
+    total_mem += chunk->size;
+    chunk = next_chunk(chunk);
+  }
+  printk("\n");
+  printk("kheap total:%d B free:%d B used:%d B\n\n", total_mem, free_mem, used_mem);
+}
+
+void kmalloc_init (unsigned long brk_start, unsigned long brk_end)
+{
+  kheap_start = kbrk = brk_start;
+  kheap_end = brk_end;
+  ksbrk(1);
+}
+
+

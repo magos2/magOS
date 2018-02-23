@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+
+		<!-- Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		
+		<RollingFile name="RollingFile">
+			<FileName>./jvm.log</FileName>
+			<FilePattern>./jvm.log-%d{yyyy-MM-dd-hh-mm}</FilePattern>
+			<PatternLayout>
+				<Pattern>%d{yyyy-MMM-dd HH:mm:ss a} %-5level ; %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="7" />
+		</RollingFile>
+
+	</Appenders>
+	<Loggers>
+		<Logger name="safar.tomcat" level="info" additivity="false">
+			<AppenderRef ref="RollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Root level="trace">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>

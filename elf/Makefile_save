@@ -1,0 +1,32 @@
+EXE=elf-read
+SRC= $(wildcard *.c) 
+OBJ= $(SRC:.c=.o)
+
+
+OUT_DIR=../bin/elf
+OUT_OBJ=$(addprefix $(OUT_DIR)/, $(OBJ)) 
+
+all:$(OUT_DIR)/$(EXE)
+
+INCLUDE= -I./include
+#GCC_INCLUDE=-I/usr/lib/gcc/i686-redhat-linux/4.4.7/include
+AS=as
+LD=ld
+CC=gcc
+CFLAGS=-Wall -g -std=c11 $(INCLUDE) $(GCC_INCLUDE)
+LDFLAGS=
+
+$(OUT_DIR)/%.o:%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+$(OUT_DIR)/$(EXE):$(OUT_OBJ)
+	$(CC) $(CCFLAGS) $^ -o $@
+	cp $@ /usr/local/test/
+	chmod +x /usr/local/test/$(EXE)
+	
+clean:
+	rm -f $(OUT_DIR)/$(EXE) $(OUT_OBJ)
+	
+	
+	

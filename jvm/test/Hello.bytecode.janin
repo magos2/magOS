@@ -1,0 +1,169 @@
+Header Info:
+   magic: 0xcafebabe
+   minor: 0
+   major: 0x34
+access Flags: ACC_PUBLIC 
+thisClass: 0x9
+superClass: 0xf
+Counstant Count:    56
+Constant Pool:
+	#1 = MethodRef           #15.#32        // java/lang/Object.<init>:()V
+	#2 = FieldRef            #33.#34        // java/lang/System.out:Ljava/io/PrintStream;
+	#3 = Class               #35            // java/lang/StringBuilder
+	#4 = MethodRef           #3.#32         // java/lang/StringBuilder.<init>:()V
+	#5 = String              #36            // Hello 
+	#6 = MethodRef           #3.#37         // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	#7 = MethodRef           #3.#38         // java/lang/StringBuilder.toString:()Ljava/lang/String;
+	#8 = MethodRef           #39.#40        // java/io/PrintStream.println:(Ljava/lang/String;)V
+	#9 = Class               #41            // Hello
+	#10 = MethodRef           #9.#32         // Hello.<init>:()V
+	#11 = FieldRef            #9.#42         // Hello.year:I
+	#12 = MethodRef           #9.#43         // Hello.pow2:(I)I
+	#13 = String              #44            // Anass
+	#14 = MethodRef           #9.#45         // Hello.sayHello:(Ljava/lang/String;)V
+	#15 = Class               #46            // java/lang/Object
+	#16 = Utf8                // name
+	#17 = Utf8                // Ljava/lang/String;
+	#18 = Utf8                // year
+	#19 = Utf8                // I
+	#20 = Utf8                // <init>
+	#21 = Utf8                // ()V
+	#22 = Utf8                // Code
+	#23 = Utf8                // LineNumberTable
+	#24 = Utf8                // pow2
+	#25 = Utf8                // (I)I
+	#26 = Utf8                // sayHello
+	#27 = Utf8                // (Ljava/lang/String;)V
+	#28 = Utf8                // main
+	#29 = Utf8                // ([Ljava/lang/String;)V
+	#30 = Utf8                // SourceFile
+	#31 = Utf8                // Hello.java
+	#32 = Name And Type       #20.#21        // <init>:()V
+	#33 = Class               #47            // java/lang/System
+	#34 = Name And Type       #48.#49        // out:Ljava/io/PrintStream;
+	#35 = Utf8                // java/lang/StringBuilder
+	#36 = Utf8                // Hello 
+	#37 = Name And Type       #50.#51        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	#38 = Name And Type       #52.#53        // toString:()Ljava/lang/String;
+	#39 = Class               #54            // java/io/PrintStream
+	#40 = Name And Type       #55.#27        // println:(Ljava/lang/String;)V
+	#41 = Utf8                // Hello
+	#42 = Name And Type       #18.#19        // year:I
+	#43 = Name And Type       #24.#25        // pow2:(I)I
+	#44 = Utf8                // Anass
+	#45 = Name And Type       #26.#27        // sayHello:(Ljava/lang/String;)V
+	#46 = Utf8                // java/lang/Object
+	#47 = Utf8                // java/lang/System
+	#48 = Utf8                // out
+	#49 = Utf8                // Ljava/io/PrintStream;
+	#50 = Utf8                // append
+	#51 = Utf8                // (Ljava/lang/String;)Ljava/lang/StringBuilder;
+	#52 = Utf8                // toString
+	#53 = Utf8                // ()Ljava/lang/String;
+	#54 = Utf8                // java/io/PrintStream
+	#55 = Utf8                // println
+Interfaces Count: 0
+Fields Count: 2
+   Ljava/lang/String; name: #16.#17
+	access flags: 
+	attributesCount: 0
+   I year: #18.#19
+	access flags: 
+	attributesCount: 0
+Methods Count: 4
+   <init> ()V {
+	access flags: ACC_PUBLIC 
+	maxStack: 1
+	maxLocals: 1
+	attributesCount: 1
+	Code:
+	0x2a aload_0        
+	0xb7 invokespecial  #1   // java/lang/Object.<init>:()V
+	0xb1 return         
+
+	exceptionTableLength: 0
+	attributesCount: 1
+	Attribute Info:
+		attributeNameIndex: 23
+		attributeLength: 6
+		info: 
+   }
+   pow2 (I)I {
+	access flags: 
+	maxStack: 2
+	maxLocals: 2
+	attributesCount: 1
+	Code:
+	0x4  iconst_1       
+	0x1b iload_1        
+	0x78 ishl           
+	0xac ireturn        
+
+	exceptionTableLength: 0
+	attributesCount: 1
+	Attribute Info:
+		attributeNameIndex: 23
+		attributeLength: 6
+		info: 
+   }
+   sayHello (Ljava/lang/String;)V {
+	access flags: 
+	maxStack: 3
+	maxLocals: 2
+	attributesCount: 1
+	Code:
+	0xb2 getstatic      #2   // java/lang/System.out:Ljava/io/PrintStream;
+	0xbb new            #3   // java/lang/StringBuilder
+	0x59 dup            
+	0xb7 invokespecial  #4   // java/lang/StringBuilder.<init>:()V
+	0x12 ldc            #5   // Hello 
+	0xb6 invokevirtual  #6   // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	0x2b aload_1        
+	0xb6 invokevirtual  #6   // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	0xb6 invokevirtual  #7   // java/lang/StringBuilder.toString:()Ljava/lang/String;
+	0xb6 invokevirtual  #8   // java/io/PrintStream.println:(Ljava/lang/String;)V
+	0xb1 return         
+
+	exceptionTableLength: 0
+	attributesCount: 1
+	Attribute Info:
+		attributeNameIndex: 23
+		attributeLength: 10
+		info: 
+   }
+   main ([Ljava/lang/String;)V {
+	access flags: ACC_PUBLIC ACC_STATIC 
+	maxStack: 2
+	maxLocals: 3
+	attributesCount: 1
+	Code:
+	0xbb new            #9   // Hello
+	0x59 dup            
+	0xb7 invokespecial  #10  // Hello.<init>:()V
+	0x4d astore_2       
+	0x2c aload_2        
+	0x11 sipush         #2013
+	0xb5 putfield       #11  // Hello.year:I
+	0x2c aload_2        
+	0x10 bipush         #7   
+	0xb6 invokevirtual  #12  // Hello.pow2:(I)I
+	0x3c istore_1       
+	0x2c aload_2        
+	0x12 ldc            #13  // Anass
+	0xb6 invokevirtual  #14  // Hello.sayHello:(Ljava/lang/String;)V
+	0xb1 return         
+
+	exceptionTableLength: 0
+	attributesCount: 1
+	Attribute Info:
+		attributeNameIndex: 23
+		attributeLength: 22
+		info: 
+   }
+Eden Space :
+  Size : 0 B
+  Object list:
+Method Area :
+  Size : 748 B
+  Class list:
+    0x3f408 : size=748 B, Hello

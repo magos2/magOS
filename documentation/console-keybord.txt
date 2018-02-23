@@ -1,0 +1,21 @@
+** Console **
+* VGA memory start at 0xb8000
+* each caracter takes 2 bytes.
+   15-----------12-11--------8-7----------0
+  |Backcolor      |Forecolor  |Character  |
+   ---------------------------------------
+* Color codes:
+  0	BLACK   	8	DARK GREY
+  1	BLUE	    9	LIGHT BLUE
+  2	GREEN	   10	LIGHT GREEN
+  4	RED	     12	LIGHT RED
+  7	LIGHT GREY  15	WHITE
+
+** Terminal
+  a terminal=keybord+console together. because historically the keybord and display were connected to the pc with a single wire.
+
+
+** References
+- http://wiki.osdev.org/Text_UI
+- http://www.osdever.net/bkerndev/Docs/printing.htm
+- http://www.brackeen.com/vga/

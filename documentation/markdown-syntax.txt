@@ -1,0 +1,43 @@
+See: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists
+
+- Tables
+
+Commands:
+
+| Command                                            | Description                               | 
+| -------------------------------------------------- | ----------------------------------------- |
+| dd if=/dev/zero of=disk.img bs=512 count=2000      | create a virtual disk of 1MB              |
+| xxd -s 1024 -l 512 disk.img                        | read 512 bytes starting at 1024 byte      |
+
+- Line Break(new line)
+  Add to spaces at the line end. Exp:
+  a__
+  b__
+  c
+  where _ is white space.
+  
+- Links 
+  [I'm an inline-style link](https://www.google.com)
+  
+- List
+1. certificat négatif:
+...* En ligne : www.directinfo.ma
+...* Centre Régional d’Investissement / Guichet OMPIC
+...* Frais: 230 dh
+2. item 2..
+...You can have properly indented paragraphs within list items
+
+- Code
+```xml
+<Resource name="jdbc/myDS" auth="Container"
+       type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+       factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"/>
+```
+
+```sh
+    export PATH=/bin:/sbin
+```
+
+- Images
+  ![alt txt](images/Weblogic-Dashboard.png)
+

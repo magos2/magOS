@@ -1,0 +1,9 @@
+# exclude 
+*.o
+*.a
+*.bin
+*.lib
+*.elf
+*.sym
+*.gdb_history
+*.class

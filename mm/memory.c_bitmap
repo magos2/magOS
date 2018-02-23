@@ -1,0 +1,163 @@
+/*
+ * Copyright 2016 @AR
+ *
+ * Mamory Paging.
+ * PGT : Page Table
+ * PGD : Page Directory
+ *
+*/ 
+
+#include <types.h>
+#include <mm.h>
+#include <bitops.h>
+#include <kernel.h>
+#include <system.h>
+#include <list.h>
+
+//int mem_map[RAM_MAXPAGE>>5] = {0,}; 
+int * mem_map;    /* bitmap pour pages physiques*/
+int   mem_map_len;
+int   reserved_pages;/*les n premieres pages reserve*/
+
+inline void set_page_used(unsigned long addr)
+{
+  int page;
+  page = (addr >> PAGE_SHIFT);
+  set_bit(page, mem_map);
+}
+
+inline void set_page_free(unsigned long addr)
+{
+   int page;
+   page = (addr >> PAGE_SHIFT);
+   clear_bit(page, mem_map);
+}
+
+/*
+  start_mem : toutes les pages de 0..start_mem sont reservé
+              de satrt_mem à stat_mem+SIZE(mem_map) sont reservé
+  new start_mem = start_mem + SIZE(mem_map) 
+  end_mem : de new_start_mem a end_mem sont free
+ */
+unsigned long mem_init(unsigned long start_mem, unsigned long end_mem)
+{
+   unsigned long addr;
+    
+   mem_map = (int *)start_mem;
+   mem_map_len = 1 + ((end_mem >> PAGE_SHIFT) >> 5); /*page_number / 32*/
+   start_mem += (mem_map_len * 4);
+   start_mem = PAGE_ALIGN(start_mem);
+   reserved_pages = PAGE_NR(start_mem);
+   addr = 0;
+   for (addr = 0; addr < start_mem; addr += PAGE_SIZE) 
+     set_page_used(addr);
+   for (addr = start_mem; addr < end_mem; addr += PAGE_SIZE)
+     set_page_free(addr);   
+   
+   return start_mem;
+}
+
+void free_page(unsigned long addr)
+{
+  if (PAGE_NR(addr) < reserved_pages)
+    return;
+  set_page_free(addr);
+}
+
+unsigned long get_free_page(void)
+{
+   unsigned long addr = 0;
+   int page = 0;
+   int i, j;
+   
+   for (i = (reserved_pages >> 5); i < mem_map_len; i++) {
+      for (j = 0; j < 32; j++) 
+         if (test_bit(j, &mem_map[i]) == 0) {
+            page = (i<<5) + j;
+            addr = PAGE_ADDR(page);
+            set_page_used(addr);
+            /* clear page data */
+            zero_mem(addr,PAGE_SIZE);
+            return addr;
+         }
+   }
+   return 0; //no free page found
+}
+
+void show_mem ()
+{
+  int i, j;
+  int free_pages, used_pages, total_pages;
+  
+  free_pages = used_pages = total_pages = 0;
+  for (i = 0; i < mem_map_len; i++) {
+    for (j = 0; j < 32; j++) {
+       if (test_bit(j, &mem_map[i]) == 0) 
+         free_pages++;
+       else
+         used_pages++;
+       total_pages++;
+    }
+  }
+  printk("Physical memory utilsation:\n");
+  printk("  free pages:%d, used pages:%d, total pages:%d\n", free_pages, used_pages, total_pages);
+  printk("  free:%dkB, used:%dkB, total:%dkB\n", free_pages*PAGE_SIZE/1024, used_pages*PAGE_SIZE/1024, total_pages*PAGE_SIZE/1024);
+}
+
+/* ----------  BUDDY ALLOCATOR : not used yet --------------------*/
+#if 0
+#define LIMIT_ORDER 9 /* buddy algo max order = 2^9 = 512*/
+
+#define supported_order(order) (order >= 0 && order <= LIMIT_ORDER)
+
+struct page_struct {
+   unsigned long page_nr;  /* page number*/   
+   int counter; /*0 if free, 1 if used,  >1 if shared page */
+   unsigned long flags;
+   
+   struct page_struct *next;
+};
+
+struct page_struct * block_array[LIMIT_ORDER+1] = {NULL,};
+
+void split_block(int order)
+{
+   struct page_struct *page;
+   
+   page = block_array[order/2];
+   block_array[order] = page->next;
+   block_array[order/2] = page;
+   block_array[order/2]->next = page;
+}
+
+/* permet d'allouer un block 2^order pages contigue,
+ * renvoie : l'adresse de la premiere page du block
+ *           0 si pas trouvé
+*/  
+unsigned long buddy_allocator(int order)
+{
+   int i;
+   struct page_struct *page;
+   
+   if (!supported_order(order))
+      return 0;
+
+   for (i=order; i <= LIMIT_ORDER; i++)
+      if (block_array[i]) 
+         break;
+         
+   if (!block_array[i])
+      return 0;
+      
+   while (i > order)
+      split_block(i--);
+
+   page = block_array[i];      
+   page->counter++;
+   block_array[i]= page->next;
+   page->next = NULL;       
+   return page->page_nr;
+}
+#endif //de if 0
+
+

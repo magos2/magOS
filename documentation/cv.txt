@@ -1,0 +1,9 @@
+####### CV ###########
+-- Veolia
+- Administration de Jboss/Websphere
+- Parametrage et Tuning des performances()
+- Gestion des incidents
+- Mise en production, scripts shell
+
+- Environnement : Jboss/Websphere/Tomcat, Oracle, Redhat
+

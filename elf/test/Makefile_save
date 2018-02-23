@@ -1,0 +1,39 @@
+EXE=a1
+SRC= $(wildcard *.c)
+OBJ= $(SRC:.c=.o)
+
+OUT_DIR=.
+OUT_OBJ=$(addprefix $(OUT_DIR)/, $(OBJ)) 
+
+all:$(OUT_DIR)/$(EXE)
+
+INCLUDE= -I./include
+AS=as
+LD=ld
+CC=gcc
+CCC=g++ 
+CCFLAGS=-Wall -g -O1 $(INCLUDE) $(GCC_INCLUDE)
+CCCFLAGS=-Wall -g -std=c++11 $(INCLUDE) $(GCC_INCLUDE)
+LDFLAGS=
+
+$(OUT_DIR)/%.o:%.c
+	$(CC) $(CCFLAGS) -fPIC -c $< -o $@
+	cp $@ /usr/local/test/
+
+$(OUT_DIR)/%.o:%.cpp
+	$(CCC) $(CCCFLAGS) -c $< -o $@
+
+$(OUT_DIR)/libtest.so:$(OUT_DIR)/a2.o
+	$(CC) $(CCFLAGS) -fPIC -shared $^ -o $@
+	cp $@ /usr/local/test/
+	
+$(OUT_DIR)/$(EXE):$(OUT_DIR)/a1.o $(OUT_DIR)/libtest.so
+	$(CC) $(CCFLAGS) -L/usr/local/test/ -ltest  $< -o $@ 
+	cp $@ /usr/local/test/
+	chmod +x /usr/local/test/$(EXE)
+	
+clean:
+	rm -f $(OUT_DIR)/$(EXE) $(OUT_DIR)/libtest.so $(OUT_OBJ)
+	
+	
+	

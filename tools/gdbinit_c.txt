@@ -1,0 +1,55 @@
+#
+# copy this file in /home/.gdbinit
+#
+set confirm off
+set verbose off
+set history save on
+# set arch i386
+set disassemble-next-line off
+set prompt \033[31mgdb$ \033[0m
+
+set output-radix 0d10
+set input-radix 0d10
+
+# These make gdb never pause in its output
+set height 0
+set width 0
+
+# Intel syntax
+# set disassembly-flavor att
+
+set $SHOW_CONTEXT = 1
+
+# nb of instructions to display
+set $CODE_SIZE = 10
+
+define current
+    if $argc == 0
+        p/x *runqueue.current
+    end
+    
+    if $argc >= 1
+        help current
+    end
+end
+document current
+Print current task
+Usage: current
+end
+
+define sig
+    if $argc == 0
+        info signals
+    end
+    if $argc == 1
+        info signals $arg0
+    end
+    if $argc > 1
+        help sig
+    end
+end
+document sig
+Print what debugger does when program gets various signals.
+Specify a SIGNAL as argument to print info on that signal only.
+Usage: sig <SIGNAL>
+end

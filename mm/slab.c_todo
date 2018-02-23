@@ -1,0 +1,49 @@
+/* Copyright 2016 @AR
+ *
+ * Slab Allocator.
+ * see https://www.usenix.org/legacy/publications/library/proceedings/bos94/full_papers/bonwick.a
+ */
+ 
+struct kmem_slab {
+  struct kmem_slab *prev, *next;
+  int ref_count;
+  char* freelist;
+}
+  
+  
+  
+ /* creates a cache of objects, each of xize <size>
+  */
+ struct kmem_cache* kmem_cache_create (char* name, size_t size, int align,
+                                       void (*contructor)(void *, size_t),
+                                       void (*desctructor)(void *, size_t))
+{
+}
+
+/* get object from the cache
+ */
+void * kmem_cache_alloc (struct kmem_cache* cp, int flags)
+{
+}
+
+/* return object to the cache
+ */
+void kmem_cache_free (struct kmem_cache* cp, void *buf)
+{
+}
+
+/* destroy the cache and reclaims all associated resources
+ */
+void kmem_cache_destroy (struct kmem_cache* cp)
+{
+}
+
+void kmem_cache_grow (struct kmem_cache* cp)
+{
+}
+
+void kmem_cache_reap (struct kmem_cache* cp)
+{
+}
+
+

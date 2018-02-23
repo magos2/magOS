@@ -1,0 +1,44 @@
+---
+  - group:
+      name: web
+      state: present
+
+  - user:
+      name: webadmin
+      group: web
+      state: present
+
+  - name: download and unzip tomcat binary  
+    unarchive: 
+      src: "{{MIRROR}}/apache-tomcat-{{TOMCAT_VERSION}}.tar.gz" 
+      dest: /opt
+      remote_src: no
+    
+  - name: server config
+    template:
+      src: server.xml
+      dest: "{{catalina_home}}/conf/"    
+
+  - name: change Owner
+    file : 
+      path: "{{catalina_home}}"
+      state: directory
+      owner: webadmin
+      group: web
+      recurse: yes
+
+  - name: setting Java Home
+    blockinfile:
+      dest: /home/webadmin/.profile
+      block: |
+        JAVA_HOME={{java_home}}
+        PATH=$JAVA_HOME/bin:$PATH
+ 
+  - file:
+      path: /opt/tomcat_installed.ok
+      state: touch  
+    notify: 
+      - restart tomcat
+...
+ 
+ 

@@ -1,0 +1,64 @@
+*** Notes
+- Grub2 support ELF32 and flat binaries. this must be specified in the header.
+- Grub lookup multiboot header in the first 8kB of kernel.elf.
+- Multiboot loaders load the kernel at physical address 0x100000.
+- Test if kernel is mutiboot compliant
+  grub-file --is-x86-multiboot2 kernel.elf
+  echo $?
+  0 if ok, 1 if not compliant.
+  
+*** How to boot kernel via Grub2
+- Install useful packages
+  apt-get install p7zip-full p7zip-rar tree
+- create this arborescence
+iso
+ `--boot
+     `--grub
+     |   `--grub.cfg
+      `--kernel.elf
+  
+-- create grub.cfg
+cat > iso/boot/grub/grub.cfg<<EOF
+set timeout=0
+set default=0
+
+menuentry "magOS" {
+    multiboot /boot/kernel.elf
+}
+EOF
+
+- Multiboot header
+  multiboot.S containing the header must be put on top of kernel.elf
+  
+- create cdrom
+ grub-mkrescue -o magos.iso iso
+
+- you can what are in
+ 7z x magos.iso
+- Add/update file to iso
+ # xorriso  -indev magos.iso -outdev magos.iso -update /magOS/bin/kernel/kernel.elf /boot
+
+- finaly run qemu
+ /opt/qemu/bin/qemu-system-i386 -cdrom magos.iso -curses -vga std
+
+-- Multiboot Header
+To indicate our Multiboot 2 support to the bootloader, the kernel must start with a Multiboot Header:
+,--------------------------------------------------------------------,
+|Field			Type	Value									  '
+|--------------------------------------------------------------------'
+|magic number	 u32	0xE85250D6								  '
+|architecture	 u32	0 for i386, 4 for MIPS					  '
+|header length	u32	total header size, including tags		   '
+|checksum	 	u32	-(magic + architecture + header_length)	 '
+|tags		 	variable										   '
+|end tag	     (u16, u16, u32)	(0, 0, 8)						'
+`--------------------------------------------------------------------'
+
+  
+** Docs **
+- http://os.phil-opp.com/multiboot-kernel.html
+- https://intermezzos.github.io/book/making-an-iso.html  
+- Multiboot Specs : 
+	https://www.gnu.org/software/grub/manual/multiboot/multiboot.html
+- Grub Man:
+	https://www.gnu.org/software/grub/manual/grub.html

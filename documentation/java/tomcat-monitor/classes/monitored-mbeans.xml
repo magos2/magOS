@@ -1,0 +1,29 @@
+
+<!-- Mbeans names for tomcat 7.0. for another version you must check them! 
+	List all Mbeans: http://localhost:8080/manager/jmxproxy/?qry=*:* Period in 
+	seconds. -->
+
+<tomcatMonitor period="30">
+	<monitoredMBean name="java.lang:type=Memory" logger="jvm-HeapMemoryUsage.log">
+		<attribute name="HeapMemoryUsage">
+			<key>init</key>
+			<key>max</key>
+			<key>used</key>
+		</attribute>
+	</monitoredMBean>
+
+	<monitoredMBean name="Catalina:type=Manager,host=localhost,context=/tomcat-monitor"
+		logger="sessions-myapp.log">
+		<attribute name="activeSessions"/>
+	</monitoredMBean>
+	
+	<monitoredMBean name="Catalina:type=DataSource,host=localhost,context=/manager,name='jdbc/mywiki'"
+		logger="mywiki-ds.log">
+		<attribute name="maxIdle"/>
+		<attribute name="minIdle"/>
+		<attribute name="numActive"/>
+		<attribute name="numIdle"/>
+		<attribute name="maxTotal"/>
+	</monitoredMBean>
+	
+</tomcatMonitor>
