@@ -66,7 +66,15 @@ Disable loading JVMs Graphic Library: Option  "-Djava.awt.headless=true"
 
 ## Thread Dump : High CPU
 
-1. Genrerer des threads dumps : kill -3 pid
+Tools: 
+	
+	jstack (jstack  -J-d64  -m 24326 >> appli1.tdump)
+	
+	JVisualVM
+
+1. Genrerer des threads dumps : kill -3 pid, ou
+
+1.1 jstack  -J-d64  -m 24326 >> appli1.tdump
 
 2. Lancer la commande **top**, puis entrer **H** pour show threads on.
 

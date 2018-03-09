@@ -5,7 +5,7 @@ Use PaowerShell
 
     Get-Content -Path .\catalina.2017-11-20.log -Wait -Tail 10
 	
-**Ctr+Alt+Sup on RDP**
+**Ctr+Alt+Sup on remotre RDP**
 
 	 Ctrl+Alt+End 
 	 

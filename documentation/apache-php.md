@@ -28,7 +28,22 @@ Listen safar192:443
 
 
 ### Rediriger HTTP vers HTTPS 
+#### HSTS
+```
+	LoadModule headers_module modules/mod_headers.so
 
+	<VirtualHost 10.0.0.45:443>
+		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+	</VirtualHost>
+
+	<VirtualHost *:80>
+		[...]
+		ServerName safarmeit.com
+		Redirect permanent / https://safarmeit.com/
+	</VirtualHost>
+```
+
+#### Using rewrite rule: less secure /!\ MIM vulnerability
 ```sh
 Activate le mod_rewrite
 On Debian

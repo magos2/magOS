@@ -17,7 +17,8 @@ This wizard can create AdminServer( port 7001), nodemanager, managed nodes
 Domain:  
 /opt/weblogic/user_projects/domains/base_domain
 
-
+### Config Vars
+-Dweblogic.RootDirectory=path : root directory, contains config/config.xml, servers etc	 
 
 ### Console
 Url  
