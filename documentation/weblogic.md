@@ -200,7 +200,7 @@ Connect To Admin Server:
   
 Runtime commands
   wls> domainRuntime()  
-  wls> cd('ServerRuntimes/AdminServer/JVMRuntime/AdminServer')
+  wls> cd('ServerRuntimes/myServer1/JVMRuntime/myServer1')
 
 Commands :
   wls> ls()

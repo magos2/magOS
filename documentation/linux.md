@@ -169,6 +169,9 @@ Online Resizing an FS
     # resize2fs  /dev/VolPrddb/db1
 
 
+#### RAID
+RAID 5 : https://www.dataretrieval.com/raid-data-recovery/raid-5-internals-data-storage-performance-and-recovery.html
+	
 ## Hardware Infos
 --------------------------------------------------
 ```

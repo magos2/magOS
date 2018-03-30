@@ -44,7 +44,7 @@ Arithmetic expressions
 
 Expr
 
-    PROC_NR=$(ps -ef|grep java| grep -v grep | grep  "$APPLI_NAME" |wc -l)
+    PROC_NR=$(ps -ef|grep java| grep -v  |wc -l)
 
 Substitution temporaire
 
@@ -71,3 +71,40 @@ Special chars
 
 	this will return "Yes, a>b." 
 	
+	
+OS select
+
+	case $os in
+         SunOS*) PS="/usr/ucb/ps auxww";;
+         Linux*) PS="ps -ef";;
+    esac
+	  
+Check file
+
+	[[ ! -f "$filename" ]] && { echo "ERROR :  file not exists!";
+                            echo ""  
+                            exit 1;
+                        }
+                        
+    [[ ! -r "$filename" ]] && { echo "ERROR :  access denied!";
+                            echo ""
+                            exit 1;
+                        }
+Options parse
+
+	while [ "$1" != "" ]; do
+		case $1 in
+			-r | --read ) shift
+						  filename=$1
+						  read $filename
+						  ;;
+			-h | --help )  usage
+						   exit
+						   ;;
+			-x | --debug ) set -x
+						   ;;
+			* )            usage
+						   exit 1
+		esac
+		shift
+	done

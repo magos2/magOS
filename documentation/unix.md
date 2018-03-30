@@ -14,6 +14,9 @@ stat(Equivalent Linux)
 
     truss -f -v 'lstat,lstat64' ls -d fic.txt | grep "mt ="
 	
+vi: Terminal too wide
+
+	# stty columns 160
 	
 * Available, used and free memory in Solaris
 ```sh
